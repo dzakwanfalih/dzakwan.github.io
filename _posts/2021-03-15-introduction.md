@@ -21,7 +21,7 @@ Manfaat menulis untuk kesehatan mental sudah tidak asing lagi. Para ahli sering 
 
 ## Bikin blognya pake apa? kok keren? 
 
-blog ini dibuat dengan menggunakan jeklly. kalo sobat merasa asing dengan mahluk ini, bisa baca disini[Disini](https://jekyllrb.com/).
+blog ini dibuat dengan menggunakan jeklly. kalo sobat merasa asing dengan mahluk ini, bisa baca [disini](https://jekyllrb.com/).
 
 sekilas info, jadi jekkly itu ditulis dengan bahasa program namanya rubby, apa itu? kalian bisa baca [disini](https://id.wikipedia.org/wiki/Ruby_(bahasa_pemrograman))
 

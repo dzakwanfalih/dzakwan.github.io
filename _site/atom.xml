@@ -4,7 +4,7 @@
  <title>Belajar</title>
  <link href="/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-15T16:08:04+07:00</updated>
+ <updated>2021-03-15T16:40:25+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dzakwan Falih</name>
@@ -67,7 +67,7 @@
 
 &lt;h2 id=&quot;bikin-blognya-pake-apa-kok-keren&quot;&gt;Bikin blognya pake apa? kok keren?&lt;/h2&gt;
 
-&lt;p&gt;blog ini dibuat dengan menggunakan jeklly. kalo sobat merasa asing dengan mahluk ini, bisa baca disini&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Disini&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;blog ini dibuat dengan menggunakan jeklly. kalo sobat merasa asing dengan mahluk ini, bisa baca &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;disini&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;sekilas info, jadi jekkly itu ditulis dengan bahasa program namanya rubby, apa itu? kalian bisa baca &lt;a href=&quot;https://id.wikipedia.org/wiki/Ruby_(bahasa_pemrograman)&quot;&gt;disini&lt;/a&gt;&lt;/p&gt;
 
