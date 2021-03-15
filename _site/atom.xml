@@ -4,7 +4,7 @@
  <title>Belajar</title>
  <link href="/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-15T15:53:33+07:00</updated>
+ <updated>2021-03-15T16:01:19+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dzakwan Falih</name>
@@ -23,44 +23,18 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;kenapa-ngeblog&quot;&gt;Kenapa ngeblog?&lt;/h2&gt;
-&lt;p&gt;Manfaat menulis untuk kesehatan mental sudah tidak asing lagi. Para ahli sering memanfaatkan berbagai bentuk menulis, misalnya dalam jurnal, esai, dan kuesioner, untuk membantu menyembuhkan luka batin akibat stres dan trauma. Namun, manfaat menulis untuk kesehatan tidak hanya sampai di situ. jadi blog merupakan semangat dan spirit gue di 2021 untuk mendokumentasi hal-hal yang bersifat teknikal kebahasa yang mudah dipahami.&lt;/p&gt;
+&lt;h2 id=&quot;isi-tulisan&quot;&gt;isi tulisan&lt;/h2&gt;
+&lt;p&gt;Tulisan ini, adalah catatan gue tentang markdown.kadang gue butuh markdown buat membuat tulisan bagus kaya gini di internet.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;bikin-blognya-pake-apa-kok-keren&quot;&gt;Bikin blognya pake apa? kok keren?&lt;/h2&gt;
+&lt;h2 id=&quot;daftar-isi&quot;&gt;Daftar isi&lt;/h2&gt;
 
-&lt;p&gt;blog ini dibuat dengan menggunakan jeklly. kalo sobat merasa asing dengan mahluk ini, bisa baca disini&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Disini&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Nih gue bikinin daftar isi biar lu ngk bigung bacanya.&lt;/p&gt;
 
-&lt;p&gt;sekilas info, jadi jekkly itu ditulis dengan bahasa program namanya rubby, apa itu? kalian bisa baca &lt;a href=&quot;https://id.wikipedia.org/wiki/Ruby_(bahasa_pemrograman)&quot;&gt;disini&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;kenapa-tidak-menggunakan-cms&quot;&gt;Kenapa tidak menggunakan CMS?&lt;/h2&gt;
-
-&lt;p&gt;sebenarnya ini cms, tapi gue jatuh aja sama jekkly, semakin bisa dioprek semakin asik kan yah. wkwkwwkwk. tapi gue punya beberapa alsan. nih alasanya:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Wordpress itu pake bahasa php, sama loadingnya lama banget&lt;/li&gt;
-  &lt;li&gt;Ngk ada database, jadi bahasanya pake markdown, itu jadi ringan banget sumpah asli.&lt;/li&gt;
-  &lt;li&gt;makin simple menurut gue tampilan visualnya makin enak aja dibaca.&lt;/li&gt;
-  &lt;li&gt;Ngk mau ikut-ikutan industri berita.&lt;/li&gt;
-  &lt;li&gt;yang patinya lebih secure gaes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Udah ah cukup nulis alasanya.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;browser-support&quot;&gt;Browser support&lt;/h2&gt;
-
-&lt;p&gt;Tenang, blog ini support dengan platform apapun, jadi kalian bisa baca tulisan gue.&lt;/p&gt;
-
-&lt;h2 id=&quot;ucapan-terimakasih&quot;&gt;Ucapan terimakasih&lt;/h2&gt;
-
-&lt;p&gt;Terimakasih sudah main ke blog gue. tunggu postingan aneh-aneh gue yah disini.&lt;/p&gt;
-
-&lt;p&gt;Thanks!&lt;/p&gt;
+&lt;h5 id=&quot;daftar-isi-1&quot;&gt;Daftar isi&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;#headers&quot;&gt;Daftar isi&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;#isi-tulisan&quot;&gt;Isi tulisan&lt;/a&gt;&lt;/p&gt;
 
 </content>
  </entry>
