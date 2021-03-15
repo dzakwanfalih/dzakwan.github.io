@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-[image](/home/supernode/Tulisan/dzakwanfalih.github.io/assets/gue.jpeg)
+![placeholder](/assets/gue.jpeg)
 
 <p class="message">
   I have not failed. I've just found 10,000 ways that won't work.
