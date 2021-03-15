@@ -11,7 +11,7 @@ tags: [GO, Software] # add tag
 ------
 
 
-*Go*  atau juga sering disebut golang, ini merupakan bahasa yang dibuat oleh Google. yah bisa dibilang mirip dengan bahasa C lebih banyak tentang go atau artike resminya ada bisa baca [disini](https://id.wikipedia.org/wiki/Go_(bahasa_pemrograman))
+*Go*  atau juga sering disebut golang, ini merupakan bahasa yang dibuat oleh Google. yah bisa dibilang mirip dengan bahasa C lebih banyak tentang go atau artike resminya ada bisa baca [disini](https://id.wikipedia.org/wiki/Go_(bahasa_pemrograman) )
 
 
 
