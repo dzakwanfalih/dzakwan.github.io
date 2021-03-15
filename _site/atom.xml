@@ -4,7 +4,7 @@
  <title>Belajar</title>
  <link href="/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-15T15:24:38+07:00</updated>
+ <updated>2021-03-15T15:36:08+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dzakwan Falih</name>
@@ -20,32 +20,46 @@
    <content type="html">&lt;p&gt;&lt;em&gt;Sebagai manusia gue suka hal hal yang simple.&lt;/em&gt; hi perkenalkan ini adalah blog pertama gue.jadi gue aktif ngeblog. blog ini sekaligus buat gue mencatat ke goblokan gue sekaligus menumpahkan isi kepala gue yang insecure.&lt;/p&gt;
 
 &lt;hr /&gt;
+
 &lt;h2 id=&quot;kenapa-ngeblog&quot;&gt;Kenapa ngeblog?&lt;/h2&gt;
-&lt;p&gt;Ingin mengisi waktu luang gue untuk menulis hal-hal yang bermanfaat. jadi blog merupakan semangat dan spirit gue di 2021 untuk mendokumentasi hal-hal yang bersifat teknikal kebahasa yang mudah dipahami.&lt;/p&gt;
+&lt;p&gt;Manfaat menulis untuk kesehatan mental sudah tidak asing lagi. Para ahli sering memanfaatkan berbagai bentuk menulis, misalnya dalam jurnal, esai, dan kuesioner, untuk membantu menyembuhkan luka batin akibat stres dan trauma. Namun, manfaat menulis untuk kesehatan tidak hanya sampai di situ. jadi blog merupakan semangat dan spirit gue di 2021 untuk mendokumentasi hal-hal yang bersifat teknikal kebahasa yang mudah dipahami.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&quot;bikin-blognya-pake-apa-kok-keren&quot;&gt;Bikin blognya pake apa? kok keren?&lt;/h2&gt;
 
-&lt;p&gt;Untuk membuat blog seperti ini, sangat mudah. modalnya adalah belajar. jadi anda belajar apa itu jeklly. alasan gue ngk pake wordpress ataupun sejenisnya adalah:&lt;/p&gt;
+&lt;p&gt;blog ini dibuat dengan menggunakan jeklly. kalo sobat merasa asing dengan mahluk ini, bisa baca disini&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Disini&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;sekilas info, jadi jekkly itu ditulis dengan bahasa program namanya rubby, apa itu? kalian bisa baca &lt;a href=&quot;https://id.wikipedia.org/wiki/Ruby_(bahasa_pemrograman)&quot;&gt;disini&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;kenapa-tidak-menggunakan-cms&quot;&gt;Kenapa tidak menggunakan CMS?&lt;/h2&gt;
+
+&lt;p&gt;sebenarnya ini cms, tapi gue jatuh aja sama jekkly, semakin bisa dioprek semakin asik kan yah. wkwkwwkwk. tapi gue punya beberapa alsan. nih alasanya:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Ribet.&lt;/li&gt;
-  &lt;li&gt;Aneh&lt;/li&gt;
-  &lt;li&gt;Kurang simple&lt;/li&gt;
-  &lt;li&gt;Kurang gila&lt;/li&gt;
-  &lt;li&gt;Tampilanya burak aja kalo gue lihat.&lt;/li&gt;
+  &lt;li&gt;Wordpress itu pake bahasa php, sama loadingnya lama banget&lt;/li&gt;
+  &lt;li&gt;Ngk ada database, jadi bahasanya pake markdown, itu jadi ringan banget sumpah asli.&lt;/li&gt;
+  &lt;li&gt;makin simple menurut gue tampilan visualnya makin enak aja dibaca.&lt;/li&gt;
+  &lt;li&gt;Ngk mau ikut-ikutan industri berita.&lt;/li&gt;
+  &lt;li&gt;yang patinya lebih secure gaes.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;dan masih banyak lagi.&lt;/p&gt;
+&lt;p&gt;Udah ah cukup nulis alasanya.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&quot;browser-support&quot;&gt;Browser support&lt;/h2&gt;
 
-&lt;p&gt;Tenang, blog ini sangat responsive. jadi kalian bisa bebas akses kapan pun dengan menggunakan mobile platform apapun.&lt;/p&gt;
+&lt;p&gt;Tenang, blog ini support dengan platform apapun, jadi kalian bisa baca tulisan gue.&lt;/p&gt;
 
 &lt;h2 id=&quot;ucapan-terimakasih&quot;&gt;Ucapan terimakasih&lt;/h2&gt;
 
-&lt;p&gt;Terimakasih sudah main ke blog gue. tunggu postingan aneh-aneh gue yah disini. heehehehe&lt;/p&gt;
+&lt;p&gt;Terimakasih sudah main ke blog gue. tunggu postingan aneh-aneh gue yah disini.&lt;/p&gt;
 
 &lt;p&gt;Thanks!&lt;/p&gt;
+
 </content>
  </entry>
  
