@@ -4,7 +4,7 @@
  <title>Belajar</title>
  <link href="/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-15T16:01:19+07:00</updated>
+ <updated>2021-03-15T16:06:11+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dzakwan Falih</name>
@@ -23,7 +23,10 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;isi-tulisan&quot;&gt;isi tulisan&lt;/h2&gt;
+&lt;h2 id=&quot;tentang-markdwon&quot;&gt;Tentang markdwon&lt;/h2&gt;
+
+&lt;p&gt;kalo yang ngk ngerti tentang markdown,  simplenya tools yang digunakan untuk mengubah text ke HTML. dengan menggunakan markdown kita bisa menulis html juga. HTML apa lagi tuh? html itu script yang digunakan orang-orang yang membuat website untuk menampilkan tampilan websitenya. udah bisa dimengerti belum yah? wkwkwk. kalo ngk paham googling dong. wkwkwk&lt;/p&gt;
+
 &lt;p&gt;Tulisan ini, adalah catatan gue tentang markdown.kadang gue butuh markdown buat membuat tulisan bagus kaya gini di internet.&lt;/p&gt;
 
 &lt;hr /&gt;
