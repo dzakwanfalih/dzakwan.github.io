@@ -2,7 +2,7 @@
 layout: post
 title: apa itu offensive security?
 date: 2021-03-15 20:52:00 +0700
-description: Belajar bahasa go . # Add post description (optional)
+description: apa itu offensive . # Add post description (optional)
 img: offensive.jpg # Add image post (optional)
 tags: [Offensive, Cyber Security] # add tag
 ---
