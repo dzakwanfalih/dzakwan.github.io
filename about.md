@@ -51,3 +51,8 @@ Solution architecture is a practice of designing, describing, and managing the s
 The Internet of Everything (IoE) with four pillars: people, process, data, and things builds on top of The Internet of Things (IoT) with one pillar: things. In addition, IoE further advances the power of the Internet to improve business and industry outcomes, and ultimately make people’s lives better by adding to the progress of IoT.
 
 The Internet of Everything will create tens of millions of new objects and sensors, all generating real-time data. “Data is money,” said Nick Jones, research vice president and distinguished analyst at Gartner. “Businesses will need big data and storage technologies to collect, analyze and store the sheer volume of information. Furthermore, to turn data into money business and IT leaders will need decisions. As they won’t have the time or the capacity to make all the decisions themselves they will need processing power.”
+
+----- 
+
+### Mobile programming 
+The research goal of this work is to improve the understanding of the current trends in mobile applicationsoftware engineering research and exploring the gap between published research and some open issues in mobileapplication software engineering
