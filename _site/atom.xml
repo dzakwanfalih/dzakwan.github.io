@@ -4,7 +4,7 @@
  <title>Belajar</title>
  <link href="/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-15T15:40:47+07:00</updated>
+ <updated>2021-03-15T15:53:33+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dzakwan Falih</name>
@@ -70,7 +70,17 @@
    <link href="http://localhost:4000/2021/03/15/introduction/"/>
    <updated>2021-03-15T00:00:00+07:00</updated>
    <id>http://localhost:4000/2021/03/15/introduction</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;Sebagai manusia gue suka hal hal yang simple.&lt;/em&gt; hi perkenalkan ini adalah blog pertama gue.jadi gue aktif ngeblog. blog ini sekaligus buat gue mencatat ke goblokan gue sekaligus menumpahkan isi kepala gue yang insecure.&lt;/p&gt;
+   <content type="html">&lt;h1 id=&quot;daftar-isi&quot;&gt;Daftar isi&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#kenapa-ngeblog-&quot;&gt;Kenapa ngeblog?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bikin-blognya-pake-apa--kok-keren-&quot;&gt;Bikin blognya pake apa? kok keren?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#kenapa-tidak-menggunakan-cms-&quot;&gt;Kenapa tidak menggunakan CMS?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#browser-support&quot;&gt;Browser support&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ucapan-terimakasih&quot;&gt;Ucapan terimakasih&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Sebagai manusia gue suka hal hal yang simple.&lt;/em&gt; hi perkenalkan ini adalah blog pertama gue.jadi gue aktif ngeblog. blog ini sekaligus buat gue mencatat ke goblokan gue sekaligus menumpahkan isi kepala gue yang insecure.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -89,7 +99,7 @@
 
 &lt;h2 id=&quot;kenapa-tidak-menggunakan-cms&quot;&gt;Kenapa tidak menggunakan CMS?&lt;/h2&gt;
 
-&lt;p&gt;sebenarnya ini cms, tapi gue jatuh aja sama jekkly, semakin bisa dioprek semakin asik kan yah. wkwkwwkwk. tapi gue punya beberapa alsan. nih alasanya:&lt;/p&gt;
+&lt;p&gt;sebenarnya ini cms, tapi gue jatuh cinta aja sama jekkly, semakin bisa dioprek semakin asik kan yah. wkwkwwkwk. tapi gue punya beberapa alsan. nih alasanya:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Wordpress itu pake bahasa php, sama loadingnya lama banget&lt;/li&gt;

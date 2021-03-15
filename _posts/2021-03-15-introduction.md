@@ -2,6 +2,13 @@
 layout: post
 title: Bab I pendahuluan
 ---
+# Daftar isi 
+
+- [Kenapa ngeblog?](#kenapa-ngeblog-)
+- [Bikin blognya pake apa? kok keren?](#bikin-blognya-pake-apa--kok-keren-)
+- [Kenapa tidak menggunakan CMS?](#kenapa-tidak-menggunakan-cms-)
+- [Browser support](#browser-support)
+- [Ucapan terimakasih](#ucapan-terimakasih)
 
 *Sebagai manusia gue suka hal hal yang simple.* hi perkenalkan ini adalah blog pertama gue.jadi gue aktif ngeblog. blog ini sekaligus buat gue mencatat ke goblokan gue sekaligus menumpahkan isi kepala gue yang insecure. 
 
@@ -22,7 +29,7 @@ sekilas info, jadi jekkly itu ditulis dengan bahasa program namanya rubby, apa i
 
 ## Kenapa tidak menggunakan CMS? 
 
-sebenarnya ini cms, tapi gue jatuh aja sama jekkly, semakin bisa dioprek semakin asik kan yah. wkwkwwkwk. tapi gue punya beberapa alsan. nih alasanya: 
+sebenarnya ini cms, tapi gue jatuh cinta aja sama jekkly, semakin bisa dioprek semakin asik kan yah. wkwkwwkwk. tapi gue punya beberapa alsan. nih alasanya: 
 
 * Wordpress itu pake bahasa php, sama loadingnya lama banget
 * Ngk ada database, jadi bahasanya pake markdown, itu jadi ringan banget sumpah asli. 
