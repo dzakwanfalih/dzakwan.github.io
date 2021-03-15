@@ -1,42 +1,33 @@
 ---
 layout: post
-title: Introduction
+title: Bab I pendahuluan
 ---
 
-*The Strange Case of Dr. Jekyll and Mr. Hyde* tells the story of a lawyer investigating the connection of two persons, Dr. Henry Jekyll and Mr. Edward Hyde. Chief among the novel's supporting cast is a man by the name of Mr. Poole, Dr. Jekyll's loyal butler.
+*Sebagai manusia gue suka hal hal yang simple.* hi perkenalkan ini adalah blog pertama gue.jadi gue aktif ngeblog. blog ini sekaligus buat gue mencatat ke goblokan gue sekaligus menumpahkan isi kepala gue yang insecure. 
 
 -----
+## Kenapa ngeblog?
+Ingin mengisi waktu luang gue untuk menulis hal-hal yang bermanfaat. jadi blog merupakan semangat dan spirit gue di 2021 untuk mendokumentasi hal-hal yang bersifat teknikal kebahasa yang mudah dipahami. 
 
-Poole is the butler for [Jekyll](http://jekyllrb.com), the static site generator. It's designed and developed by [@mdo](https://twitter.com/mdo) to provide a clear and concise foundational setup for any Jekyll site. It does so by furnishing a full vanilla Jekyll install with example layouts, pages, posts, and styles.
+## Bikin blognya pake apa? kok keren? 
 
-This demo site was last updated {{ site.time | date: "%B %d, %Y" }}.
+Untuk membuat blog seperti ini, sangat mudah. modalnya adalah belajar. jadi anda belajar apa itu jeklly. alasan gue ngk pake wordpress ataupun sejenisnya adalah: 
 
-There are currently two themes built on Poole:
+* Ribet.
+* Aneh
+* Kurang simple
+* Kurang gila 
+* Tampilanya burak aja kalo gue lihat. 
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
 
-Learn more and contribute on [GitHub]({{ site.github.repo }}).
-
-## What's included
-
-Poole is a streamlined Jekyll site designed and built as a foundation for building more meaningful themes. Poole, and every theme built on it like this one, includes the following:
-
-* Complete Jekyll setup included (layouts, config, [404]({{ '404.html' | relative_url }}), [RSS feed]({{ 'atom.xml' | relative_url }}), posts, [archive page]({{ 'archive' | relative_url }}), and [example page]({{ 'about' | relative_url }}))
-* Mobile friendly design and development
-* Easily scalable text and component sizing with `rem` units in the CSS
-* Support for a wide gamut of HTML elements
-* Related posts (time-based, because Jekyll) below each post
-* Syntax highlighting, courtesy Jekyll's built-in support for Rouge
-
-Additional features are available in individual themes.
+dan masih banyak lagi. 
 
 ## Browser support
 
-Poole and its themes are by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), Firefox, and Edge.
+Tenang, blog ini sangat responsive. jadi kalian bisa bebas akses kapan pun dengan menggunakan mobile platform apapun. 
 
-## Download
+## Ucapan terimakasih
 
-These themes are developed on and hosted with GitHub. Head to the [GitHub repository]({{ site.github.repo }}) for downloads, bug reports, and features requests.
+Terimakasih sudah main ke blog gue. tunggu postingan aneh-aneh gue yah disini. heehehehe
 
 Thanks!

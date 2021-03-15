@@ -4,7 +4,7 @@
  <title>Belajar</title>
  <link href="/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-15T14:24:14+07:00</updated>
+ <updated>2021-03-15T14:44:47+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dzakwan Falih</name>
@@ -13,49 +13,37 @@
 
  
  <entry>
-   <title>Introduction</title>
+   <title>Bab I pendahuluan</title>
    <link href="http://localhost:4000/2020/04/04/introduction/"/>
    <updated>2020-04-04T00:00:00+07:00</updated>
    <id>http://localhost:4000/2020/04/04/introduction</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;The Strange Case of Dr. Jekyll and Mr. Hyde&lt;/em&gt; tells the story of a lawyer investigating the connection of two persons, Dr. Henry Jekyll and Mr. Edward Hyde. Chief among the novel’s supporting cast is a man by the name of Mr. Poole, Dr. Jekyll’s loyal butler.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;em&gt;Sebagai manusia gue suka hal hal yang simple.&lt;/em&gt; hi perkenalkan ini adalah blog pertama gue.jadi gue aktif ngeblog. blog ini sekaligus buat gue mencatat ke goblokan gue sekaligus menumpahkan isi kepala gue yang insecure.&lt;/p&gt;
 
 &lt;hr /&gt;
+&lt;h2 id=&quot;kenapa-ngeblog&quot;&gt;Kenapa ngeblog?&lt;/h2&gt;
+&lt;p&gt;Ingin mengisi waktu luang gue untuk menulis hal-hal yang bermanfaat. jadi blog merupakan semangat dan spirit gue di 2021 untuk mendokumentasi hal-hal yang bersifat teknikal kebahasa yang mudah dipahami.&lt;/p&gt;
 
-&lt;p&gt;Poole is the butler for &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;, the static site generator. It’s designed and developed by &lt;a href=&quot;https://twitter.com/mdo&quot;&gt;@mdo&lt;/a&gt; to provide a clear and concise foundational setup for any Jekyll site. It does so by furnishing a full vanilla Jekyll install with example layouts, pages, posts, and styles.&lt;/p&gt;
+&lt;h2 id=&quot;bikin-blognya-pake-apa-kok-keren&quot;&gt;Bikin blognya pake apa? kok keren?&lt;/h2&gt;
 
-&lt;p&gt;This demo site was last updated March 15, 2021.&lt;/p&gt;
-
-&lt;p&gt;There are currently two themes built on Poole:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://hyde.getpoole.com&quot;&gt;Hyde&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://lanyon.getpoole.com&quot;&gt;Lanyon&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Learn more and contribute on &lt;a href=&quot;&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-included&quot;&gt;What’s included&lt;/h2&gt;
-
-&lt;p&gt;Poole is a streamlined Jekyll site designed and built as a foundation for building more meaningful themes. Poole, and every theme built on it like this one, includes the following:&lt;/p&gt;
+&lt;p&gt;Untuk membuat blog seperti ini, sangat mudah. modalnya adalah belajar. jadi anda belajar apa itu jeklly. alasan gue ngk pake wordpress ataupun sejenisnya adalah:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Complete Jekyll setup included (layouts, config, &lt;a href=&quot;/404.html&quot;&gt;404&lt;/a&gt;, &lt;a href=&quot;/atom.xml&quot;&gt;RSS feed&lt;/a&gt;, posts, &lt;a href=&quot;/archive&quot;&gt;archive page&lt;/a&gt;, and &lt;a href=&quot;/about&quot;&gt;example page&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Mobile friendly design and development&lt;/li&gt;
-  &lt;li&gt;Easily scalable text and component sizing with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rem&lt;/code&gt; units in the CSS&lt;/li&gt;
-  &lt;li&gt;Support for a wide gamut of HTML elements&lt;/li&gt;
-  &lt;li&gt;Related posts (time-based, because Jekyll) below each post&lt;/li&gt;
-  &lt;li&gt;Syntax highlighting, courtesy Jekyll’s built-in support for Rouge&lt;/li&gt;
+  &lt;li&gt;Ribet.&lt;/li&gt;
+  &lt;li&gt;Aneh&lt;/li&gt;
+  &lt;li&gt;Kurang simple&lt;/li&gt;
+  &lt;li&gt;Kurang gila&lt;/li&gt;
+  &lt;li&gt;Tampilanya burak aja kalo gue lihat.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Additional features are available in individual themes.&lt;/p&gt;
+&lt;p&gt;dan masih banyak lagi.&lt;/p&gt;
 
 &lt;h2 id=&quot;browser-support&quot;&gt;Browser support&lt;/h2&gt;
 
-&lt;p&gt;Poole and its themes are by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), Firefox, and Edge.&lt;/p&gt;
+&lt;p&gt;Tenang, blog ini sangat responsive. jadi kalian bisa bebas akses kapan pun dengan menggunakan mobile platform apapun.&lt;/p&gt;
 
-&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+&lt;h2 id=&quot;ucapan-terimakasih&quot;&gt;Ucapan terimakasih&lt;/h2&gt;
 
-&lt;p&gt;These themes are developed on and hosted with GitHub. Head to the &lt;a href=&quot;&quot;&gt;GitHub repository&lt;/a&gt; for downloads, bug reports, and features requests.&lt;/p&gt;
+&lt;p&gt;Terimakasih sudah main ke blog gue. tunggu postingan aneh-aneh gue yah disini. heehehehe&lt;/p&gt;
 
 &lt;p&gt;Thanks!&lt;/p&gt;
 </content>
