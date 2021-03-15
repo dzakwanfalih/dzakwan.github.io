@@ -5,7 +5,7 @@ title: Archive
 
 # Archive
 
-Browse all posts by month and year.
+Lihat seluruh tulisan gue disini berdasarkan bulan dan tahun.
 
 {% assign postsByYearMonth = site.posts | group_by_exp: "post", "post.date | date: '%B %Y'" %}
 {% for yearMonth in postsByYearMonth %}
