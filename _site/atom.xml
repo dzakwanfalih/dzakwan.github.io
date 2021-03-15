@@ -4,7 +4,7 @@
  <title>Belajar</title>
  <link href="/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-03-15T14:44:47+07:00</updated>
+ <updated>2021-03-15T14:47:04+07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Dzakwan Falih</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Bab I pendahuluan</title>
-   <link href="http://localhost:4000/2020/04/04/introduction/"/>
-   <updated>2020-04-04T00:00:00+07:00</updated>
-   <id>http://localhost:4000/2020/04/04/introduction</id>
+   <link href="http://localhost:4000/2021/03/15/introduction/"/>
+   <updated>2021-03-15T00:00:00+07:00</updated>
+   <id>http://localhost:4000/2021/03/15/introduction</id>
    <content type="html">&lt;p&gt;&lt;em&gt;Sebagai manusia gue suka hal hal yang simple.&lt;/em&gt; hi perkenalkan ini adalah blog pertama gue.jadi gue aktif ngeblog. blog ini sekaligus buat gue mencatat ke goblokan gue sekaligus menumpahkan isi kepala gue yang insecure.&lt;/p&gt;
 
 &lt;hr /&gt;
