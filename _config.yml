@@ -26,6 +26,12 @@ sass:
   sass_dir: _sass
   style: :compressed
 
+# page list
+pages_list:       
+  About: '/about'
+  Archive: '/archive'
+  
+
 # Options
 
 # Replace this value and uncomment to enable Google Analytics tracking
@@ -33,9 +39,8 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Mark Otto
-  url: https://twitter.com/mdo
-  email: markdotto@gmail.com
+  name: Dzakwan Falih
+  url : https://twitter.com/dzakwanfalihh
 
 # Custom vars
 version: 3.0.0
