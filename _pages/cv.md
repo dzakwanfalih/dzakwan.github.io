@@ -25,6 +25,8 @@ Under the direction of Gandeva bayu
 **Telecommunication Network**, (2017 - 2019)
 Under the direction of Asep Mulyana
 
+***
+
 # Publications
 
 See [publications](/publications/) page.
@@ -72,11 +74,18 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 
 # Leadership and service
 ## Academic and Professional
+
 **ISACA**, *membership* (2018)
+
 **IEEE**, *membership* (2018-2019)
+
 **Pemira Telkom**, *e-vote team* (2015-2018)
 
 ## UKM and Tel-U
 **HMI**, *Deputy chairman of the constitution* (2016-2017)
+
 **Search**, *member of the marketing division* (2018)
+
 **Central Computer Improvement**, *person in charge of information security systems*(2016 - 2018)
+
+***
