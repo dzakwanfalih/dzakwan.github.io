@@ -1,0 +1,1559 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Mapping my cross-country road trip with Python - Dzakwan Falih</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Dzakwan Falih">
+<meta property="og:title" content="Mapping my cross-country road trip with Python">
+
+
+  <link rel="canonical" href="http://localhost:4000/posts/2020/02/road-trip-map">
+  <meta property="og:url" content="http://localhost:4000/posts/2020/02/road-trip-map">
+
+
+
+  <meta property="og:description" content="When I was on my cross-country road trip last year, I kept track of a lot of things in the hopes of doing amazing analyses when I got back. Turns out having a job as a data scientist makes it a lot harder to find time to do data science on the side, and so I’ve only really gotten a chance to look into my expenses. One of the things I had really wanted to do was make a map of all the places I went, but I didn’t actually know how to work with geospatial data in Python yet. I had this grand idea that I’d learn spatial data techniques while on my trip, but turns out hiking, drinking beer while watching the sunset, and going to bed early were way more compelling ways to spend my time. Luckily for me, one of the most fun parts of my new job has been learning geospatial coding and plotting techniques. I’ve been having fun with it in my job, and I realized that it also means I get to finally make my map!">
+
+
+
+  <meta name="twitter:site" content="@dzakwanfalihh">
+  <meta name="twitter:title" content="Mapping my cross-country road trip with Python">
+  <meta name="twitter:description" content="When I was on my cross-country road trip last year, I kept track of a lot of things in the hopes of doing amazing analyses when I got back. Turns out having a job as a data scientist makes it a lot harder to find time to do data science on the side, and so I’ve only really gotten a chance to look into my expenses. One of the things I had really wanted to do was make a map of all the places I went, but I didn’t actually know how to work with geospatial data in Python yet. I had this grand idea that I’d learn spatial data techniques while on my trip, but turns out hiking, drinking beer while watching the sunset, and going to bed early were way more compelling ways to spend my time. Luckily for me, one of the most fun parts of my new job has been learning geospatial coding and plotting techniques. I’ve been having fun with it in my job, and I realized that it also means I get to finally make my map!">
+  <meta name="twitter:url" content="http://localhost:4000/posts/2020/02/road-trip-map">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-02-09T00:00:00-08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Dzakwan Falih",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Dzakwan Falih Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Dzakwan Falih</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/travel/">Road trip</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/gue.jpeg" class="author__avatar" alt="Dzakwan Falih">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name"><a href="/">Dzakwan Falih</a></h3>
+    <p class="author__bio">reformed cyber criminal @ cyber space</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Cyber Space, Internet</li>
+      
+      
+      
+      
+        <li><a href="https://keybase.io/dzakwanfalih"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
+      
+      
+        <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+      
+      
+        <li><a href="https://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+        <li><a href="https://instagram.com/dzakwanfalih_2.0"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://scholar.google.com/citations?hl=en&user=ZFuwjiIAAAAJ"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+      
+      
+      
+      
+      
+        <li><a href="mailto:dzakwanfaliht@hotmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Mapping my cross-country road trip with Python">
+    <meta itemprop="description" content="When I was on my cross-country road trip last year, I kept track of a lot of things in the hopes of doing amazing analyses when I got back. Turns out having a job as a data scientist makes it a lot harder to find time to do data science on the side, and so I’ve only really gotten a chance to look into my expenses. One of the things I had really wanted to do was make a map of all the places I went, but I didn’t actually know how to work with geospatial data in Python yet. I had this grand idea that I’d learn spatial data techniques while on my trip, but turns out hiking, drinking beer while watching the sunset, and going to bed early were way more compelling ways to spend my time. Luckily for me, one of the most fun parts of my new job has been learning geospatial coding and plotting techniques. I’ve been having fun with it in my job, and I realized that it also means I get to finally make my map!">
+    <meta itemprop="datePublished" content="February 09, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Mapping my cross-country road trip with Python
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  26 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-02-09T00:00:00-08:00">February 09, 2020</time></p>
+        
+        
+             
+        
+    
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>When I was on my <a href="https://cduvallet.github.io/travel/">cross-country road trip</a> last year, I kept track of a lot of things in the hopes of doing amazing analyses when I got back. Turns out having a job as a data scientist makes it a lot harder to find time to do data science on the side, and so I’ve only really gotten a chance to look into my <a href="2019/07/road-trip-expenses-pt1">expenses</a>. One of the things I had really wanted to do was make a map of all the places I went, but I didn’t actually know how to work with geospatial data in Python yet. I had this grand idea that I’d learn spatial data techniques while on my trip, but turns out hiking, drinking beer while watching the sunset, and going to bed early were way more compelling ways to spend my time. Luckily for me, one of the most fun parts of my new job has been learning geospatial coding and plotting techniques. I’ve been having fun with it in my job, and I realized that it also means I get to finally make my map!</p>
+
+<p>In this post, I’ll go over geocoding (which I’ve never done before!), plotting points and lines on a map, and adding a background map. I will note that I’m still very early in my geospatial analysis days and most of these coding tricks are things I’ve picked up in the last couple of months, so I’m sure future-me will revisit this post in a few years and cringe at some of the coding choices I’ve made. But who cares, I wanna make the map! Let’s do it!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="n">gpd</span>
+
+<span class="kn">import</span> <span class="nn">contextily</span> <span class="k">as</span> <span class="n">ctx</span>
+<span class="kn">import</span> <span class="nn">shapely</span>
+
+<span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
+<span class="kn">from</span> <span class="nn">geopy.extra.rate_limiter</span> <span class="kn">import</span> <span class="n">RateLimiter</span>
+
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># to limit geocoding rate in for loops
+</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">to_hex</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</code></pre></div></div>
+
+<p>For this map, we’ll use the dataset where I tracked my mileage. Because I am a human and not a robot, I wasn’t super consistent about it and didn’t always manage to get the mileage at each place I stayed at, for example. I also sometimes wrote down mileage multiple times a day, especially on days when I drove a long time. But I made up for it whenever I could, and I think I got a pretty decent coverage over the whole trip, with at least the majority of my camps tracked. Here’s what the data looks like:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">'mileage.xlsx'</span><span class="p">)</span>
+<span class="c1"># The last two columns are extra, drop those
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s">'city'</span><span class="p">,</span> <span class="s">'state'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>day</th>
+      <th>city</th>
+      <th>state</th>
+      <th>mileage</th>
+      <th>time</th>
+      <th>part</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2019-02-17</td>
+      <td>san diego</td>
+      <td>ca</td>
+      <td>41491.0</td>
+      <td>midday</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2019-02-17</td>
+      <td>sonoran desert national monument</td>
+      <td>az</td>
+      <td>41889.0</td>
+      <td>night</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2019-02-18</td>
+      <td>mesa</td>
+      <td>az</td>
+      <td>41948.0</td>
+      <td>midday</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2019-02-18</td>
+      <td>tucson</td>
+      <td>az</td>
+      <td>42067.0</td>
+      <td>evening</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2019-02-18</td>
+      <td>indian bread rocks blm</td>
+      <td>az</td>
+      <td>42179.0</td>
+      <td>night</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Because I tried to track my mileage every night but sometimes forgot and got it in the morning, I included a column indicating what time of day-ish that mileage occured at. That’s what’s in the <code class="language-plaintext highlighter-rouge">time</code> column. The <code class="language-plaintext highlighter-rouge">part</code> column on the right indicates whether it was part 1 (San Diego to Boston) or 2 (Boston to San Diego) of my road trip, and everything else is pretty self-explanatory.</p>
+
+<h2 id="geocoding-locations">Geocoding locations</h2>
+
+<p>Before I can make a map, I need to get the actual locations of the places I wrote down. From some poking around, I found that the <a href="https://geopy.readthedocs.io/">geopy</a> library has a wrapper for many different types of geocoders. I went ahead and tried using the one called <a href="https://operations.osmfoundation.org/policies/nominatim/">Nominatim</a>, because it seems to be fairly standard and doesn’t require an API, but if I wanted to geocode more locations I’d be much more careful about reading up on the terms of each provider and making sure I wasn’t abusing their service. But since I only have about 70 places to geolocate, I’ll just stick with this one.</p>
+
+<p>First, I need to set up my geolocator object. Then, I’ll get just the unique cities that I wrote down in my spreadsheet, geolocate them, and put them back into my original dataframe.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Set up geolocator object
+# Increase the timeout so I don't get timeout errors as much
+</span><span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s">"road-trip-map"</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Make sure to limit requests to abide by terms
+</span><span class="n">geocode</span> <span class="o">=</span> <span class="n">RateLimiter</span><span class="p">(</span><span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">,</span> <span class="n">min_delay_seconds</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Get the unique cities in my dataframe
+</span><span class="n">cities</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s">'city'</span><span class="p">,</span> <span class="s">'state'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="c1"># Convert the two columns city and state into one string
+</span><span class="n">cities</span><span class="p">[</span><span class="s">'to_geolocate'</span><span class="p">]</span> <span class="o">=</span> <span class="n">cities</span><span class="p">[</span><span class="s">'city'</span><span class="p">]</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="n">cities</span><span class="p">[</span><span class="s">'state'</span><span class="p">]</span>
+
+<span class="c1"># Geolocate the cities - this takes a couple of minutes
+</span><span class="n">cities</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span> <span class="o">=</span> <span class="n">cities</span><span class="p">[</span><span class="s">'to_geolocate'</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">geocode</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Let’s take a look at what this looks like:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cities</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>state</th>
+      <th>to_geolocate</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>san diego</td>
+      <td>ca</td>
+      <td>san diego ca</td>
+      <td>(San Diego, San Diego County, California, Unit...</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>sonoran desert national monument</td>
+      <td>az</td>
+      <td>sonoran desert national monument az</td>
+      <td>(Sonoran Desert National Monument, Riggs Road,...</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>mesa</td>
+      <td>az</td>
+      <td>mesa az</td>
+      <td>(Mesa, Maricopa County, Arizona, United States...</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>tucson</td>
+      <td>az</td>
+      <td>tucson az</td>
+      <td>(Tucson, Pima County, Arizona, United States o...</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>indian bread rocks blm</td>
+      <td>az</td>
+      <td>indian bread rocks blm az</td>
+      <td>(Indian Bread Rocks Picnic Area, Happy Camp Ca...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>I’m super impressed at this geocoder, it even got the random BLM campground I stayed at in Arizona (Indian Bread Rocks)! I remember this one well - I was super worried about it because I’d be getting in after dark and there weren’t too many backup options in this stretch of road, and the <em>first</em> random BLM campground I’d stayed at was quite difficult to find (Google maps took me down some dirt road straight to a “no trespassing” fenced-in compound, and then when I got back on the correct dirt road I took a wrong turn and got myself into some trees. Sorry for the scratches on the car, Dad!) Anyway, this camp was way better - after some delicious tacos in Tucson, I remember that it was super easy to find and well-signed, and there was an open spot for me, a toilet, and even some cell service! I snuggled up with a beer and a funny family group chat, and when I woke up the next morning everything was covered in snow. I think it was the first morning where I truly felt like I was on a road trip, I knew what I was doing, and it was gonna be <em>amazing</em>.</p>
+
+<p>All that to say, it’s cool that the geocoder found it. Let’s see if there are any places it couldn’t find, and if I can fix those manually:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cities</span><span class="p">[</span><span class="n">cities</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>state</th>
+      <th>to_geolocate</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6</td>
+      <td>big bend hot springs</td>
+      <td>tx</td>
+      <td>big bend hot springs tx</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>great smoky mountains national park</td>
+      <td>tn</td>
+      <td>great smoky mountains national park tn</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>mississippi river state park</td>
+      <td>tn</td>
+      <td>mississippi river state park tn</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>haw creek falls camp</td>
+      <td>ar</td>
+      <td>haw creek falls camp ar</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>lake clayton state park</td>
+      <td>nm</td>
+      <td>lake clayton state park nm</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>joe skeen blm campground</td>
+      <td>nm</td>
+      <td>joe skeen blm campground nm</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>south rim grand canyon national park</td>
+      <td>az</td>
+      <td>south rim grand canyon national park az</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>grand staircase escalante</td>
+      <td>ut</td>
+      <td>grand staircase escalante ut</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>ken's lake campground</td>
+      <td>ut</td>
+      <td>ken's lake campground ut</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>rabbit valley jouflas campground</td>
+      <td>ut</td>
+      <td>rabbit valley jouflas campground ut</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>norris junction yellowstone national park</td>
+      <td>wy</td>
+      <td>norris junction yellowstone national park wy</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>mammoth campground yellowstone national park</td>
+      <td>wy</td>
+      <td>mammoth campground yellowstone national park wy</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>old faithful yellowstone national park</td>
+      <td>wy</td>
+      <td>old faithful yellowstone national park wy</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>turpin meadow camp</td>
+      <td>wy</td>
+      <td>turpin meadow camp wy</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>grand tetons national park</td>
+      <td>wy</td>
+      <td>grand tetons national park wy</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>catnip reservoir sheldon wildlife refuge</td>
+      <td>nv</td>
+      <td>catnip reservoir sheldon wildlife refuge nv</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Interesting, lots of campgrounds within parks here that I suppose make sense are hard to find, but others which are more surprising (e.g. “Grand Tetons National Park” – what’s going on there?).</p>
+
+<p>I’ll just go through each of these one by one and try to figure out what’s causing the issue. In some cases, I imagine just zooming back out to the park will be enough. I’ll just try variations of each unfound string in the geocoder, and then check if the location it returns is the one I wanted. I won’t include all the code with my back-and-forths here, but I will track what the problem was in the comments in the code block below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># This dictionary maps "current location name": "correct location name"
+</span><span class="n">fixgeolocate</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'big bend hot springs tx'</span><span class="p">:</span> <span class="s">'big bend national park tx'</span><span class="p">,</span> <span class="c1"># too specific
+</span>    <span class="s">'great smoky mountains national park tn'</span><span class="p">:</span> <span class="s">'great smoky mountains national park'</span><span class="p">,</span> <span class="c1"># the coder has this in NC
+</span>    <span class="s">'mississippi river state park tn'</span><span class="p">:</span> <span class="s">'st francis national forest'</span><span class="p">,</span> <span class="c1"># this place had two names, v confusing
+</span>    <span class="s">'haw creek falls camp ar'</span><span class="p">:</span> <span class="s">'haw creek falls'</span><span class="p">,</span> <span class="c1"># this is the one I almost got flooded in, in the Ozarks
+</span>    <span class="s">'lake clayton state park nm'</span><span class="p">:</span> <span class="s">'clayton lake state park nm'</span><span class="p">,</span> <span class="c1"># messed this up everytime, beautiful place tho
+</span>    <span class="s">'south rim grand canyon national park az'</span><span class="p">:</span> <span class="s">'grand canyon national park az'</span><span class="p">,</span> <span class="c1"># too specific
+</span>    <span class="s">'grand staircase escalante ut'</span><span class="p">:</span> <span class="s">'Grand Staircase-Escalante National Monument'</span><span class="p">,</span> <span class="c1"># too lazy to write it all out
+</span>    <span class="s">'rabbit valley jouflas campground ut'</span><span class="p">:</span> <span class="s">'rabbit valley co'</span><span class="p">,</span>
+    <span class="s">'norris junction yellowstone national park wy'</span><span class="p">:</span> <span class="s">'norris geyser wy'</span><span class="p">,</span> <span class="c1"># too specific
+</span>    <span class="s">'mammoth campground yellowstone national park wy'</span><span class="p">:</span> <span class="s">'mammoth campground wy'</span><span class="p">,</span>
+    <span class="s">'old faithful yellowstone national park wy'</span><span class="p">:</span> <span class="s">'old faithful wy'</span><span class="p">,</span>
+    <span class="s">'turpin meadow camp wy'</span><span class="p">:</span> <span class="s">'turpin meadow campground wy'</span><span class="p">,</span>
+    <span class="s">'grand tetons national park wy'</span><span class="p">:</span> <span class="s">'grand teton national park wy'</span><span class="p">,</span> <span class="c1"># typo, guess there's only one teton
+</span>    <span class="s">'catnip reservoir sheldon wildlife refuge nv'</span><span class="p">:</span> <span class="s">'catnip reservoir nv'</span><span class="p">,</span>
+    <span class="s">'joe skeen blm campground nm'</span><span class="p">:</span> <span class="s">'BLM El Malpais'</span><span class="p">,</span>
+    <span class="s">"ken's lake campground ut"</span><span class="p">:</span> <span class="s">"Ken's Lake"</span><span class="p">,</span> <span class="c1"># camp that took forever to find outside of moab...
+</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>So turns out there’s only one Teton in the park name (even though there are multiple mountains!). The geocoder also had trouble finding the Joe Skeen campground at El Malpais, because it’s apparently got a typo in whatever database it’s pulling from (it has is listed as “Jpe Skeen” womp womp). Honestly it was one of the best free campgrounds I found – I stayed there two nights, after I unsuccessfully tried to find a spot at the much smaller (and more popular) campground at El Morro monument. Also I chuckled a bit that the geocoder couldn’t find the Ken’s Lake campground, because <em>I</em> also had a lot of trouble finding it! It was a campground outside of Moab, which I paid something like $20 for after driving around for <em>hours</em> trying to find a place to camp. Note to future travellers: when it comes to Moab, book ahead!</p>
+
+<p>Anyway, let’s geocode these updated location and merge it back with the rest of the location results.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Get location for each of these places
+</span><span class="n">new_locations</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">fixgeolocate</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1"># Geocode the updated location
+</span>    <span class="n">loc</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="c1"># Build a map of old location --&gt; geocoded location
+</span>    <span class="n">new_locations</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">loc</span>
+
+    <span class="c1"># Add a delay to not overload the geocoder
+</span>    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># And update the dataframe
+</span>
+<span class="c1"># Get the indices of the rows that have "None" for the location
+</span><span class="n">null_locs</span> <span class="o">=</span> <span class="n">cities</span><span class="p">[</span><span class="n">cities</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span><span class="o">.</span><span class="n">index</span>
+
+<span class="c1"># Replace the "location" value in those rows with the new location
+# in the new_locations dict
+</span><span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">null_locs</span><span class="p">,</span> <span class="s">'location'</span><span class="p">]</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">null_locs</span><span class="p">,</span> <span class="s">'to_geolocate'</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">new_locations</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now that I have everything geocoded, I’ll merge the locations back onto my original dataframe, which contains the day, part of the trip, and mileage.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Merge geocoded locations with the original dataframe
+</span><span class="n">gdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span> <span class="n">cities</span><span class="p">[[</span><span class="s">'city'</span><span class="p">,</span> <span class="s">'state'</span><span class="p">,</span> <span class="s">'location'</span><span class="p">]],</span>
+    <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s">'city'</span><span class="p">,</span> <span class="s">'state'</span><span class="p">],</span>
+    <span class="n">how</span><span class="o">=</span><span class="s">'left'</span>
+<span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>day</th>
+      <th>city</th>
+      <th>state</th>
+      <th>mileage</th>
+      <th>time</th>
+      <th>part</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2019-02-17</td>
+      <td>san diego</td>
+      <td>ca</td>
+      <td>41491.0</td>
+      <td>midday</td>
+      <td>1</td>
+      <td>(San Diego, San Diego County, California, Unit...</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2019-02-17</td>
+      <td>sonoran desert national monument</td>
+      <td>az</td>
+      <td>41889.0</td>
+      <td>night</td>
+      <td>1</td>
+      <td>(Sonoran Desert National Monument, Riggs Road,...</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2019-02-18</td>
+      <td>mesa</td>
+      <td>az</td>
+      <td>41948.0</td>
+      <td>midday</td>
+      <td>1</td>
+      <td>(Mesa, Maricopa County, Arizona, United States...</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2019-02-18</td>
+      <td>tucson</td>
+      <td>az</td>
+      <td>42067.0</td>
+      <td>evening</td>
+      <td>1</td>
+      <td>(Tucson, Pima County, Arizona, United States o...</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2019-02-18</td>
+      <td>indian bread rocks blm</td>
+      <td>az</td>
+      <td>42179.0</td>
+      <td>night</td>
+      <td>1</td>
+      <td>(Indian Bread Rocks Picnic Area, Happy Camp Ca...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="getting-ready-to-plot-plus-some-more-wrangling">Getting ready to plot, plus some more wrangling</h2>
+
+<p>Before I can plot these locations, I need to convert them to <code class="language-plaintext highlighter-rouge">shapely</code> objects and put them in the <code class="language-plaintext highlighter-rouge">geometry</code> column of the <code class="language-plaintext highlighter-rouge">geopandas</code> dataframe. I’ll do this using the <a href="https://geopandas.readthedocs.io/en/latest/gallery/create_geopandas_from_pandas.html#creating-a-geodataframe-from-a-dataframe-with-coordinates">points_from_xy() function in geopandas</a>, after grabbing the latitude and longitude from the locations returned by <code class="language-plaintext highlighter-rouge">geopy</code>. The <a href="https://geopy.readthedocs.io/en/stable/#geopy.location.Location">geopy <code class="language-plaintext highlighter-rouge">location</code> class</a> has latitude and longitude as two properties, so it’s super easy to do this!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># query each location's latitude and longitude
+</span><span class="n">gdf</span><span class="p">[</span><span class="s">'latitude'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">latitude</span><span class="p">)</span>
+<span class="n">gdf</span><span class="p">[</span><span class="s">'longitude'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+
+<span class="c1"># Add the shapely Point in the 'geometry' column
+</span><span class="n">gdf</span><span class="p">[</span><span class="s">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">gdf</span><span class="p">[</span><span class="s">'longitude'</span><span class="p">],</span> <span class="n">gdf</span><span class="p">[</span><span class="s">'latitude'</span><span class="p">])</span>
+
+<span class="c1"># And convert the dataframe to a geopandas dataframe
+</span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Almost ready to plot! I want to also add an easy USA background to my plot, otherwise it’ll just be points in a blank axis. Let’s use some of the <a href="https://geopandas.readthedocs.io/en/latest/gallery/create_geopandas_from_pandas.html">built-in geopandas maps</a> to do this.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Read in the world - this returns just a normal geodataframe
+</span><span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s">'naturalearth_lowres'</span><span class="p">))</span>
+
+<span class="c1"># Get just the US
+</span><span class="n">usa</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">'name == "United States of America"'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Ok, <em>now</em> I’m ready to plot where I went!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Plot the USA
+</span><span class="n">ax</span> <span class="o">=</span> <span class="n">usa</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1"># Overlay my point locations
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/2020-01-29.road_trip_map_files/2020-01-29.road_trip_map_22_1.png" alt="png" /></p>
+
+<p>Uh oh. There’s one point that’s suuuper not right (and one that’s in … Canada?). Wonder what’s happening here…</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Fix the one in the bottom right first
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">'latitude'</span><span class="p">,</span> <span class="s">'longitude'</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>day</th>
+      <th>city</th>
+      <th>state</th>
+      <th>mileage</th>
+      <th>time</th>
+      <th>part</th>
+      <th>location</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>27</td>
+      <td>2019-04-18</td>
+      <td>hot springs</td>
+      <td>ar</td>
+      <td>NaN</td>
+      <td>afternoon</td>
+      <td>2</td>
+      <td>(aguas termales, La Peña Azul, Municipio de Ge...</td>
+      <td>-24.238173</td>
+      <td>-64.159278</td>
+      <td>POINT (-64.15928 -24.23817)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Ah, seems that Hot Springs, Arkansas got geocoded somewhere in Argentina… Let’s fix that manually and re-plot!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># I manually checked that this returns the Hot Springs in Arkansas
+</span><span class="n">hotsprings</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s">'hot springs'</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="s">'location'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hotsprings</span> <span class="c1"># need to use at to avoide error bc "hotsprings" is a tuple
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="s">'latitude'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hotsprings</span><span class="o">.</span><span class="n">latitude</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="s">'longitude'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hotsprings</span><span class="o">.</span><span class="n">longitude</span>
+<span class="c1"># Re-code the lat/lon into a point
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="s">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="s">'longitude'</span><span class="p">],</span> <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="s">'latitude'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Fix the one in Canada next
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">'longitude'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)[</span><span class="s">'location'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>94    (Oakland, Municipality of the District of Lune...
+93    (Oakland, Municipality of the District of Lune...
+14    (Boston, Suffolk County, Massachusetts, United...
+Name: location, dtype: object
+</code></pre></div></div>
+
+<p>And it found Oakland as the Oakland in Nova Scotia… Let’s fix that too.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># I manually checked that this returns the Hot Springs in Arkansas
+</span><span class="n">oakland</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s">'oakland ca usa'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">93</span><span class="p">,</span> <span class="mi">94</span><span class="p">]:</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'location'</span><span class="p">]</span> <span class="o">=</span> <span class="n">oakland</span> <span class="c1"># need to use at to avoide error bc "hotsprings" is a tuple
+</span>    <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'latitude'</span><span class="p">]</span> <span class="o">=</span> <span class="n">oakland</span><span class="o">.</span><span class="n">latitude</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'longitude'</span><span class="p">]</span> <span class="o">=</span> <span class="n">oakland</span><span class="o">.</span><span class="n">longitude</span>
+    <span class="c1"># Re-code the lat/lon into a point
+</span>    <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'longitude'</span><span class="p">],</span> <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'latitude'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>There’s a couple other mistakes that I found after plotting, which I’ll just fix here without explaining step by step:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">update_loc</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">newloc</span><span class="p">):</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'location'</span><span class="p">]</span> <span class="o">=</span> <span class="n">newloc</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'latitude'</span><span class="p">]</span> <span class="o">=</span> <span class="n">newloc</span><span class="o">.</span><span class="n">latitude</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'longitude'</span><span class="p">]</span> <span class="o">=</span> <span class="n">newloc</span><span class="o">.</span><span class="n">longitude</span>
+    <span class="c1"># Re-code the lat/lon into a point
+</span>    <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'longitude'</span><span class="p">],</span> <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="s">'latitude'</span><span class="p">])</span>
+
+<span class="c1"># My original Joplin campground coded somewhere in West Virginia
+</span><span class="n">ix</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">newloc</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s">'joplin campground'</span><span class="p">)</span>
+<span class="n">update_loc</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">newloc</span><span class="p">)</span>
+
+<span class="c1"># Wyoming ('wy') got read in as "way", so these two are in the wrong place
+</span><span class="n">ix</span> <span class="o">=</span> <span class="mi">73</span>
+<span class="n">newloc</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s">'sundance wyoming'</span><span class="p">)</span>
+<span class="n">update_loc</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">newloc</span><span class="p">)</span>
+
+<span class="n">ix</span> <span class="o">=</span> <span class="mi">76</span>
+<span class="n">newloc</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s">'cody wyoming'</span><span class="p">)</span>
+<span class="n">update_loc</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">newloc</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Re-try plotting!
+# Plot the USA
+</span><span class="n">ax</span> <span class="o">=</span> <span class="n">usa</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1"># Overlay my point locations
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/2020-01-29.road_trip_map_files/2020-01-29.road_trip_map_32_1.png" alt="png" /></p>
+
+<p>Yes! No more side-trips to Argentina (alas). Okay, now that I have everything set up to make this map, let’s work on making it prettier! I have two main goals here, beyond simple aesthetics:</p>
+
+<ol>
+  <li>Add a more informative background map</li>
+  <li>Connect the dots with lines, showing my actual trajectory</li>
+</ol>
+
+<p>I have a pretty good idea of how to do #1, since I’ve been recently playing around with <a href="https://github.com/darribas/contextily">contextily</a> for adding basemaps. It was a bit of pain to install (I needed to play around with setting conda channel priorities), but now that I have it working it’s extremely useful.</p>
+
+<p>For #2, I’ll need to do some significant wrangling with shapely to convert subsequent points into lines.</p>
+
+<h2 id="adding-a-background-map">Adding a background map</h2>
+
+<p>Let’s start with #1! I’ll first need to set the projection of my current data to the <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS84 projection (EPSG:4326)</a>, which is what latitude and longitudes are encoded in. For those of y’all not used to working with maps, projections are basically different ways of encoding 3D information (i.e. the Earth) onto a 2D space (i.e. a computer screen). You’ve heard of this before certainly, the <a href="https://en.wikipedia.org/wiki/Mercator_projection">Mercator projection</a> is the one that makes Greenland look huge and Africa look tiny. There is lots of scholarship and internet debate on different projections, I’m sure, so I won’t even start down that rabbit hole! (Though if you are gonna start down this rabbit hole, I recommend looking into how different map projections change how we view the world, and contribute to colonialism by emphasizing some geographies over others).</p>
+
+<p>Anyway. Mostly what I know is how to work with projections in order to get the maps that I need out of my code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Set the projection to WGS84
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="p">{</span><span class="s">'init'</span><span class="p">:</span> <span class="s">'epsg:4326'</span><span class="p">}</span>
+<span class="c1"># Modify projection to match what contextily uses
+</span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3857</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Plot the points
+</span><span class="n">ax</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Add basemap
+</span><span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/2020-01-29.road_trip_map_files/2020-01-29.road_trip_map_35_0.png" alt="png" /></p>
+
+<p>Wowza, our first map!! Though I’d like to have the state outlines on this map as well. It’ll give some structure to the map, and also expand it to the whole US rather than just the band that I visited. From a quick google, seems that <a href="https://www.arcgis.com/home/item.html?id=f7f805eb65eb4ab787a0a3e1116ca7e5">this file</a> should do the trick.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">states</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s">'shapefiles/states.shp'</span><span class="p">)</span>
+<span class="c1"># Keep only the 50 continental states
+</span><span class="n">dropstates</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Hawaii'</span><span class="p">,</span> <span class="s">'Alaska'</span><span class="p">]</span>
+<span class="n">states</span> <span class="o">=</span> <span class="n">states</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">'STATE_NAME != @dropstates'</span><span class="p">)</span>
+
+<span class="c1"># Convert states to the right projection for contextily
+</span><span class="n">states</span> <span class="o">=</span> <span class="n">states</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3857</span><span class="p">)</span>
+<span class="n">states</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>STATE_NAME</th>
+      <th>DRAWSEQ</th>
+      <th>STATE_FIPS</th>
+      <th>SUB_REGION</th>
+      <th>STATE_ABBR</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Washington</td>
+      <td>2</td>
+      <td>53</td>
+      <td>Pacific</td>
+      <td>WA</td>
+      <td>MULTIPOLYGON (((-13625730.016 6144404.934, -13...</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Montana</td>
+      <td>3</td>
+      <td>30</td>
+      <td>Mountain</td>
+      <td>MT</td>
+      <td>POLYGON ((-12409387.580 5574754.285, -12409986...</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Maine</td>
+      <td>4</td>
+      <td>23</td>
+      <td>New England</td>
+      <td>ME</td>
+      <td>MULTIPOLYGON (((-7767570.862 5476923.993, -777...</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>North Dakota</td>
+      <td>5</td>
+      <td>38</td>
+      <td>West North Central</td>
+      <td>ND</td>
+      <td>POLYGON ((-10990622.005 5770462.676, -11021390...</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>South Dakota</td>
+      <td>6</td>
+      <td>46</td>
+      <td>West North Central</td>
+      <td>SD</td>
+      <td>POLYGON ((-11442350.599 5311256.999, -11466561...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Re-plot everything, adding on the state outlines
+</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Plot the outlines
+</span><span class="n">states</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Plot the points
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Add basemap
+</span><span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Remove axes
+</span><span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/images/2020-01-29.road_trip_map_files/2020-01-29.road_trip_map_38_0.png" alt="png" /></p>
+
+<p>Ah! There it is!!! It’s my road trip!!!</p>
+
+<p>Okay, before I dive into making trajectories, can I just color each point by their day on my trip? I sometimes have multiple entries per day, so I’ll need to create a map from day to number. I’ll just increment each day that I wrote down, regardless of whether they’re consecutive days or not. Since I’m just going to visualize the day using colors, all I care about is the relative days.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s">'day'</span><span class="p">)</span>
+
+<span class="n">days</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s">'day'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">daysdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">days</span><span class="p">))))</span>
+
+<span class="c1"># Use dict to map into column
+</span><span class="n">gdf</span><span class="p">[</span><span class="s">'day_number'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s">'day'</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">daysdict</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Re-plot everything, adding on the state outlines
+</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Plot the outlines
+</span><span class="n">states</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Plot the points
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s">'day_number'</span><span class="p">)</span>
+
+<span class="c1"># Add basemap
+</span><span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Remove axes
+</span><span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/images/2020-01-29.road_trip_map_files/2020-01-29.road_trip_map_41_0.png" alt="png" /></p>
+
+<h2 id="converting-points-to-trajectories">Converting points to trajectories</h2>
+
+<p>Ok, now to convert these points into actual lines corresponding to my travels. I’ll make two lines: one for the first part of my trip (San Diego to Boston), and one for the second (Boston to San Diego, with lots of fun detours in between).</p>
+
+<p>First, I need to sort my trip by day. Because on some days I wrote down multiple mileages, I also need to sort by time of day. I’ll do this by setting my <code class="language-plaintext highlighter-rouge">time</code> column as an ordered categorical, since I only tracked the rough time of day (i.e. “morning” and “night”).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Set the column as categorical type
+</span><span class="n">gdf</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">'category'</span><span class="p">)</span>
+<span class="c1"># Manually specify the order
+</span><span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s">'morning'</span><span class="p">,</span> <span class="s">'midday'</span><span class="p">,</span> <span class="s">'afternoon'</span><span class="p">,</span> <span class="s">'evening'</span><span class="p">,</span> <span class="s">'night'</span><span class="p">,</span> <span class="s">'allday'</span><span class="p">]</span>
+
+<span class="c1"># Set categories as ordered dtype
+</span><span class="n">gdf</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">set_categories</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">gdf</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0     midday
+1      night
+2     midday
+3    evening
+4      night
+Name: time, dtype: category
+Categories (6, object): [morning &lt; midday &lt; afternoon &lt; evening &lt; night &lt; allday]
+</code></pre></div></div>
+
+<p>You can see above that the data type of this column is now a category, ordered like this: <code class="language-plaintext highlighter-rouge">[morning &lt; midday &lt; afternoon &lt; evening &lt; night &lt; allday]</code>.</p>
+
+<p>Now, let’s convert all of my points into two lines corresponding to the two parts of the trip:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Get line of first part of trip
+</span><span class="n">part1</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">LineString</span><span class="p">(</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">'part == 1'</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">'day'</span><span class="p">,</span> <span class="s">'time'</span><span class="p">])[</span><span class="s">'geometry'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">part1</span><span class="p">)</span>
+
+<span class="n">part2</span> <span class="o">=</span> <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">LineString</span><span class="p">(</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">'part == 2'</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">'day'</span><span class="p">,</span> <span class="s">'time'</span><span class="p">])[</span><span class="s">'geometry'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">part2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/2020-01-29.road_trip_map_files/2020-01-29.road_trip_map_45_0.svg" alt="svg" /></p>
+
+<p><img src="/images/2020-01-29.road_trip_map_files/2020-01-29.road_trip_map_45_1.svg" alt="svg" /></p>
+
+<p>Wow, that was easier than I thought! Now, let’s figure out how to overlay these lines onto my map.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Make a geodataframe with the two parts of my trip
+</span><span class="n">linegdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s">'geometry'</span><span class="p">:</span> <span class="p">[</span><span class="n">part1</span><span class="p">,</span> <span class="n">part2</span><span class="p">],</span>
+     <span class="s">'trip_part'</span><span class="p">:</span> <span class="p">[</span><span class="s">'part1'</span><span class="p">,</span> <span class="s">'part2'</span><span class="p">]}</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Make the plot
+</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Plot the state outlines
+</span><span class="n">states</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1">## Plot Part 1 of the trip
+</span>
+<span class="c1"># I'm getting an error when I pass in the tuple, not sure why
+</span><span class="n">c</span> <span class="o">=</span> <span class="n">to_hex</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s">'green'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Plot line
+</span><span class="n">linegdf</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">'trip_part == "part1"'</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot points colored by day
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">'part == 1'</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s">'day_number'</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s">'green'</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">markersize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">zorder</span><span class="o">=</span><span class="mi">1000</span> <span class="c1"># force the points to be the top layer of the plot
+</span><span class="p">)</span>
+
+<span class="c1">## Part 2
+</span><span class="n">c</span> <span class="o">=</span> <span class="n">to_hex</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s">'purple'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Plot line
+</span><span class="n">linegdf</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">'trip_part == "part2"'</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot points colored by day
+</span><span class="n">gdf</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">'part == 2'</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s">'day_number'</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s">'purple'</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">markersize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">zorder</span><span class="o">=</span><span class="mi">1000</span> <span class="c1"># force the points to be the top layer of the plot
+</span><span class="p">)</span>
+
+<span class="c1"># Add basemap
+</span><span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Remove axes
+</span><span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/images/2020-01-29.road_trip_map_files/2020-01-29.road_trip_map_48_0.png" alt="png" /></p>
+
+<p>Ah it’s so beautiful!! Let me tell you a little bit more about what you’re seeing:</p>
+
+<p>For the first part of my trip, I went from San Diego to Austin in about a week. Then, I headed to New Orleans to meet Ben, and we drove from New Orleans to Atlanta (I did a bad job of tracking things during this time). Then, through a comical series of events, we ended up driving back to Boston from Atlanta in about two days. You can see the straight shot from Georgia to Pennsylvania, which is that part (we stayed with his sister in Philly as our one stop).</p>
+
+<p>In Part 2, Ben and I drove straight down to Nashville (with the Philly pit stop again, thanks Micah!) I went to Ithaca for a <a href="https://cduvallet.github.io/mbiome-data-viz/">hackathon</a> (not shown here, because I flew and therefore accrued zero mileage) and Ben went back to Boston. Then I headed to Memphis for an amazing dinner with live music, and then made my way West to Utah. The little spike you see in Arkansas was when I tried to go to the Ozarks, but it was raining (and I had to drive through at least 6 inches of water to get out of my campground oops), so I made last-minute changes and headed to Hot Springs to have a nice soak. Similarly, the upshot into Colorado after Texas was when I realized that Great Sand Dunes National Park was actually not a huge detour from my current path, and that I wouldn’t have another good time to go there. Then I headed down to El Malpais (awesome place), Flagstaff to see the <a href="https://qiime2.org/">QIIME 2</a> team, and then up to the best two weeks of my trip: the national lands bonanza that is northern Arizona and Utah. You can see how my trajectory went north to the Grand Canyon, then east to get around the canyon and back west to hit Zion. Then I made my way through amazing Utah, through Bryce and Grand Staircase Escalante, until I finally headed to Denver to meet up with Ben. Denver has a lot of back-and-forth: Ben and I went into the mountains for the weekend and then came back to Denver, and I also had to spend an extra day in town to watch Nathaniel’s defense and figure out some job stuff (after spending the night in the prairie about two hours away). Then I headed up to Badlands in South Dakota, Yellowstone in Wyoming, and met up with Janyne and some friends in Nevada Catnip Reservoir. After that, the home stretch was just California: Susanville with Janyne, SF with Jeremy and my brothers, and finally back down to San Diego.</p>
+
+<p>It’s awesome how looking at this map makes it so easy to remember each little part of my trip! I love it. :D</p>
+
+<p>I’m going to go ahead and post this map as-is, even though there’s lots of ways I’d want to improve it. For example, I’d love to be able to see more clearly what day each part of the trip corresponded to, since there were some days where I drove <em>huge</em> distances and others when I got to stay and play where I was. Maybe I’ll try to cross-reference this map with my spreadsheet where I tracked the camps I stayed at. Or perhaps I’ll do the manual work of geocoding the camps directly, but that is a bit more work than here because I wasn’t very specific (e.g. when I stayed at my friend Jettie’s house in Austin, I wrote down “Jettie’s house” - which I really hope the geocoder won’t be able to find!)</p>
+
+<p>Also, maybe the next step on this map is to make it interactive… I’ve recently learned about <a href="https://python-visualization.github.io/folium/">folium</a>, which seems to be a super easy way to make interactive maps. Hopefully I find time to give it a go!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#geopandas" class="page__taxonomy-item" rel="tag">geopandas</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#python" class="page__taxonomy-item" rel="tag">python</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#road-trip" class="page__taxonomy-item" rel="tag">road-trip</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#travel" class="page__taxonomy-item" rel="tag">travel</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2020/02/road-trip-map" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2020/02/road-trip-map" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/posts/2020/02/road-trip-map" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2020/02/road-trip-map" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/posts/2020/01/phd-job-search" class="pagination--pager" title="A Well-Kept Secret for Finding a Job post-PhD
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" class="pagination--pager" title="Racism as a public health crisis: how wastewater epidemiology fits in
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink">Resources for pivoting to public health data science
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-01-09T00:00:00-08:00">January 09, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>About two years into my PhD, I realized that the field I actually wanted to be in was public health, not necessarily biological engineering. Around the same time, I also fell in love with coding and data science. That’s when I realized that combining public health and data science could be an ideal career path for my technical abilities and interests and my desire to have social impact. But immersed in the world of academia, at an institution without a school of public health, and with mentors who had all chosen routes in biotech or academia, it was really hard to learn more about my options for pivoting to a career in public health.
+
+<strong><a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink">Racism as a public health crisis: how wastewater epidemiology fits in
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-06-10T00:00:00-07:00">June 10, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Today is the <a href="https://www.particlesforjustice.org/">Strike for Black Lives</a> and a day to <a href="https://www.shutdownstem.com/">#ShutDownSTEM</a>. For white people like me, today is about recognizing and reflecting on the anti-Black racism in our society, and committing to specific actions toward ending white supremacy. One of my actions for today is to publicly reflect on how our work at <a href="www.biobot.io">Biobot Analytics</a> contributes to addressing – and potentially perpetuating – racism in public health.
+
+<strong><a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink">A Well-Kept Secret for Finding a Job post-PhD
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  8 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-01-25T00:00:00-08:00">January 25, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>During my PhD, I performed a lot of exit interviews with graduating students and learned that finding a job is often the most stressful part of graduating, and among the most stressful in the entire PhD. After my own defense, however, I was able to avoid some of that stress by discovering a valuable post-PhD job option that I had rarely heard discussed: getting a part-time or consulting gig after graduating to hold you over while you figure out your next full-time non-academic career move.
+
+<strong><a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/01/research-parasite-paper" rel="permalink">Data detectives, self-love, and humility - a research parasite’s perspective
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-01-03T00:00:00-08:00">January 03, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>As the 2019 <a href="http://researchparasite.com/">Research Parasite</a> Junior Parasite award recipient, GigaScience asked me to share some thoughts on life as a research parasite - tips and philosophies on doing open and reproducible science as a PhD student. The <a href="https://doi.org/10.1093/gigascience/giz148">resulting piece</a> is now published!
+
+<strong><a href="http://localhost:4000/posts/2020/01/research-parasite-paper" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    </script>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Dzakwan Falih. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

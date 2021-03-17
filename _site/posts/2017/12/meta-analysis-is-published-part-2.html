@@ -1,0 +1,643 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>The microbiome meta-analysis is published, Part 2: Data and reproducible science - Dzakwan Falih</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Dzakwan Falih">
+<meta property="og:title" content="The microbiome meta-analysis is published, Part 2: Data and reproducible science">
+
+
+  <link rel="canonical" href="http://localhost:4000/posts/2017/12/meta-analysis-is-published-part-2">
+  <meta property="og:url" content="http://localhost:4000/posts/2017/12/meta-analysis-is-published-part-2">
+
+
+
+  <meta property="og:description" content="The other thing I didn’t focus on as much in the Nature Microbiology blog post was all of the lessons I learned about data and doing reproducible science.">
+
+
+
+  <meta name="twitter:site" content="@dzakwanfalihh">
+  <meta name="twitter:title" content="The microbiome meta-analysis is published, Part 2: Data and reproducible science">
+  <meta name="twitter:description" content="The other thing I didn’t focus on as much in the Nature Microbiology blog post was all of the lessons I learned about data and doing reproducible science.">
+  <meta name="twitter:url" content="http://localhost:4000/posts/2017/12/meta-analysis-is-published-part-2">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-12-24T00:00:00-08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Dzakwan Falih",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Dzakwan Falih Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Dzakwan Falih</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/travel/">Road trip</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/gue.jpeg" class="author__avatar" alt="Dzakwan Falih">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name"><a href="/">Dzakwan Falih</a></h3>
+    <p class="author__bio">reformed cyber criminal @ cyber space</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Cyber Space, Internet</li>
+      
+      
+      
+      
+        <li><a href="https://keybase.io/dzakwanfalih"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
+      
+      
+        <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+      
+      
+        <li><a href="https://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+        <li><a href="https://instagram.com/dzakwanfalih_2.0"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://scholar.google.com/citations?hl=en&user=ZFuwjiIAAAAJ"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+      
+      
+      
+      
+      
+        <li><a href="mailto:dzakwanfaliht@hotmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="The microbiome meta-analysis is published, Part 2: Data and reproducible science">
+    <meta itemprop="description" content="The other thing I didn’t focus on as much in the Nature Microbiology blog post was all of the lessons I learned about data and doing reproducible science.">
+    <meta itemprop="datePublished" content="December 24, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">The microbiome meta-analysis is published, Part 2: Data and reproducible science
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  5 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-12-24T00:00:00-08:00">December 24, 2017</time></p>
+        
+        
+             
+        
+    
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>The other thing I didn’t focus on as much in the Nature Microbiology <a href="https://naturemicrobiologycommunity.nature.com/users/70264-claire-duvallet/posts/22494-beyond-dysbiosis-disease-specific-and-shared-microbiome-responses-to-disease">blog post</a> was all of the lessons I learned about data and doing reproducible science.</p>
+
+<p>It turns out that doing reproducible science is really hard. Making data usefully accessible is not trivial, figuring out how to use someone’s else data can be super confusing, and keeping track of what you’ve done gets unmanageable super quickly.</p>
+
+<p>Given how hot microbiome research is, when I started this project I thought it’d be super straightforward to gather data from like 100 studies, if not more. After two years of work, I published a paper with data from 28. It turns out that even inclusion criteria as broad as “case-control gut 16S studies” excludes a LOT of studies! Some other common difficulties I encountered, many of which resulted in excluding datasets from my analysis:</p>
+
+<ul>
+  <li>Data is not uploaded anywhere, so you have to email the authors.</li>
+  <li>Data is uploaded in a database, but it’s protected because it contains senstive clinical metadata. This is a problem, because for analyses like mine you’d want to have a way to access the part of the data that isn’t protected (e.g. sequencing data and case or control labels, but none of the other more detailed metadata). That said, whether or not microbiome data should be protected is still being <a href="http://www.pnas.org/content/112/22/E2930.full">debated</a>.</li>
+  <li>Data is publicly available, but the metadata is not. A note to all experimentalists: raw data without its metadata is almost always useless.</li>
+  <li>Data and metadata are publicly available, but the IDs don’t map between them.</li>
+  <li>Data and metadata are available, but barcodes mapping raw data to samples is not available.</li>
+  <li>Data and metadata are available and mappable, but they don’t match what was reported in the paper.</li>
+  <li>Everything is available, but I can’t tell what processing steps have been done already. This is actually usually okay - you can just look at the raw data and check, for example, whether primers or barcodes have been removed. However, there was one case where all of the reads were 101 bp but the primers hadn’t been removed, and I had no idea why on earth that would be the case.</li>
+</ul>
+
+<p>In addition to feeling like a data detective, there were a few times when I felt like a time traveller:</p>
+
+<ul>
+  <li>I encountered a handful of hotmail.com and aol.com email addresses in my communications with authors, which always makes me chuckle!</li>
+  <li>It was also interesting that the majority of my datasets were 454 data, whereas the field is now essentially only doing Illumina sequencing. But I think because of how slow academia is, the majority of papers that were out there when I started were from a previous era! It’s like the engineers who keep up with the <a href="https://www.nytimes.com/2017/08/03/magazine/the-loyal-engineers-steering-nasas-voyager-probes-across-the-universe.html">Voyager satellite</a> and still know how to code directly in binary. Okay, it’s not like that at all but still!</li>
+  <li>Along those lines, there were a few data formats I encountered that would be ridiculous to have now but which are understandable for studies that were right at the beginning of the NGS boom. For example, quite a few datasets had a subset of their samples in each raw fastq file, but repeated barcodes across files. This meant that the same barcode was in multiple fastq files, but mapped to different samples. Annoying to process, but no biggie.</li>
+  <li>And there was also travelling into the future, when I went to look for data that hadn’t been uploaded yet.</li>
+</ul>
+
+<p>I give these examples not to gripe about how everyone sucks at data, but to show that making data usefully available for others to use isn’t as straightforward as it sounds! Through my own mistakes in the course of this work, I gained a lot of sympathy (and sometimes empathy) for all the moving parts involved in doing reproducible science.</p>
+
+<p>I made so many mistakes throughout the data processing and analysis. Because I started this project basically as soon as I joined Eric’s lab (i.e. before I knew anything about doing computational work), I had to go back and re-do a lot of my data processing - sometimes because I had done it wrong, but most often because I hadn’t documented what I did and I couldn’t be sure that I hadn’t messed it up. In life, I like to try act such that future Claire will think of past Claire and be eternally grateful for her. In life, that means putting a glass of water on my nightstand before going to sleep after a raucous night out. In computational biology, I learned that that means leaving a robust bread crumb trail of READMEs and comments with every data collected and analysis performed.</p>
+
+<p>I also had so many mini-panic attacks where I thought that I had done something completely wrong (like use the wrong statistical test) that would affect all of my other downstream results. If I were a more legit programmer, I would have figured out how to include <a href="https://github.com/ericmjl/data-testing-tutorial">unit tests</a> throughout my code - though I honestly wonder when this extra effort is worth the benefit, especially in iterative data analyses. <a href="https://github.com/cduvallet/microbiomeHD">Instead</a>, I wrote a Makefile to do all of my analyses so that when I had these doubts it only took an hour or two to resolve them rather than a whole day. You too can perform a broad cross-disease meta-analysis of 28 published case-control gut microbiome studies using standardized methods!</p>
+
+<p>All this to say that I learned to love READMEs and clean code. And some science along the way too, I guess. :)</p>
+
+<p><em>Read <a href="/posts/2017/12/meta-analysis-is-published-part-1">Part 1</a> for an introduction to this post and some personal reflections on publishing the <a href="http://nature.com/articles/s41467-017-01973-8">meta-analysis paper</a>.</em></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#publications" class="page__taxonomy-item" rel="tag">publications</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2017/12/meta-analysis-is-published-part-2" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2017/12/meta-analysis-is-published-part-2" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/posts/2017/12/meta-analysis-is-published-part-2" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2017/12/meta-analysis-is-published-part-2" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/posts/2017/12/meta-analysis-is-published-part-1" class="pagination--pager" title="The microbiome meta-analysis is published, Part 1: personal reflections
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/posts/2018/01/reflections-on-amazon-same-day-delivery-excluding-roxbury" class="pagination--pager" title="Reflections on Amazon same-day delivery excluding Roxbury
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink">Resources for pivoting to public health data science
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-01-09T00:00:00-08:00">January 09, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>About two years into my PhD, I realized that the field I actually wanted to be in was public health, not necessarily biological engineering. Around the same time, I also fell in love with coding and data science. That’s when I realized that combining public health and data science could be an ideal career path for my technical abilities and interests and my desire to have social impact. But immersed in the world of academia, at an institution without a school of public health, and with mentors who had all chosen routes in biotech or academia, it was really hard to learn more about my options for pivoting to a career in public health.
+
+<strong><a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink">Racism as a public health crisis: how wastewater epidemiology fits in
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-06-10T00:00:00-07:00">June 10, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Today is the <a href="https://www.particlesforjustice.org/">Strike for Black Lives</a> and a day to <a href="https://www.shutdownstem.com/">#ShutDownSTEM</a>. For white people like me, today is about recognizing and reflecting on the anti-Black racism in our society, and committing to specific actions toward ending white supremacy. One of my actions for today is to publicly reflect on how our work at <a href="www.biobot.io">Biobot Analytics</a> contributes to addressing – and potentially perpetuating – racism in public health.
+
+<strong><a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/02/road-trip-map" rel="permalink">Mapping my cross-country road trip with Python
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  27 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-02-09T00:00:00-08:00">February 09, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>When I was on my <a href="https://cduvallet.github.io/travel/">cross-country road trip</a> last year, I kept track of a lot of things in the hopes of doing amazing analyses when I got back. Turns out having a job as a data scientist makes it a lot harder to find time to do data science on the side, and so I’ve only really gotten a chance to look into my <a href="2019/07/road-trip-expenses-pt1">expenses</a>. One of the things I had really wanted to do was make a map of all the places I went, but I didn’t actually know how to work with geospatial data in Python yet. I had this grand idea that I’d learn spatial data techniques while on my trip, but turns out hiking, drinking beer while watching the sunset, and going to bed early were way more compelling ways to spend my time. Luckily for me, one of the most fun parts of my new job has been learning geospatial coding and plotting techniques. I’ve been having fun with it in my job, and I realized that it also means I get to finally make my map!
+
+<strong><a href="http://localhost:4000/posts/2020/02/road-trip-map" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink">A Well-Kept Secret for Finding a Job post-PhD
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  8 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-01-25T00:00:00-08:00">January 25, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>During my PhD, I performed a lot of exit interviews with graduating students and learned that finding a job is often the most stressful part of graduating, and among the most stressful in the entire PhD. After my own defense, however, I was able to avoid some of that stress by discovering a valuable post-PhD job option that I had rarely heard discussed: getting a part-time or consulting gig after graduating to hold you over while you figure out your next full-time non-academic career move.
+
+<strong><a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    </script>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Dzakwan Falih. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -265,3 +265,6 @@ it: &DEFAULT_IT
   loading_label              :
 it-IT:
   <<: *DEFAULT_IT
+
+# Another locale
+# --------------

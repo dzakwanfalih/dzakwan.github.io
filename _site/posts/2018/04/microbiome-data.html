@@ -1,0 +1,887 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>An empirical analysis of microbiome data availability - Dzakwan Falih</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Dzakwan Falih">
+<meta property="og:title" content="An empirical analysis of microbiome data availability">
+
+
+  <link rel="canonical" href="http://localhost:4000/posts/2018/04/microbiome-data">
+  <meta property="og:url" content="http://localhost:4000/posts/2018/04/microbiome-data">
+
+
+
+  <meta property="og:description" content="My labmate sent us a paper called “An empirical analysis of journal policy effectiveness for computational reproducibility” recently, and obviously I (1) got very excited and (2) wondered if I could do something similar from my own experience gathering microbiome datasets.">
+
+
+
+  <meta name="twitter:site" content="@dzakwanfalihh">
+  <meta name="twitter:title" content="An empirical analysis of microbiome data availability">
+  <meta name="twitter:description" content="My labmate sent us a paper called “An empirical analysis of journal policy effectiveness for computational reproducibility” recently, and obviously I (1) got very excited and (2) wondered if I could do something similar from my own experience gathering microbiome datasets.">
+  <meta name="twitter:url" content="http://localhost:4000/posts/2018/04/microbiome-data">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-04-17T00:00:00-07:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Dzakwan Falih",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Dzakwan Falih Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Dzakwan Falih</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/travel/">Road trip</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/gue.jpeg" class="author__avatar" alt="Dzakwan Falih">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name"><a href="/">Dzakwan Falih</a></h3>
+    <p class="author__bio">reformed cyber criminal @ cyber space</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Cyber Space, Internet</li>
+      
+      
+      
+      
+        <li><a href="https://keybase.io/dzakwanfalih"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
+      
+      
+        <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+      
+      
+        <li><a href="https://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+        <li><a href="https://instagram.com/dzakwanfalih_2.0"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://scholar.google.com/citations?hl=en&user=ZFuwjiIAAAAJ"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+      
+      
+      
+      
+      
+        <li><a href="mailto:dzakwanfaliht@hotmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="An empirical analysis of microbiome data availability">
+    <meta itemprop="description" content="My labmate sent us a paper called “An empirical analysis of journal policy effectiveness for computational reproducibility” recently, and obviously I (1) got very excited and (2) wondered if I could do something similar from my own experience gathering microbiome datasets.">
+    <meta itemprop="datePublished" content="April 17, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">An empirical analysis of microbiome data availability
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  12 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-04-17T00:00:00-07:00">April 17, 2018</time></p>
+        
+        
+             
+        
+    
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>My labmate sent us a <a href="http://www.pnas.org/content/115/11/2584">paper</a> called <a href="http://www.pnas.org/content/115/11/2584">“An empirical analysis of journal policy effectiveness for computational reproducibility”</a> recently, and obviously I (1) got very excited and (2) wondered if I could do something similar from my own experience gathering microbiome datasets.</p>
+
+<p>Now, before I begin I want to point out some obvious differences between this blog post and the paper which might lead to lower data availability success rates: I specifically targeted microbiome case-control datasets, and not every paper was published in a journal that had requirements on data availability.
+Also, many of the datasets I found were generated by teams of clinicians with (I imagine) even less computational support than the majority of the researchers on the predominantly-computational studies that these authors identified.
+On the other hand, I did bias my search toward papers which were more likely to have data available by focusing on 16S sequencing data only, which does have a standardized way to be shared and made available.</p>
+
+<p>That said, I think it’s still an interesting exercise to quantify success rates and difficulties in acquiring data.
+I once saw a talk by <a href="http://www.greenelab.com/">Casey Greene</a> which quantified the amount of money represented by a subset of data in the SRA, just considering sequencing costs.
+I was tempted to do something similar for my paper, but decided against it.
+Either way, it’s an important message: the data we generate is <em>worth actual money</em> and it seems like a shame for it to only serve one purpose, if it could serve more!
+Like the saying goes… <em>reuse</em>, reduce, and recycle! :P</p>
+
+<p>And a final caveat: replicating and reproducing results are not the same thing.
+(<a href="https://simplystatistics.org/2016/08/24/replication-crisis/">Simply Statistics</a> has a great explanation of this difference).
+In my opinion, replicating computational work should be an absolute expectation.
+Reproducing results/experiments, on the other hand, can be trickier.</p>
+
+<p>Here’s how the authors of the <a href="http://www.pnas.org/content/115/11/2584">replicability paper in PNAS</a> went about their analysis:</p>
+
+<ol>
+  <li>Identify potential papers (in their case, articles “whose findings relied on the use of computational and data-enabled methods”; in my case case-control gut microbiome 16S datasets.)</li>
+  <li>Try to find the data
+    <ul>
+      <li>Count how many articles had enough info just from the paper to find the data and code.</li>
+      <li>For the others, email the authors and track:
+        <ul>
+          <li>How many responded favorably vs. unfavorably</li>
+          <li>How many responded but then led to a dead end</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Try to replicate the results, keeping track of how much extra work it took them to succeed.</li>
+</ol>
+
+<p>Since in the <a href="https://www.nature.com/articles/s41467-017-01973-8">meta-analysis</a> I used the authors’ data to do my own re-analysis, the first two steps are the only relevant ones for me.</p>
+
+<p>As a side note, I did briefly look into reproducing a few papers’ results mostly as a sanity check for myself early on in the project and in my PhD.
+It was actually really hard to do, partially because I was learning everything from scratch but also because many of the steps were either not documented (so I had to figure them out by digging into the data), or they were scattered throughout the paper (a complaint noted in the PNAS paper).
+And going through each paper to extract which OTUs they reported as significant and compare them with our results (the ~30-page supplement wrangled together by my co-author-in-crime Sean Gibbons) was extremely painful, to say the least.</p>
+
+<p>Okay, but back to the data!
+Looking back at my master spreadsheet of datasets (which is a huge mess, full disclosure), it looks like I looked through 58 studies.
+I found about 10 more which I didn’t get around to reading the paper/looking for the data, so for now let’s stick with these 58.</p>
+
+<h2 id="success-stories">Success stories</h2>
+
+<p>Of the 58 studies in my spreadsheet, 28 (48%) were included in my <a href="https://www.nature.com/articles/s41467-017-01973-8">meta analysis</a>.
+This means that I had the raw data, processing information (e.g. barcodes map, primer sequences if applicable, etc), and metadata mapping samples to controls or cases.
+It also looks like I have the full data for 4 more of these studies, I just didn’t get around to including them in the meta-analysis or the data was posted after I had stopped adding studies.
+So, in total I was able to successful acquire data for about half of the studies I identified.
+Wow! That’s pretty low. My collection process spanned at least a year, and I really enriched for studies that would have been more likely to have data available…</p>
+
+<p>Overall, the majority of my “successful” datasets deposited their data in public databases (24 out of 32, 75%).
+18 put their data in the SRA, 5 in the ENA, and 1 in MG-RAST.
+3 studies posted their data on a separate author-provided website, and I emailed the corresponding authors of the 5 remaining studies.</p>
+
+<p>But the story doesn’t end with raw data, because to do almost anything useful with raw data you need to know the associated metadata.
+In my case, that was clinical case/control status.
+Of the 27 studies with raw data publicly available on the internet without needing to email the authors (24 in databases + 3 from author-provided links), 17 provided the metadata along with the raw data (though a couple of the SRA datasets had the metadata in a really strange place, like the SRR sample description field), and 6 studies provided the metadata in the paper’s supplement (a few of which were in pdfs, ugh).
+There were also two examples of studies available online where the metadata was encoded in the sample ID, and I had to infer the case/control status from that.
+I had to email 2 authors to get the clinical metadata, even though their raw data was available.</p>
+
+<h2 id="unsuccessful-stories">Unsuccessful stories</h2>
+
+<p>Ok, but that’s not the most interesting part of this analysis (or the PNAS paper).
+What about the other 26 studies which I couldn’t get data for?</p>
+
+<h3 id="not-all-data-is-deposited-equally">Not all data is deposited equally</h3>
+
+<p>Two of these unsuccessful studies were available in <a href="https://www.ncbi.nlm.nih.gov/gap">dbGaP</a>, an NCBI database that is not public because it contains sensitive human data.
+I didn’t want to bother going through all the approvals to get access to these data, and I think that unless someone <em>really</em> wanted to use a study specifically in dbGaP, they wouldn’t either.
+This is actually an interesting commentary on the state of microbiome science: we still haven’t reached consensus on how “private” or “protected” microbiome data should be.
+But that’s a conversation for another day…</p>
+
+<p>Interestingly, 5 of the studies that I couldn’t get full data for were in the SRA and 2 had raw data available somewhere other than the SRA.
+3 of these studies were excluded because I could not get ahold of clinical metadata: I emailed 2 of them with no response, and didn’t get around to emailing the third.
+I excluded one of these studies because the data was weirdly trimmed to a very short length, and I didn’t really trust it.
+The last dataset was pretty wild: they collected multiple samples per patient, but lost the patient identifiers when they uploaded the data to the SRA.
+I emailed them, and they confirmed that this is what happened (and recommended that I treat the samples independently, which is definitely not correct).
+Of the 2 non-SRA datasets, one didn’t have associated clinical metadata and the other pointed to an MG-RAST project which didn’t seem to exist.
+There was also one additional dataset that had an SRA accession number, but which was a dead link.</p>
+
+<h3 id="emails-upon-emails">Emails upon emails</h3>
+
+<p>I emailed the authors of 16 of these studies for data; 3 (19%) responded and got me the data.
+I ended up not following through on 2 of them (getting clinical metadata, checking that I had everything I needed, etc) because it was pretty late in my meta-analysis and I had a paper to write.
+One of these responsive authors sent me a dropbox folder full of a jumble of files in folders upon folders.
+I was pretty annoyed at the state of these Dropbox folders, because it seemed like they’d made zero effort to clean them up for a non-them audience.
+I (was very grumpy and) decided it was way too much of a hassle to figure out and instead opted not to include this study in my analysis.</p>
+
+<p>I got no response from 6 (35%) of the authors I emailed - womp.</p>
+
+<p>Two of the authors replied, but then were lost to follow-up - one put me in touch with someone else who didn’t respond, and the other had to ask their ethics committee for approval and then didn’t follow up with me.</p>
+
+<p>Interestingly, 5 of the authors I emailed were in the process of putting their data on the SRA.
+I was sending these emails in the Fall of 2016; 3 of these papers were published in 2016, and 2 were published in 2015.
+In my email communications, one said they were preparing to publish their dataset, another had some back and forth with the SRA because their data wasn’t where they expected it to be, and another threw me some serious shade:</p>
+
+<blockquote>
+  <p>If you have not done this before, transferring files to NCBI is a time-consuming, painstaking process. After much back and forth with them, the samples are available here.</p>
+</blockquote>
+
+<p>I didn’t follow up on these 5 studies because, again, it was late in my analysis - so perhaps if I had, they would have bumped up the success rate.</p>
+
+<h3 id="drama-drama">Drama drama</h3>
+
+<p>Some juicy stuff did happen in this journey.
+One corresponding author I emailed mentioned some dispute between people in the lab of the person who generated the data, such that the corresponding author’s main point of contact no longer had access to the data.
+One author, whose data is on the SRA but didn’t match the sample numbers reported in the paper, sent me a dropbox link to the fasta files.
+When I asked for the raw fastq’s, he said that they are probably somewhere on the server from his former institution, but now that he’s moved on he wouldn’t know how to access them.
+And, there was the previously-mentioned samples which lost their subject ID mappings.
+Also, in a different project than this one I encountered an author who had simply lost their raw data: they said they’d switched computers since the time of the publication, and didn’t know where the data had gone to or if it even still existed.</p>
+
+<p>All of these situations are unacceptable, in my opinion.
+Data costs money and has value so far beyond its originally published findings.
+We really need to find ways to incentivize, value, and simplify data deposition so that data is not lost to people moving on, computers not being backed up, or personal conflicts getting in the way of collaborations.
+<em>&lt;/soapbox rant&gt;</em></p>
+
+<h2 id="in-conclusion-deposit-your-data">In conclusion: deposit your data!</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Complete data?</th>
+      <th>Raw data source</th>
+      <th>N</th>
+      <th>Metadata source</th>
+      <th>N</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Yes (32)</td>
+      <td>Databases</td>
+      <td>24</td>
+      <td>Same database</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Another database</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Paper supplement</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Email authors</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Other internet</td>
+      <td>3</td>
+      <td>Same website</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Paper supplement</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Emailed</td>
+      <td>5</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>No  (26)</td>
+      <td>Databases</td>
+      <td>6</td>
+      <td>Same database</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Study doesn’t exist</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Paper supplement</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Email authors</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Other internet</td>
+      <td>1</td>
+      <td>Email authors</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Paper supplement</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>dbGaP</td>
+      <td>2</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Emailed</td>
+      <td>17</td>
+      <td>No response</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Lost to follow up</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>In process of uploading to SRA</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Provided data, but I didn’t follow through</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>I didn’t email</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Not only were the majority of my successfully re-used datasets ones which I got from the internet, they were also way less painful to download and process.
+Emailing corresponding authors is not the way to go.
+I remember feeling so bad about continuing to pester authors about the data I needed, especially since I knew that in many cases they were fairly far removed from the people who’d actually done the computational work.
+So save yourself the hassle, save your future <a href="http://researchparasite.com/">research parasites</a> the hassle, skip the middle person and just put your raw data and associated metadata in publicly available databases!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#microbiome" class="page__taxonomy-item" rel="tag">microbiome</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#reproducible-science" class="page__taxonomy-item" rel="tag">reproducible-science</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2018/04/microbiome-data" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2018/04/microbiome-data" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/posts/2018/04/microbiome-data" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2018/04/microbiome-data" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/posts/2018/04/aws-s3-access" class="pagination--pager" title="Getting access, logging into, and using AWS S3
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/posts/2018/04/upload-sra-aws" class="pagination--pager" title="Uploading data to the SRA with AWS
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink">Resources for pivoting to public health data science
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-01-09T00:00:00-08:00">January 09, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>About two years into my PhD, I realized that the field I actually wanted to be in was public health, not necessarily biological engineering. Around the same time, I also fell in love with coding and data science. That’s when I realized that combining public health and data science could be an ideal career path for my technical abilities and interests and my desire to have social impact. But immersed in the world of academia, at an institution without a school of public health, and with mentors who had all chosen routes in biotech or academia, it was really hard to learn more about my options for pivoting to a career in public health.
+
+<strong><a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink">Racism as a public health crisis: how wastewater epidemiology fits in
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-06-10T00:00:00-07:00">June 10, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Today is the <a href="https://www.particlesforjustice.org/">Strike for Black Lives</a> and a day to <a href="https://www.shutdownstem.com/">#ShutDownSTEM</a>. For white people like me, today is about recognizing and reflecting on the anti-Black racism in our society, and committing to specific actions toward ending white supremacy. One of my actions for today is to publicly reflect on how our work at <a href="www.biobot.io">Biobot Analytics</a> contributes to addressing – and potentially perpetuating – racism in public health.
+
+<strong><a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/02/road-trip-map" rel="permalink">Mapping my cross-country road trip with Python
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  27 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-02-09T00:00:00-08:00">February 09, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>When I was on my <a href="https://cduvallet.github.io/travel/">cross-country road trip</a> last year, I kept track of a lot of things in the hopes of doing amazing analyses when I got back. Turns out having a job as a data scientist makes it a lot harder to find time to do data science on the side, and so I’ve only really gotten a chance to look into my <a href="2019/07/road-trip-expenses-pt1">expenses</a>. One of the things I had really wanted to do was make a map of all the places I went, but I didn’t actually know how to work with geospatial data in Python yet. I had this grand idea that I’d learn spatial data techniques while on my trip, but turns out hiking, drinking beer while watching the sunset, and going to bed early were way more compelling ways to spend my time. Luckily for me, one of the most fun parts of my new job has been learning geospatial coding and plotting techniques. I’ve been having fun with it in my job, and I realized that it also means I get to finally make my map!
+
+<strong><a href="http://localhost:4000/posts/2020/02/road-trip-map" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink">A Well-Kept Secret for Finding a Job post-PhD
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  8 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-01-25T00:00:00-08:00">January 25, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>During my PhD, I performed a lot of exit interviews with graduating students and learned that finding a job is often the most stressful part of graduating, and among the most stressful in the entire PhD. After my own defense, however, I was able to avoid some of that stress by discovering a valuable post-PhD job option that I had rarely heard discussed: getting a part-time or consulting gig after graduating to hold you over while you figure out your next full-time non-academic career move.
+
+<strong><a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    </script>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Dzakwan Falih. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

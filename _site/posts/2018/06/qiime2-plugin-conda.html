@@ -1,0 +1,872 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Turning your qiime2 plugin into a conda package - Dzakwan Falih</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Dzakwan Falih">
+<meta property="og:title" content="Turning your qiime2 plugin into a conda package">
+
+
+  <link rel="canonical" href="http://localhost:4000/posts/2018/06/qiime2-plugin-conda">
+  <meta property="og:url" content="http://localhost:4000/posts/2018/06/qiime2-plugin-conda">
+
+
+
+  <meta property="og:description" content="Once you’ve made your first qiime2 plugin, you’ll need to build it into a conda package and upload it to anaconda.org so others can easily install it.This tutorial is intended for first-time python developers trying to put their package into conda, and specifically targeted toward people developing plugins for QIIME 2.">
+
+
+
+  <meta name="twitter:site" content="@dzakwanfalihh">
+  <meta name="twitter:title" content="Turning your qiime2 plugin into a conda package">
+  <meta name="twitter:description" content="Once you’ve made your first qiime2 plugin, you’ll need to build it into a conda package and upload it to anaconda.org so others can easily install it.This tutorial is intended for first-time python developers trying to put their package into conda, and specifically targeted toward people developing plugins for QIIME 2.">
+  <meta name="twitter:url" content="http://localhost:4000/posts/2018/06/qiime2-plugin-conda">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-06-01T00:00:00-07:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Dzakwan Falih",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Dzakwan Falih Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Dzakwan Falih</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/travel/">Road trip</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/gue.jpeg" class="author__avatar" alt="Dzakwan Falih">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name"><a href="/">Dzakwan Falih</a></h3>
+    <p class="author__bio">reformed cyber criminal @ cyber space</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Cyber Space, Internet</li>
+      
+      
+      
+      
+        <li><a href="https://keybase.io/dzakwanfalih"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
+      
+      
+        <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+      
+      
+        <li><a href="https://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+        <li><a href="https://instagram.com/dzakwanfalih_2.0"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://scholar.google.com/citations?hl=en&user=ZFuwjiIAAAAJ"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+      
+      
+      
+      
+      
+        <li><a href="mailto:dzakwanfaliht@hotmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Turning your qiime2 plugin into a conda package">
+    <meta itemprop="description" content="Once you’ve made your first qiime2 plugin, you’ll need to build it into a conda package and upload it to anaconda.org so others can easily install it.This tutorial is intended for first-time python developers trying to put their package into conda, and specifically targeted toward people developing plugins for QIIME 2.">
+    <meta itemprop="datePublished" content="June 01, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Turning your qiime2 plugin into a conda package
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  12 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-06-01T00:00:00-07:00">June 01, 2018</time></p>
+        
+        
+             
+        
+    
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>Once you’ve <a href="/posts/2018/03/qiime2-plugin">made your first qiime2 plugin</a>, you’ll need to build it into a conda package and upload it to anaconda.org so others can easily install it.
+This tutorial is intended for first-time python developers trying to put their package into conda, and specifically targeted toward people developing plugins for <a href="https://qiime2.org/">QIIME 2</a>.</p>
+
+<h1 id="quickstart">Quickstart</h1>
+
+<p>1. Install <code class="language-plaintext highlighter-rouge">conda</code> and <code class="language-plaintext highlighter-rouge">conda-build</code>.</p>
+
+<p>2. Make the files that make up the conda recipe (<code class="language-plaintext highlighter-rouge">meta.yaml</code>, which needs you to use your brain, and <code class="language-plaintext highlighter-rouge">build.sh</code> and <code class="language-plaintext highlighter-rouge">bld.bat</code> which you just copy from the internet)</p>
+
+<p>3. Build your package with <code class="language-plaintext highlighter-rouge">conda-build</code> (if making a qiime2 plugin, you’ll need additional channels).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> conda-build pyinstrument/ \
+  -c https://conda.anaconda.org/qiime2/label/r2018.4 \
+  -c https://conda.anaconda.org/qiime2 \
+  -c https://conda.anaconda.org/conda-forge \
+  -c defaults \
+  -c https://conda.anaconda.org/bioconda \
+  -c https://conda.anaconda.org/biocore \
+  --override-channels \
+  --python 3.5
+</code></pre></div></div>
+
+<p>4. Install your package locally.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> conda install --offline /path/to/file.tar.bz2
+</code></pre></div></div>
+
+<p>5. Try using your package (if you’re installing a qiime2 plugin, try running it in a qiime environment).</p>
+
+<p>6. Upload to Anaconda.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> anaconda upload /path/to/file.tar.bz2
+</code></pre></div></div>
+
+<p>7. Profit!</p>
+
+<h1 id="documentation">Documentation</h1>
+
+<p>Before you start, here is some useful documentation to be aware of.</p>
+
+<p>The conda tutorials are short and informative. You should read the <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html">tutorial using <code class="language-plaintext highlighter-rouge">skeleton</code></a> first, then and then the tutorial on <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs.html">building a package from scratch</a>, regardless of which way you plan to build your package.</p>
+
+<h1 id="step-by-step-process">Step by step process</h1>
+
+<h2 id="install-conda-and-conda-build">Install conda and conda-build</h2>
+
+<p>Follow the <a href="https://conda.io/docs/user-guide/tasks/build-packages/install-conda-build.html">instructions</a> to install and update <code class="language-plaintext highlighter-rouge">conda</code> and <code class="language-plaintext highlighter-rouge">conda-build</code>.</p>
+
+<h2 id="read-the-tutorials">Read the tutorials</h2>
+
+<p>Even if you’ll be making your package from scratch, start with the <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html">“building packages with skeleton” tutorial</a> and then read the <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs.html">“building packages from scratch” one</a>.</p>
+
+<h2 id="make-your-conda-recipe">Make your conda recipe</h2>
+
+<p>Packages are specified in a <code class="language-plaintext highlighter-rouge">recipe</code>, which as far as I can tell means “a collection of files that describe what the package needs and how to install it.” A detailed explanation of the files that you need can be found <a href="https://conda.io/docs/user-guide/tasks/build-packages/recipe.html">here</a>.
+The recipe is just three files: <code class="language-plaintext highlighter-rouge">meta.yaml</code>, <code class="language-plaintext highlighter-rouge">build.sh</code>, and <code class="language-plaintext highlighter-rouge">build.bat</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">meta.yaml</code> - This contains all the metadata in the recipe, and is the part that you need to use your human brain to fill out. Specifically, you need to tell <code class="language-plaintext highlighter-rouge">conda-build</code> where to find the source code (either a local path or to a github release), and you also specify the requirements that your package needs. Also, if you want to build a platform-independent version of your package, you specify this in here too.</li>
+  <li><code class="language-plaintext highlighter-rouge">bld.bat</code> - this file commands the Windows commands to build the package. You can copy it from the <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs.html#writing-the-build-script-files-build-sh-and-bld-bat">conda “from scratch” tutorial</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">build.sh</code> - this file contains the macOS and Linux commands to build the package, i.e. just <code class="language-plaintext highlighter-rouge">python setup.py install</code>. You can also copy it from the <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs.html#writing-the-build-script-files-build-sh-and-bld-bat">conda “from scratch” tutorial</a>.</li>
+</ul>
+
+<h3 id="metayaml">meta.yaml</h3>
+
+<p><code class="language-plaintext highlighter-rouge">meta.yaml</code> is the workhorse of package building, and is where you specify basically everything about your package.
+The <a href="https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html">conda “building packages” documentation</a> explains all the parts of this file and gives examples.</p>
+
+<p>For the anyone new to the <code class="language-plaintext highlighter-rouge">yaml</code> data format, note that the top-level IDs in the file don’t get filled out!</p>
+
+<h4 id="source">source</h4>
+
+<p>This tells <code class="language-plaintext highlighter-rouge">conda-build</code> where to look for the code when it builds your package.
+You can point to either a github release or to a local path.
+Note that the way building a package works is that <code class="language-plaintext highlighter-rouge">conda-build</code> looks for the code specified in the <code class="language-plaintext highlighter-rouge">source</code> part of <code class="language-plaintext highlighter-rouge">meta.yaml</code> and does some magic which produces a <code class="language-plaintext highlighter-rouge">.tar.bz2</code> file that contains your package.
+This <code class="language-plaintext highlighter-rouge">.tar.bz2</code> file is the thing you upload to anaconda.org, and which people download when they run <code class="language-plaintext highlighter-rouge">conda install</code>.
+This means that whatever location you point to in <code class="language-plaintext highlighter-rouge">source</code> doesn’t need to be constantly updated.
+It also means that if you make changes to your code, you have to manually re-build the package and re-upload it for those changes to show up on conda.</p>
+
+<p>So, for simplicity’s sake, it’s often easier to just point <code class="language-plaintext highlighter-rouge">source</code> to the local path with your main package directory (i.e. the folder that has your <code class="language-plaintext highlighter-rouge">setup.py</code> file).
+In this case, that looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source:
+  path: ../
+</code></pre></div></div>
+
+<p>But you can also point it to a github <em>release</em>, like in the conda documentation example. You can find your releases (or make new ones) by going to your repo on github.com, clicking on <code class="language-plaintext highlighter-rouge">Release</code> (in the same bar as where your commits, branches, and contributors are shown), and following the directions there.</p>
+
+<p>An important note that if you make and push changes to your code and re-build your package, <code class="language-plaintext highlighter-rouge">conda-build</code> will still be looking at whatever <em>release</em> you point it to - so you need to make a new release with your changes! (This cost me like an hour of debugging, d’oh!)</p>
+
+<h4 id="requirements">requirements</h4>
+
+<p>This part tells <code class="language-plaintext highlighter-rouge">conda-build</code> and <code class="language-plaintext highlighter-rouge">conda</code> what other packages your package needs. You need to populate this section yourself. Note that if you want to specify specific package versions, the syntax is <code class="language-plaintext highlighter-rouge">package_name &gt;=version</code>, with no space between the <code class="language-plaintext highlighter-rouge">&gt;=</code> and the version number.</p>
+
+<p><a href="https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#requirements">This requirements section</a> can have multiple sub-sections, but as far as I can tell all you really need (for a simple package, like a qiime2 plugin) are the <code class="language-plaintext highlighter-rouge">build:</code> and <code class="language-plaintext highlighter-rouge">run:</code> sections.
+The <code class="language-plaintext highlighter-rouge">build</code> section has whatever packages are in your <code class="language-plaintext highlighter-rouge">setup.py</code> script (or whatever command is in your <code class="language-plaintext highlighter-rouge">build.sh</code> file), the <code class="language-plaintext highlighter-rouge">run</code> section has whatever packages you need to run your package.</p>
+
+<h4 id="architecture-independent-package">architecture-independent package</h4>
+
+<p>I don’t know very much about what’s going on here, but if you don’t do the following steps, your built conda package will only be installable on machines that have the same OS as yours.</p>
+
+<p>The QIIME 2 developers briefly explained it as follows in <a href="https://forum.qiime2.org/t/package-uploaded-to-anaconda-but-not-installable/4139/3?u=cduvallet">response to one of my questions</a>:</p>
+
+<blockquote>
+  <p>The <a href="https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#architecture-independent-packages">noarch package</a> lets you upload one build that is compatible on multiple platforms - the caveat here is that it is up to you to know if that is the case or not.</p>
+</blockquote>
+
+<p>To make architecture-independent package, also add this to your <code class="language-plaintext highlighter-rouge">meta.yaml</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>build:
+	noarch: generic
+</code></pre></div></div>
+
+<p>If you do <code class="language-plaintext highlighter-rouge">noarch: python</code> instead, this indicates that your package can use either Python 2 <em>or</em> 3 (and is also architecture-independent).</p>
+
+<h3 id="build-files">build files</h3>
+
+<p>There’s no magic here if you already have a <code class="language-plaintext highlighter-rouge">setup.py</code> file, because the <code class="language-plaintext highlighter-rouge">build</code> files just call whatever command you call to install your package (e.g. <code class="language-plaintext highlighter-rouge">python setup.py install</code>).
+The <code class="language-plaintext highlighter-rouge">build.sh</code> and <code class="language-plaintext highlighter-rouge">bld.bat</code> files are thus very simple, and can be copied from the <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs.html#writing-the-build-script-files-build-sh-and-bld-bat">conda “from scratch” tutorial</a>.</p>
+
+<p>Note: these are instructions for if you have something simple that can directly be installed with <code class="language-plaintext highlighter-rouge">python setup.py install</code>. I have no idea what happens if you have something more complicated that you need to do.</p>
+
+<h2 id="build-your-package">Build your package</h2>
+
+<p>Go to your repo’s root directory, and run <code class="language-plaintext highlighter-rouge">conda-build pyinstrument/</code>. This assumes you put your <code class="language-plaintext highlighter-rouge">meta.yaml</code> and build files in a folder called <code class="language-plaintext highlighter-rouge">pyinstrument</code>.</p>
+
+<p>If you’re working on a qiime plugin, that probably won’t work, because you need to tell conda to look for things in lots of different channels and do some other stuff. Thankfully, the qiime2 <a href="https://dev.qiime2.org/latest/publishing/">development docs</a> are helpful here!</p>
+
+<p>To build a qiime2 plugin, the command you have to run is actually:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> conda-build pyinstrument/ \
+  -c https://conda.anaconda.org/qiime2/label/r2018.4 \
+  -c https://conda.anaconda.org/qiime2 \
+  -c https://conda.anaconda.org/conda-forge \
+  -c defaults \
+  -c https://conda.anaconda.org/bioconda \
+  -c https://conda.anaconda.org/biocore \
+  --override-channels \
+  --python 3.5
+</code></pre></div></div>
+
+<h3 id="install-your-package">Install your package</h3>
+
+<p>The <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs.html#building-and-installing">conda documentation</a> says you can now install your package with the <code class="language-plaintext highlighter-rouge">--use-local</code> flag:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install --use-local pyinstrument/
+</code></pre></div></div>
+
+<p>However, this didn’t work for me (it says that the package isn’t found). Rather than troubleshoot this, I found out that you can also install a package directly from the <code class="language-plaintext highlighter-rouge">tar.bz2</code> file that you just made with the <code class="language-plaintext highlighter-rouge">--offline</code> flag in <code class="language-plaintext highlighter-rouge">conda-build</code>.</p>
+
+<p>If you go back to the output of your conda-build command, you should be able to find the path that this <code class="language-plaintext highlighter-rouge">.tar.bz2</code> file was saved to. Something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/claire/anaconda/conda-bld/osx-64/q2_perc_norm-1.0-py35_0.tar.bz2
+</code></pre></div></div>
+
+<p>So you can try to install the package directly from this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install --offline /Users/claire/anaconda/conda-bld/osx-64/q2_perc_norm-1.0-py35_0.tar.bz2
+</code></pre></div></div>
+
+<p>Ok, looks like that worked! Woooo!</p>
+
+<h3 id="test-your-package">Test your package</h3>
+
+<p>If you’re a noob like me and didn’t include any unit tests in your package, you’ll want to make sure that your package will actually work once it’s installed.</p>
+
+<p>A note that if you’re developing a QIIME 2 plugin, you probably want to be in a new qiime environment so you don’t mess things up too badly… (If you’ve forgotten, like I have, go to the Quickstart dev docs to remind yourself how to do this: https://dev.qiime2.org/latest/quickstart/)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/qiime2/environment-files/master/latest/staging/qiime2-latest-py35-osx-conda.yml
+conda <span class="nb">env </span>create <span class="nt">-n</span> qiime2-dev-condatest <span class="nt">--file</span> qiime2-latest-py35-osx-conda.yml
+<span class="nb">source </span>activate qiime2-dev-condatest
+</code></pre></div></div>
+
+<p>Then, you can just type in <code class="language-plaintext highlighter-rouge">qiime</code> to your command line and see if (1) you get no errors and (2) your plugin shows up in the list of available plugins.</p>
+
+<h4 id="troubleshooting-citationsbib-error">Troubleshooting <code class="language-plaintext highlighter-rouge">citations.bib</code> error</h4>
+
+<p>In my case, this didn’t work. If I tried to run anything with qiime (e.g. <code class="language-plaintext highlighter-rouge">qiime list</code>), I got an error that it can’t find my <code class="language-plaintext highlighter-rouge">citations.bib</code> file. That’s because I need to tell <code class="language-plaintext highlighter-rouge">setuptools</code> that it needs to grab additional data beyond just <code class="language-plaintext highlighter-rouge">*.py</code> files, which it does automatically. Looking at the <a href="https://github.com/qiime2/q2-cutadapt/blob/master/setup.py">cutadapt</a> plugin, looks like I just need to add this to <code class="language-plaintext highlighter-rouge">setup.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setup(
+    name="perc-norm",
+	...
+    package_data={
+        'q2_perc_norm': ['citations.bib']
+    }
+)
+</code></pre></div></div>
+
+<p>(A small note: this file path should be given relative to the folder called <code class="language-plaintext highlighter-rouge">q2_perc_norm</code>, not to the main repo. Here, my citations file is in <code class="language-plaintext highlighter-rouge">~/github/q2_perc_norm/q2_perc_norm/citations.bib</code> and my <code class="language-plaintext highlighter-rouge">setup.py</code> file is in <code class="language-plaintext highlighter-rouge">~/github/q2_perc_norm/setup.py</code>. If you instead put <code class="language-plaintext highlighter-rouge">package_data={'q2_perc_norm': ['q2_perc_norm/citations.bib']}</code> in <code class="language-plaintext highlighter-rouge">setup.py</code>, it won’t find the right file and you’ll keep getting the same error.)</p>
+
+<p>Now, I need to re-build and re-install and re-try.</p>
+
+<p>If re-installing doesn’t work, you might want to try clearing everything: uninstall your plugin, clear all the conda-build previous builds, and clear the conda cache. Then, try re-building, re-installing, and re-trying.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda uninstall q2_perc_norm
+conda build purge
+conda clean --all
+</code></pre></div></div>
+
+<p>Another note that if the <code class="language-plaintext highlighter-rouge">source</code> in your <code class="language-plaintext highlighter-rouge">meta.yaml</code> points to a github release of your code, you should re-point this to a release that includes any changes you’ve made (i.e. if you’ve pushed changes to your github repo, you need to make a new release which includes those changes, and change the release that <code class="language-plaintext highlighter-rouge">meta.yaml</code> points to). This is why pointing to a local path might reduce some headaches!</p>
+
+<h1 id="upload-it-to-anaconda">Upload it to Anaconda</h1>
+
+<p>Once you’ve successfully built and installed your package (or plugin) and made sure that it works as expected, the last step is to upload it to anaconda.</p>
+
+<p>Following the <a href="https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html#optional-uploading-packages-to-anaconda-org">directions in the documentation</a> (after making an anaconda.org account), it’s really easy:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>anaconda upload /Users/claire/anaconda/conda-bld/noarch/q2_perc_norm-2018.4.0-py35_0.tar.bz2
+</code></pre></div></div>
+
+<h1 id="install-the-package-from-conda">Install the package from conda</h1>
+
+<p>Your final step is to try installing the package from conda. Make sure you’ve uninstalled any local versions that you have, and that you’re not in the package’s directory when you try to <code class="language-plaintext highlighter-rouge">conda install</code> your new package. You’ll need to include your channel in the call to <code class="language-plaintext highlighter-rouge">conda install</code>, but you can just copy and paste this from <a href="https://anaconda.org/cduvallet/q2_perc_norm">your package’s installation instructions</a> on anaconda.org.</p>
+
+<p>If you’re working on a qiime2 plugin, you’ll want to make sure you’re in the qiime2 environment (otherwise, conda doesn’t know where to find all the qiime2-related modules and packages) and with the latest version of qiime2.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source activate qiime2-2018.4
+conda install -c cduvallet q2_perc_norm
+</code></pre></div></div>
+
+<p>Another “gotcha!” that got me is that if you want to see which packages are available in your channel (i.e. your account), you can run this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda search -c &lt;your_channel_name&gt;
+</code></pre></div></div>
+
+<h1 id="side-note-including-pip-packages">Side note: including pip packages</h1>
+
+<p>If one of your requirements is a package on pip, you’ll need to first put it into conda before you can make your plugin conda-installable. (From <a href="https://github.com/conda/conda-build/issues/548">this still open issue</a> on conda, seems like this is currently the only way!)
+This happened to me in building my <a href="https://github.com/cduvallet/q2-dbotu">distribution-based OTU calling</a> plugin.</p>
+
+<p>Thankfully, if the package is already pip-installable, this shouldn’t be too difficult. <code class="language-plaintext highlighter-rouge">conda skeleton</code> can help you get started:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda skeleton pypi dbotu
+</code></pre></div></div>
+
+<p>This makes a folder called <code class="language-plaintext highlighter-rouge">dbotu</code> with a <code class="language-plaintext highlighter-rouge">meta.yaml</code> file in it. Then, because it has the build command directly in the <code class="language-plaintext highlighter-rouge">meta.yaml</code> file, you can just try building a conda package from this directly:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda-build meta.yaml
+</code></pre></div></div>
+
+<p>Note that if you need to look in different conda channels for certain requirements, this will break. You can fix it with something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda-build meta.yaml -c conda-forge
+</code></pre></div></div>
+
+<p>Then, go through the process of building, testing, and uploading your package to anaconda.org.
+After that, you can get back to developing your QIIME 2 plugin.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#coding" class="page__taxonomy-item" rel="tag">coding</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#conda" class="page__taxonomy-item" rel="tag">conda</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#portfolio" class="page__taxonomy-item" rel="tag">portfolio</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#python" class="page__taxonomy-item" rel="tag">python</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#qiime2" class="page__taxonomy-item" rel="tag">qiime2</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2018/06/qiime2-plugin-conda" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2018/06/qiime2-plugin-conda" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/posts/2018/06/qiime2-plugin-conda" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2018/06/qiime2-plugin-conda" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/posts/2018/05/gender-conference-experience" class="pagination--pager" title="Gendered experiences at a male-dominated conference
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/posts/2018/06/fuzzy-zeros" class="pagination--pager" title="Fuzzy zeros in percentile normalization
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink">Resources for pivoting to public health data science
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-01-09T00:00:00-08:00">January 09, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>About two years into my PhD, I realized that the field I actually wanted to be in was public health, not necessarily biological engineering. Around the same time, I also fell in love with coding and data science. That’s when I realized that combining public health and data science could be an ideal career path for my technical abilities and interests and my desire to have social impact. But immersed in the world of academia, at an institution without a school of public health, and with mentors who had all chosen routes in biotech or academia, it was really hard to learn more about my options for pivoting to a career in public health.
+
+<strong><a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink">Racism as a public health crisis: how wastewater epidemiology fits in
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-06-10T00:00:00-07:00">June 10, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Today is the <a href="https://www.particlesforjustice.org/">Strike for Black Lives</a> and a day to <a href="https://www.shutdownstem.com/">#ShutDownSTEM</a>. For white people like me, today is about recognizing and reflecting on the anti-Black racism in our society, and committing to specific actions toward ending white supremacy. One of my actions for today is to publicly reflect on how our work at <a href="www.biobot.io">Biobot Analytics</a> contributes to addressing – and potentially perpetuating – racism in public health.
+
+<strong><a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/02/road-trip-map" rel="permalink">Mapping my cross-country road trip with Python
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  27 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-02-09T00:00:00-08:00">February 09, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>When I was on my <a href="https://cduvallet.github.io/travel/">cross-country road trip</a> last year, I kept track of a lot of things in the hopes of doing amazing analyses when I got back. Turns out having a job as a data scientist makes it a lot harder to find time to do data science on the side, and so I’ve only really gotten a chance to look into my <a href="2019/07/road-trip-expenses-pt1">expenses</a>. One of the things I had really wanted to do was make a map of all the places I went, but I didn’t actually know how to work with geospatial data in Python yet. I had this grand idea that I’d learn spatial data techniques while on my trip, but turns out hiking, drinking beer while watching the sunset, and going to bed early were way more compelling ways to spend my time. Luckily for me, one of the most fun parts of my new job has been learning geospatial coding and plotting techniques. I’ve been having fun with it in my job, and I realized that it also means I get to finally make my map!
+
+<strong><a href="http://localhost:4000/posts/2020/02/road-trip-map" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink">A Well-Kept Secret for Finding a Job post-PhD
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  8 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-01-25T00:00:00-08:00">January 25, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>During my PhD, I performed a lot of exit interviews with graduating students and learned that finding a job is often the most stressful part of graduating, and among the most stressful in the entire PhD. After my own defense, however, I was able to avoid some of that stress by discovering a valuable post-PhD job option that I had rarely heard discussed: getting a part-time or consulting gig after graduating to hold you over while you figure out your next full-time non-academic career move.
+
+<strong><a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    </script>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Dzakwan Falih. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

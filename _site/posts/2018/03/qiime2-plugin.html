@@ -1,0 +1,822 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Developing a qiime2 plugin for non-developers - Dzakwan Falih</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Dzakwan Falih">
+<meta property="og:title" content="Developing a qiime2 plugin for non-developers">
+
+
+  <link rel="canonical" href="http://localhost:4000/posts/2018/03/qiime2-plugin">
+  <meta property="og:url" content="http://localhost:4000/posts/2018/03/qiime2-plugin">
+
+
+
+  <meta property="og:description" content="As a side project from the meta-analysis, we developed a method to correct for batch effects in microbiome case-control studies.When we posted the preprint on biorxiv, Greg Caporaso emailed Sean and asked him if he’d like to put our method into qiime2.I happily volunteered - I’d heard a presentation about qiime2 and was super pumped about their plugin setup, where anyone can incorporate their method into qiime’s suite of tools, and I was excited to see how doable it was.The learning curve was a little steep at first, but not as bad as I expected!Here, I’ve cleaned up my notes into a guide through my development process.I hope this is helpful to others like me, who aren’t trained computer scientists/developers, but who are keen and able to learn the programming stuff to make their tools more useful to more people.">
+
+
+
+  <meta name="twitter:site" content="@dzakwanfalihh">
+  <meta name="twitter:title" content="Developing a qiime2 plugin for non-developers">
+  <meta name="twitter:description" content="As a side project from the meta-analysis, we developed a method to correct for batch effects in microbiome case-control studies.When we posted the preprint on biorxiv, Greg Caporaso emailed Sean and asked him if he’d like to put our method into qiime2.I happily volunteered - I’d heard a presentation about qiime2 and was super pumped about their plugin setup, where anyone can incorporate their method into qiime’s suite of tools, and I was excited to see how doable it was.The learning curve was a little steep at first, but not as bad as I expected!Here, I’ve cleaned up my notes into a guide through my development process.I hope this is helpful to others like me, who aren’t trained computer scientists/developers, but who are keen and able to learn the programming stuff to make their tools more useful to more people.">
+  <meta name="twitter:url" content="http://localhost:4000/posts/2018/03/qiime2-plugin">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-03-27T00:00:00-07:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Dzakwan Falih",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Dzakwan Falih Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Dzakwan Falih</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/travel/">Road trip</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/gue.jpeg" class="author__avatar" alt="Dzakwan Falih">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name"><a href="/">Dzakwan Falih</a></h3>
+    <p class="author__bio">reformed cyber criminal @ cyber space</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Cyber Space, Internet</li>
+      
+      
+      
+      
+        <li><a href="https://keybase.io/dzakwanfalih"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
+      
+      
+        <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+      
+      
+        <li><a href="https://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+        <li><a href="https://instagram.com/dzakwanfalih_2.0"><i class="fa fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://scholar.google.com/citations?hl=en&user=ZFuwjiIAAAAJ"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+      
+      
+      
+      
+      
+        <li><a href="mailto:dzakwanfaliht@hotmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Developing a qiime2 plugin for non-developers">
+    <meta itemprop="description" content="As a side project from the meta-analysis, we developed a method to correct for batch effects in microbiome case-control studies.When we posted the preprint on biorxiv, Greg Caporaso emailed Sean and asked him if he’d like to put our method into qiime2.I happily volunteered - I’d heard a presentation about qiime2 and was super pumped about their plugin setup, where anyone can incorporate their method into qiime’s suite of tools, and I was excited to see how doable it was.The learning curve was a little steep at first, but not as bad as I expected!Here, I’ve cleaned up my notes into a guide through my development process.I hope this is helpful to others like me, who aren’t trained computer scientists/developers, but who are keen and able to learn the programming stuff to make their tools more useful to more people.">
+    <meta itemprop="datePublished" content="March 27, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Developing a qiime2 plugin for non-developers
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  8 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-03-27T00:00:00-07:00">March 27, 2018</time></p>
+        
+        
+             
+        
+    
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>As a side project from the meta-analysis, we developed a method to <a href="https://doi.org/10.1371/journal.pcbi.1006102">correct for batch effects in microbiome case-control studies</a>.
+When we posted the preprint on biorxiv, Greg Caporaso emailed Sean and asked him if he’d like to put our method into qiime2.
+I happily volunteered - I’d heard a presentation about qiime2 and was super pumped about their plugin setup, where anyone can incorporate their method into qiime’s suite of tools, and I was excited to see how doable it was.
+The learning curve was a little steep at first, but not as bad as I expected!
+Here, I’ve cleaned up my notes into a guide through my development process.
+I hope this is helpful to others like me, who aren’t trained computer scientists/developers, but who are keen and able to learn the programming stuff to make their tools more useful to more people.</p>
+
+<h1 id="developing-a-plug-in-for-dummies">Developing a plug-in for dummies</h1>
+
+<p>A first reminder that for any qiime2 functions to work, you need to be in the qiime2 virtual environment. If you’re trying to run things and getting errors like <code class="language-plaintext highlighter-rouge">ImportError: No module named qiime2</code>, then you’re probably not in the right environment.</p>
+
+<p>After following the qiime <a href="https://docs.qiime2.org/2018.2/install/native/#install-qiime-2-within-a-conda-environment">installation instructions</a>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source activate qiime2-2018.2
+</code></pre></div></div>
+
+<p>It’s also very helpful to look through multiple existing plugins to get a sense of how other people have done things. I recommend looking at more than one example, since this will give you a sense of which parameters/setup/styles are required, and which are flexible. Plugins that were really helpful to me when I made this were the <a href="https://github.com/JTFouquier/q2-ghost-tree">q2-ghost-tree</a> user-created plugin, as well as the massive <a href="https://github.com/qiime2/q2-diversity">q2-diversity</a> plugin (specifically the <code class="language-plaintext highlighter-rouge">q2_diversity.beta_group_significance</code> for its example using <code class="language-plaintext highlighter-rouge">MetadataColumn[Categorical]</code> data.</p>
+
+<h2 id="getting-started-babbys-first-plugin">Getting started (babby’s first plugin)</h2>
+
+<h3 id="make-the-repo-and-basic-files">Make the repo and basic files</h3>
+
+<p>First, make your repo. In the main directory, make a <code class="language-plaintext highlighter-rouge">setup.py</code> file that gives some broad info about your plugin to-be.</p>
+
+<p>Within the repo, make a directory with the same name as your plugin. In this folder, make your <code class="language-plaintext highlighter-rouge">plugin_setup.py</code> file.</p>
+
+<p><code class="language-plaintext highlighter-rouge">plugin_setup.py</code> is where you register all the functions/methods/visualizers that your plugin will have. In other words, these will be the things that your plugin <em>does</em>, the things you type after your plugin name (for example, <code class="language-plaintext highlighter-rouge">perc-norm percentile-normalize</code> for the registered <code class="language-plaintext highlighter-rouge">percentile-normalize</code> function).</p>
+
+<h3 id="basic-debugging">Basic debugging</h3>
+
+<p>Once you have your content set in <code class="language-plaintext highlighter-rouge">plugin_setup.py</code>, it’s good to start with some basic debugging to make sure there are no errors:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python plugin_setup.py
+</code></pre></div></div>
+
+<p>Note for debugging: if you want to run a script (e.g. <code class="language-plaintext highlighter-rouge">plugin_setup.py</code>) directly, make sure to add your main repo directory to your <code class="language-plaintext highlighter-rouge">PYTHONPATH</code> so that anything you import from your project in the scripts is discoverable.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PYTHONPATH=~/github/q2-perc-norm/
+</code></pre></div></div>
+
+<p>For example, it looks like the common practice is to have a file for each method in the same directory as <code class="language-plaintext highlighter-rouge">plugin_setup.py</code>. In the plugins I used as examples, these files are typically named <code class="language-plaintext highlighter-rouge">._method_name.py</code>, and are imported at the top of <code class="language-plaintext highlighter-rouge">plugin_setup.py</code> (e.g. <code class="language-plaintext highlighter-rouge">from._method_name import method_name</code>). This import statement only works if the folder is in your <code class="language-plaintext highlighter-rouge">PYTHONPATH</code>.</p>
+
+<p>As an alternative to messing with your <code class="language-plaintext highlighter-rouge">PYTHONPATH</code>, which is easy to forget to do each time, you can use <code class="language-plaintext highlighter-rouge">pip install -e .</code> from the main directory which contains <code class="language-plaintext highlighter-rouge">setup.py</code>.
+From what I understand, this installs an editable version in development mode in your current directory (you’ll see an <code class="language-plaintext highlighter-rouge">egg-info</code> directory after you run this).</p>
+
+<h3 id="install-the-plugin">Install the plugin</h3>
+
+<p>When you’re ready to actually try doing stuff, you’ll need to run <code class="language-plaintext highlighter-rouge">python setup.py install</code> (from the main repo folder) for your qiime plugin to be callable from the command line.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python setup.py install
+</code></pre></div></div>
+
+<p>If you’ve made updates to your plugin’s command line interface, don’t forget to <a href="https://docs.qiime2.org/2018.2/plugins/developing/#testing-your-plugin-with-q2cli-during-development">clear the cache</a> (<code class="language-plaintext highlighter-rouge">qiime dev refresh-cache</code>) before running this!</p>
+
+<p>Note that the name of your plugin is what you put in your <code class="language-plaintext highlighter-rouge">plugin_setup.py</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugin = Plugin(
+    name='perc-norm',
+    ...
+    )
+</code></pre></div></div>
+
+<p>You can double check that it worked by just typing <code class="language-plaintext highlighter-rouge">qiime</code> on the command line and seeing if your plugin shows up. Then, you can just try running the plugin:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qiime perc-norm
+</code></pre></div></div>
+
+<p>This will show you the general plugin info, and you should see all of the functions that you registered at the bottom:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(qiime2-2018.2) 19:24-claire:~/$ qiime perc-norm
+
+Usage: qiime perc-norm [OPTIONS] COMMAND [ARGS]...
+
+  Description: This QIIME 2 plugin performs a model-free normalization
+  procedure where features (i.e. bacterial taxa) in case samples are
+  converted to percentiles of the equivalent features in control samples
+  within a study prior to pooling data across studies.
+
+  Plugin website: http://www.github.com/cduvallet/q2-perc-norm
+
+  Getting user support: Raise an issue on the github repo:
+  https://github.com/cduvallet/q2-perc-norm
+
+  Citing this plugin: Sean Gibbons, Claire Duvallet, and Eric Alm.
+  "Correcting for batch effects in case-control microbiome studies". bioRxiv
+  (2017) https://doi.org/10.1101/165910
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  percentile-normalize  Percentile normalization
+</code></pre></div></div>
+
+<p>Then you can try running each function and see if the inputs are what you want them to be:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(qiime2-2018.2) 19:24-claire:~/$ qiime perc-norm percentile-normalize
+
+Usage: qiime perc-norm percentile-normalize [OPTIONS]
+
+  Converts OTUs in case samples to percentiles of their distribution in
+  controls.
+
+Options:
+  --i-table ARTIFACT PATH FeatureTable[RelativeFrequency]
+                                  The feature table containing the samples
+                                  which will be percentile normalized.
+                                  [required]
+  --m-metadata-file MULTIPLE PATH
+                                  Metadata file or artifact viewable as
+                                  metadata. This option may be supplied
+                                  multiple times to merge metadata.
+                                  [required]
+  --m-metadata-column MetadataColumn[Categorical]
+                                  Column from metadata file or artifact
+                                  viewable as metadata. Sample metadata column
+                                  which has samples labeled as "case" or
+                                  "control". Samples which are not labeled are
+                                  not included in the output table.
+                                  [required]
+
+...
+
+  --help                          Show this message and exit.
+</code></pre></div></div>
+
+<p>Woop! The plugin was set up correctly!</p>
+
+<h3 id="side-note-on-metadatacolumncategorical">Side note on MetadataColumn[Categorical]</h3>
+
+<p>I specified a <code class="language-plaintext highlighter-rouge">MetadataColumn[Categorical]</code> required parameter in my <code class="language-plaintext highlighter-rouge">plugin_setup.py</code> function, and I wasn’t sure how this would be parsed or treated by the underlying code. It turns out that qiime automatically parses it and turned into the two inputs you see: <code class="language-plaintext highlighter-rouge">--m-metadata-file</code> and <code class="language-plaintext highlighter-rouge">--m-metadata-column</code>. This is how I made the metadata an input to my function (in <code class="language-plaintext highlighter-rouge">_percentile_normalize.py</code>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def percentile_normalize(table: biom.Table,
+                         metadata: qiime2.CategoricalMetadataColumn,
+                         n_control_thresh: int=10,
+                         otu_thresh: float=0.3) -&gt; biom.Table:
+</code></pre></div></div>
+
+<p>I used some functions I found in another qiime plugin to ensure that sample IDs in the metadata and OTU table matched, and then converted the metadata column into a pandas Series object.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>metadata = metadata.filter_ids(table.ids(axis='sample'))
+metadata = metadata.drop_missing_values()
+table = table.filter(metadata.ids)
+metadata = metadata.to_series()
+</code></pre></div></div>
+
+<p>The developers on the qiime2 forum were REALLY helpful to figure this out, since there currently isn’t really much documentation on the different qiime2 data types.</p>
+
+<h2 id="testing-your-plugin">Testing your plugin</h2>
+
+<h3 id="get-your-toy-data-ready">Get your toy data ready</h3>
+
+<p>Now that babby’s first plugin is set up, you’ll want some toy data to play with. My plugin needs a metadata file and an OTU table. Metadata files can be passed in directly as tab-separated, but OTU tables need to first be converted to qiime artifacts. Unfortunately, it’s not <a href="https://forum.qiime2.org/t/tsv-to-featuretable/2349">currently</a> possible to directly import a tsv feature table so we’ll have to go through biom format first.</p>
+
+<p>Note that OTUs need to be in rows and samples are in columns for these biom tables (even though I can’t find this clearly stated in the biom format documentation, grr). Also, you need to make sure you’ve converted to relative abundance already.</p>
+
+<p>I wrote a script on the repo to make a fake OTU table. Run it or download the tables from my <a href="https://github.com/cduvallet/q2-perc-norm/tree/master/test_data">repo</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python make_fake_data.py
+</code></pre></div></div>
+
+<p>Then I need to prepare my test data for qiime:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>biom convert -i test_otu_table.transpose.txt -o test_otu_table.transpose.biom --table-type="OTU table" --to-hdf5
+qiime tools import --input-path test_otu_table.transpose.biom --type 'FeatureTable[RelativeFrequency]' --source-format BIOMV210Format --output-path test_otu_table.transpose.qza
+</code></pre></div></div>
+
+<p>A note that <code class="language-plaintext highlighter-rouge">qiime tools</code> has a useful suite of tools to play around and double check your data, if you’re getting errors.</p>
+
+<h3 id="run-plugin-and-compare-against-existing-code">Run plugin and compare against existing code</h3>
+
+<p>I want to make sure that my plugin is behaving like I expect it to. First, I run Sean’s github code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python ~/github/percentile_normalization/percentile_norm.py -i test_otu_table.txt -case test_case_samples.txt -control test_control_samples.txt -o test_out.percentile_sean.txt
+</code></pre></div></div>
+
+<p>And I can run percentile normalization on the qiime artifact.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qiime perc-norm percentile-normalize --i-table test_otu_table.transpose.qza --m-metadata-file test_metadata.txt --m-metadata-column DiseaseState --o-perc-norm-table test_out.percentile_qiime.qza
+qiime tools export test_out.percentile_qiime.qza --output-dir test_out_qiime
+mv test_out_qiime/feature-table.biom test_out.percentile_qiime.biom
+rm -r test_out_qiime
+biom convert -i test_out.percentile_qiime.biom -o test_out.percentile_qiime.txt --to-tsv
+</code></pre></div></div>
+
+<p>Then, if I load up the two output OTU tables in python, I see that their values for the originally non-zero entries are identical. Wahoo!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+
+sean = pd.read_csv('test_out.percentile_sean.txt', sep='\t', index_col=0)
+qiime = pd.read_csv('test_out.percentile_qiime.txt', sep='\t', index_col=0, skiprows=1)
+qiime = qiime.T
+
+sean[qiime.columns] == qiime
+</code></pre></div></div>
+
+<p>Ta da! A plugin that works just like normal python code!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#coding" class="page__taxonomy-item" rel="tag">coding</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#microbiome" class="page__taxonomy-item" rel="tag">microbiome</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#portfolio" class="page__taxonomy-item" rel="tag">portfolio</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#python" class="page__taxonomy-item" rel="tag">python</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#qiime2" class="page__taxonomy-item" rel="tag">qiime2</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2018/03/qiime2-plugin" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2018/03/qiime2-plugin" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/posts/2018/03/qiime2-plugin" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2018/03/qiime2-plugin" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/posts/2018/03/slopegraphs-in-python" class="pagination--pager" title="Slopegraphs in python
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/posts/2018/04/aws-s3-access" class="pagination--pager" title="Getting access, logging into, and using AWS S3
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink">Resources for pivoting to public health data science
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-01-09T00:00:00-08:00">January 09, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>About two years into my PhD, I realized that the field I actually wanted to be in was public health, not necessarily biological engineering. Around the same time, I also fell in love with coding and data science. That’s when I realized that combining public health and data science could be an ideal career path for my technical abilities and interests and my desire to have social impact. But immersed in the world of academia, at an institution without a school of public health, and with mentors who had all chosen routes in biotech or academia, it was really hard to learn more about my options for pivoting to a career in public health.
+
+<strong><a href="http://localhost:4000/posts/2021/01/public-health-resources" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink">Racism as a public health crisis: how wastewater epidemiology fits in
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-06-10T00:00:00-07:00">June 10, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Today is the <a href="https://www.particlesforjustice.org/">Strike for Black Lives</a> and a day to <a href="https://www.shutdownstem.com/">#ShutDownSTEM</a>. For white people like me, today is about recognizing and reflecting on the anti-Black racism in our society, and committing to specific actions toward ending white supremacy. One of my actions for today is to publicly reflect on how our work at <a href="www.biobot.io">Biobot Analytics</a> contributes to addressing – and potentially perpetuating – racism in public health.
+
+<strong><a href="http://localhost:4000/posts/2020/06/racism-public-health-wbe" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/02/road-trip-map" rel="permalink">Mapping my cross-country road trip with Python
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  27 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-02-09T00:00:00-08:00">February 09, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>When I was on my <a href="https://cduvallet.github.io/travel/">cross-country road trip</a> last year, I kept track of a lot of things in the hopes of doing amazing analyses when I got back. Turns out having a job as a data scientist makes it a lot harder to find time to do data science on the side, and so I’ve only really gotten a chance to look into my <a href="2019/07/road-trip-expenses-pt1">expenses</a>. One of the things I had really wanted to do was make a map of all the places I went, but I didn’t actually know how to work with geospatial data in Python yet. I had this grand idea that I’d learn spatial data techniques while on my trip, but turns out hiking, drinking beer while watching the sunset, and going to bed early were way more compelling ways to spend my time. Luckily for me, one of the most fun parts of my new job has been learning geospatial coding and plotting techniques. I’ve been having fun with it in my job, and I realized that it also means I get to finally make my map!
+
+<strong><a href="http://localhost:4000/posts/2020/02/road-trip-map" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink">A Well-Kept Secret for Finding a Job post-PhD
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  8 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2020-01-25T00:00:00-08:00">January 25, 2020</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>During my PhD, I performed a lot of exit interviews with graduating students and learned that finding a job is often the most stressful part of graduating, and among the most stressful in the entire PhD. After my own defense, however, I was able to avoid some of that stress by discovering a valuable post-PhD job option that I had rarely heard discussed: getting a part-time or consulting gig after graduating to hold you over while you figure out your next full-time non-academic career move.
+
+<strong><a href="http://localhost:4000/posts/2020/01/phd-job-search" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    </script>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/dzakwanfalihh"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Dzakwan Falih. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+
