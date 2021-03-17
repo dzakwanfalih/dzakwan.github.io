@@ -10,15 +10,20 @@ redirect_from:
 
 # Education
 
-**Telkom Universty**, Diploma  in Telecommunication Engineering (Des 2019)    
+**Telkom University**, Diploma  in Telecommunication Engineering (Des 2019)    
 _Implementasi layanan GPRS dengan OSMOCOM BTS di Fakultas Ilmu Terapan_; [graduate project](https://openlibrarypublications.telkomuniversity.ac.id/index.php/appliedscience/article/view/11824)
 
+Islamic Boarding School, Kuningan, West Java (2013)
 
 ***
 
+# Research experience
 
+**URG Lab**, Telkom University (2019)
+Under the direction of Gandeva bayu
 
-
+**Telecommunication Network**, (2017 - 2019)
+Under the direction of Asep Mulyana
 
 # Publications
 
@@ -36,5 +41,27 @@ See [publications](/publications/) page.
 
 **Muhammad Dzakwan Falih**, Gandeva Bayu Satrya. 
 "Radio Cellular Forensics Analysis: Where is the Adversary?"    
-_2019 IEEE International Conference on Signal and Image Processing Applications (ICSIPA)_ (2019). doi: [10.1109/ICSIPA45851.2019.8977780.](https://ieeexplore.ieee.org/document/8977780).   
+_2019 IEEE International Conference on Signal and Image Processing Applications (ICSIPA)_ (2019). doi: [10.1109/ICSIPA45851.2019.8977780.](https://ieeexplore.ieee.org/document/8977780). 
+
+
+# Teaching 
+
+## Academic and Professional
+
+**Voice over IP, Teaching assistant**
+*PT Sabre Travel Network Indonesia* (2019)
+
+**Network security, Teaching assistant**
+*Telkom University* (2019)
+
+**Quality of Service, Speaker**
+*LAPAN* (2019)
+
+**Traffic engineering, Teaching assistant**
+*Telkom University* (2017-2019)
+
+**Data communication, Teaching assistant**
+*Telkom University* (2017-2018)
+
+
 
