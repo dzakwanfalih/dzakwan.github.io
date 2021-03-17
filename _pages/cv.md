@@ -51,7 +51,7 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 
 ## Academic and Professional
 
-**Voice over IP, Teaching assistant**
+**Voice over IP, Speaker**
 *PT Sabre Travel Network Indonesia* (2019)
 
 **Network security, Teaching assistant**
@@ -62,6 +62,9 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 
 **Open Stack, Speaker**
 *Telkom DDS* (2018)
+
+**Voice over IP, Speaker**
+*Mora Telematika Indonesia* (2018)
 
 **Traffic engineering, Teaching assistant**
 *Telkom University* (2017-2019)
