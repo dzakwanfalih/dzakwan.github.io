@@ -18,7 +18,7 @@ _Jurnal Elektro dan Telekomunikasi Terapan_ (2017). doi: [10.5888/pcd17.200053](
 
 **MD Falih**, DN Ramadan, H Hafidudin    
 "Implementasi Layanan Gprs Dengan Osmocom Bts Di Fakultas Ilmu Terapan"    
-_eProceedings of Applied Science _ (2020). doi: [10.1101/2020.06.15.20117747v2](https://www.medrxiv.org/content/10.1101/2020.06.15.20117747v2)
+_eProceedings of Applied Science_ (2020). doi: [10.1101/2020.06.15.20117747v2](https://www.medrxiv.org/content/10.1101/2020.06.15.20117747v2)
 
 **MD Falih**, DN Ramadan, S Hadiyoso.    
 "Implementation of GPRS Service on Mobile Network Based OSMOCOM"   
@@ -32,15 +32,11 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 
 ## Non-peer reviewed academic content
 
-_[Tutorial]_ **Dzakwan Falih. "[Updating your qiime2 plugin](https://dev.qiime2.org/latest/tutorials/updating-plugin/)." _QIIME 2 developer docs._ (2019).
+
 
 
 ## Software
 
-**Percentile normalization**     
-Correcting batch effects in case-control microbiome studies. (_Gibbons et al., 2018_)
 
-* Python implementation: [seangibbons/percentile_normalization](https://github.com/seangibbons/percentile_normalization) _(contributor)_     
-* [QIIME 2](https://qiime2.org/) plugin: [cduvallet/q2-perc-norm](https://github.com/cduvallet/q2-perc-norm) _(developer)_
 
 ## Other
