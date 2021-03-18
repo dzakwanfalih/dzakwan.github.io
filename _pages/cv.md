@@ -18,7 +18,7 @@ _Implementasi layanan GPRS dengan OSMOCOM BTS di Fakultas Ilmu Terapan_; [gradua
 ***
 # Working Experience 
 
-**Bitwyre** Wireless Engineer (2020)
+**Bitwyre** Software Define Radio Engineer (2020)
 
 **Atlas Adjusting Indonesia** Insident Handling, DFIR (2020)
 
