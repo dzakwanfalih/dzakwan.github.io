@@ -1,7 +1,7 @@
 ---
 title:  "Jupyter notebook"
 permalink: /posts/2021/03/jupyter-notebook
-date: 2021-03-18-01
+date: 2021-03-18-00
 ---
 
 
