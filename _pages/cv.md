@@ -48,7 +48,7 @@ See [publications](/publications/) page.
 
 ## Oral presentations
 
-**MD Falih**, DN Ramadan, S Hadiyoso.    
+**Muhammad Dzakwan Falih**, DN Ramadan, S Hadiyoso.    
 "Implementation of GPRS Service on Mobile Network Based OSMOCOM"   
 2019 IEEE Conference on Sustainable Utilization and Development in Engineering and Technologies (CSUDET) (2019). doi: [10.1109/CSUDET47057.2019.9214748](https://ieeexplore.ieee.org/document/9214748)
 
