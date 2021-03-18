@@ -108,4 +108,5 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 
 ## Intership
 **PT mugia sejahtera naratas**, Cloud Enginer(2018)
+
 **PT Gandang Garantung Indah**, KP (2016)
