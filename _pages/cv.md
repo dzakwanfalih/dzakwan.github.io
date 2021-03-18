@@ -92,3 +92,7 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 **Central Computer Improvement**, *person in charge of information security systems*(2016 - 2018)
 
 ***
+
+# Working Experience 
+**Commtech Inovation** Rnd (2019)
+**Telkom University** laboratory assistant(2017 - 2018)

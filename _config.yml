@@ -55,7 +55,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : dzakwanfalihh
+  username               : # dzakwanfalihh
 facebook:
   username               :
   app_id                 :
@@ -94,8 +94,8 @@ author:
   foursquare       :
   github           : "dzakwanfalih"
   google_plus      :
-  keybase          : "dzakwanfalih"
-  instagram        : "dzakwanfalih_2.0"
+  keybase          :  "dzakwanfalih"
+  instagram        : # "dzakwanfalih_2.0"
   lastfm           :
   linkedin         : #"cduvallet"
   orcid            : #"http://orcid.org/yourorcidurl"
@@ -104,7 +104,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "dzakwanfalihh"
+  twitter          : # "dzakwanfalihh"
   vine             :
   weibo            :
   xing             :
