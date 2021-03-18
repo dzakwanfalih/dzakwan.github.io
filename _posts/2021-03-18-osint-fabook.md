@@ -1,7 +1,7 @@
 ---
 title:  "Social media osint"
-permalink: /posts/2021/03/sosical-media-oicnt
-date: 2021-03-18-00
+permalink: /posts/2021/03/sosical-media-osint
+date: 2021-03-18-01
 ---
 
 
