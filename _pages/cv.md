@@ -94,10 +94,17 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 ***
 
 # Working Experience 
+
+
+**Bitwyre** Wireless Engineer (2020)
+
 **Atlas Adjusting Indonesia** Insident Handling, DFIR (2020)
+
 **Commtech Inovation** Rnd (2019)
+
 **Telkom University** Laboratory assistant(2017 - 2018)
 
+***
 
 ## Intership
 **PT mugia sejahtera naratas**, Cloud Enginer(2018)
