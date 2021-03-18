@@ -94,5 +94,11 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 ***
 
 # Working Experience 
+**Atlas Adjusting Indonesia** Insident Handling, DFIR (2020)
 **Commtech Inovation** Rnd (2019)
-**Telkom University** laboratory assistant(2017 - 2018)
+**Telkom University** Laboratory assistant(2017 - 2018)
+
+
+## Intership
+**PT mugia sejahtera naratas**, Cloud Enginer(2018)
+**PT Gandang Garantung Indah**, KP (2016)
