@@ -24,7 +24,7 @@ _Implementasi layanan GPRS dengan OSMOCOM BTS di Fakultas Ilmu Terapan_; [gradua
 
 **Commtech Inovation** Rnd (2019)
 
-**Telkom University** Laboratory assistant(2017 - 2018)
+**Telkom University** Laboratory assistant (2017 - 2018)
 
 *** 
 
