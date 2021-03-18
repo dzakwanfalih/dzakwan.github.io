@@ -16,6 +16,16 @@ _Implementasi layanan GPRS dengan OSMOCOM BTS di Fakultas Ilmu Terapan_; [gradua
 *Islamic Boarding School, Kuningan, West Java* (2013)
 
 ***
+# Working Experience 
+
+**Bitwyre** Wireless Engineer (2020)
+
+**Atlas Adjusting Indonesia** Insident Handling, DFIR (2020)
+
+**Commtech Inovation** Rnd (2019)
+
+**Telkom University** Laboratory assistant(2017 - 2018)
+*** 
 
 # Research experience
 
@@ -90,19 +100,6 @@ _2019 IEEE International Conference on Signal and Image Processing Applications 
 **Search**, *member of the marketing division* (2018)
 
 **Central Computer Improvement**, *person in charge of information security systems*(2016 - 2018)
-
-***
-
-# Working Experience 
-
-
-**Bitwyre** Wireless Engineer (2020)
-
-**Atlas Adjusting Indonesia** Insident Handling, DFIR (2020)
-
-**Commtech Inovation** Rnd (2019)
-
-**Telkom University** Laboratory assistant(2017 - 2018)
 
 ***
 
