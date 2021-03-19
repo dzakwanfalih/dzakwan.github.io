@@ -1,9 +1,486 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-17T08:27:50-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Gue belum nulis</title><link href="http://localhost:4000/posts/2021/03/belum-menulis-disini" rel="alternate" type="text/html" title="Gue belum nulis" /><published>2021-03-09T00:00:00-08:00</published><updated>2021-03-09T00:00:00-08:00</updated><id>http://localhost:4000/posts/2021/03/gue-belum-nulis</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/belum-menulis-disini">&lt;h2 id=&quot;belum-ada-tulisan&quot;&gt;Belum ada tulisan&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-18T23:27:25-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Jupyter notebook</title><link href="http://localhost:4000/posts/2021/03/jupyter-notebook" rel="alternate" type="text/html" title="Jupyter notebook" /><published>2021-03-18T00:00:00-07:00</published><updated>2021-03-18T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/jupyter-notebook</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/jupyter-notebook">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+&lt;p&gt;In order to complete this guide, you should have a fresh Ubuntu 18.04 server instance with a basic firewall and a non-root user with sudo privileges configured.&lt;/p&gt;
 
-&lt;p&gt;Mau cari tulisan gue?&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;Gue belum nulis cuy&lt;/p&gt;
+&lt;h1 id=&quot;step-1--set-up-python&quot;&gt;Step 1 — Set Up Python&lt;/h1&gt;
+&lt;p&gt;To begin the process, we’ll install the dependencies we need for our Python programming environment from the Ubuntu repositories. Ubuntu 18.04 comes preinstalled with Python 3.6. We will use the Python package manager pip to install additional components a bit later.&lt;/p&gt;
 
-&lt;p&gt;Blog ini belum ada tulisan okey? jadi sabar nanti gue bakal nulis disini&lt;/p&gt;
+&lt;p&gt;We first need to update the local apt package index and then download and install the packages:&lt;/p&gt;
 
-&lt;p&gt;Ini gue masih revisi template&lt;/p&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">Belum ada tulisan</summary></entry></feed>
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, install pip and the Python header files, which are used by some of Jupyter’s dependencies:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python3-pip python3-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;We can now move on to setting up a Python virtual environment into which we’ll install Jupyter.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;step-2--create-a-python-virtual-environment-for-jupyter&quot;&gt;Step 2 — Create a Python Virtual Environment for Jupyter&lt;/h1&gt;
+&lt;p&gt;Now that we have Python 3, its header files, and pip ready to go, we can create a Python virtual environment to manage our projects. We will install Jupyter into this virtual environment.&lt;/p&gt;
+
+&lt;p&gt;To do this, we first need access to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;virtualenv&lt;/code&gt; command which we can install with pip.&lt;/p&gt;
+
+&lt;p&gt;Upgrade pip and install the package by typing:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; pip3 &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--upgrade&lt;/span&gt; pip
+&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; pip3 &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;virtualenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The -H flag ensures that the security policy sets the home environment variable to the home directory of the target user.&lt;/p&gt;
+
+&lt;p&gt;With virtualenv installed, we can start forming our environment. Create and move into a directory where we can keep our project files. We’ll call this my_project_dir, but you should use a name that is meaningful for you and what you’re working on.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; ~/my_project_dir
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/my_project_dir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Within the project directory, we’ll create a Python virtual environment. For the purpose of this tutorial, we’ll call it my_project_env but you should call it something that is relevant to your project.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;virtualenv my_project_env
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will create a directory called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_project_env&lt;/code&gt; within your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_project_dir&lt;/code&gt; directory. Inside, it will install a local version of Python and a local version of pip. We can use this to install and configure an isolated Python environment for Jupyter.&lt;/p&gt;
+
+&lt;p&gt;Before we install Jupyter, we need to activate the virtual environment. You can do that by typing:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;my_project_env/bin/activate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;step-3--install-jupyter&quot;&gt;Step 3 — Install Jupyter&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE:&lt;/em&gt;&lt;/strong&gt;  Note: When the virtual environment is activated (when your prompt has (my_project_env) preceding it), use pip instead of pip3, even if you are using Python 3. The virtual environment’s copy of the tool is always named pip, regardless of the Python version.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;With your virtual environment active, install Jupyter with the local instance of pip.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jupyter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point, you’ve successfully installed all the software needed to run Jupyter. We can now start the Notebook server.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;step-4--run-jupyter-notebook&quot;&gt;Step 4 — Run Jupyter Notebook&lt;/h1&gt;
+&lt;p&gt;ou now have everything you need to run Jupyter Notebook! To run it, execute the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jupyter notebook
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A log of the activities of the Jupyter Notebook will be printed to the terminal. When you run Jupyter Notebook, it runs on a specific port number. The first Notebook you run will usually use port 8888. To check the specific port number Jupyter Notebook is running on, refer to the output of the command used to start it:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output
+[I 21:23:21.198 NotebookApp] Writing notebook server cookie secret to /run/user/1001/jupyter/notebook_cookie_secret
+[I 21:23:21.361 NotebookApp] Serving notebooks from local directory: /home/sammy/my_project_dir
+[I 21:23:21.361 NotebookApp] The Jupyter Notebook is running at:
+[I 21:23:21.361 NotebookApp] http://localhost:8888/?token=1fefa6ab49a498a3f37c959404f7baf16b9a2eda3eaa6d72
+[I 21:23:21.361 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 21:23:21.361 NotebookApp] No web browser found: could not locate runnable browser.
+[C 21:23:21.361 NotebookApp]
+
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=1fefa6ab49a498a3f37c959404f7baf16b9a2eda3eaa6d72
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you are running Jupyter Notebook on a local computer (not on a server), you can navigate to the displayed URL to connect to Jupyter Notebook. If you are running Jupyter Notebook on a server, you will need to connect to the server using SSH tunneling as outlined in the next section.&lt;/p&gt;
+
+&lt;p&gt;At this point, you can keep the SSH connection open and keep Jupyter Notebook running or you can exit the app and re-run it once you set up SSH tunneling. Let’s choose to stop the Jupyter Notebook process. We will run it again once we have SSH tunneling set up. To stop the Jupyter Notebook process, press CTRL+C, type Y, and then ENTER to confirm. The following output will be displayed:&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;source&quot;&gt;Source:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-jupyter-notebook-with-python-3-on-ubuntu-18-04&quot;&gt;Digital Ocean&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">Prerequisites In order to complete this guide, you should have a fresh Ubuntu 18.04 server instance with a basic firewall and a non-root user with sudo privileges configured.</summary></entry><entry><title type="html">Social media osint</title><link href="http://localhost:4000/posts/2021/03/sosical-media-osint" rel="alternate" type="text/html" title="Social media osint" /><published>2021-03-18T00:00:00-07:00</published><updated>2021-03-18T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/osint-fabook</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/sosical-media-osint">&lt;h1 id=&quot;how-to-use&quot;&gt;How to Use&lt;/h1&gt;
+
+&lt;p&gt;Take the following URL&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://www.facebook.com/search/top/?q=people&amp;amp;epa=FILTERS&amp;amp;filters=
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Replace &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/search/top/&lt;/code&gt; with the appropriate general search type (see
+headings below). One filter from each second-level header can be combined
+with each other, but I don’t believe you can combine multiple filters from
+the same second-level header.&lt;/p&gt;
+
+&lt;p&gt;Replace the word &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;people&lt;/code&gt; with your keyword search term (this is sadly a
+&lt;em&gt;required&lt;/em&gt; field). It does not seem to be “semantic”, and it only serves to
+add another filter to the below semantic filters.&lt;/p&gt;
+
+&lt;p&gt;Find any additional semantic filter(s) below (the JSON) that you want to filter
+on. Use &lt;a href=&quot;https://jsonformatter.curiousconcept.com/&quot;&gt;this page&lt;/a&gt; for testing
+your JSON, but before submitting make sure you remove all whitespace from your
+JSON - you can set the “JSON Template” drop down to &lt;strong&gt;Compact&lt;/strong&gt; in the
+formatter if you like, it will remove all whitespace for you. Note also that
+often there is JSON embedded &lt;em&gt;within&lt;/em&gt; JSON. This is where you’ll see a backslash
+before a quote (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\&quot;&lt;/code&gt;). Make sure to leave those backslashes alone.&lt;/p&gt;
+
+&lt;p&gt;When you combine filters, put them together in the same JSON object. For example,
+if I take Posts From a Page&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author\&quot;,\&quot;args\&quot;:\&quot;119375054750638\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and combine with Posts I’ve Interacted&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;interacted_posts&quot;:&quot;{\&quot;name\&quot;:\&quot;interacted_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;the combined filter should look like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author\&quot;,\&quot;args\&quot;:\&quot;119375054750638\&quot;}&quot;,
+    &quot;interacted_posts&quot;:&quot;{\&quot;name\&quot;:\&quot;interacted_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and compact down to:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author\&quot;,\&quot;args\&quot;:\&quot;119375054750638\&quot;}&quot;,&quot;interacted_posts&quot;:&quot;{\&quot;name\&quot;:\&quot;interacted_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, find a &lt;a href=&quot;https://www.base64encode.org/&quot;&gt;Base64 encoder&lt;/a&gt; and paste the
+compacted JSON into it. Encode the JSON above and you see the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;eyJycF9hdXRob3IiOiJ7XCJuYW1lXCI6XCJhdXRob3JcIixcImFyZ3NcIjpcIjExOTM3NTA1NDc1MDYzOFwifSIsImludGVyYWN0ZWRfcG9zdHMiOiJ7XCJuYW1lXCI6XCJpbnRlcmFjdGVkX3Bvc3RzXCIsXCJhcmdzXCI6XCJcIn0ifQ==
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Remove any equals signs at the end (Facebook doesn’t need them) and then put
+the Base64’d JSON at the end of the URL you built above, after &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;filters=&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://www.facebook.com/search/top/?q=people&amp;amp;epa=FILTERS&amp;amp;filters=eyJycF9hdXRob3IiOiJ7XCJuYW1lXCI6XCJhdXRob3JcIixcImFyZ3NcIjpcIjExOTM3NTA1NDc1MDYzOFwifSIsImludGVyYWN0ZWRfcG9zdHMiOiJ7XCJuYW1lXCI6XCJpbnRlcmFjdGVkX3Bvc3RzXCIsXCJhcmdzXCI6XCJcIn0ifQ
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;initial-inspiration&quot;&gt;Initial inspiration&lt;/h1&gt;
+
+&lt;p&gt;https://twitter.com/henkvaness/status/1136937742712094721&lt;/p&gt;
+
+&lt;h1 id=&quot;searchtop&quot;&gt;/search/top/&lt;/h1&gt;
+
+&lt;h2 id=&quot;sort-by&quot;&gt;Sort By&lt;/h2&gt;
+
+&lt;h3 id=&quot;most-recent&quot;&gt;Most Recent&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_chrono_sort&quot;:&quot;{\&quot;name\&quot;:\&quot;chronosort\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;posts-from&quot;&gt;Posts From&lt;/h2&gt;
+
+&lt;h3 id=&quot;posts-from-you&quot;&gt;Posts from you&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author_me\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-your-friends&quot;&gt;Posts from Your Friends&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author_friends_feed\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-your-groups-and-pages&quot;&gt;Posts From Your Groups and Pages&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;my_groups_and_pages_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-public&quot;&gt;Posts From Public&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;merged_public_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-page&quot;&gt;Posts from page:&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author\&quot;,\&quot;args\&quot;:\&quot;119375054750638\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;post-type&quot;&gt;Post Type&lt;/h2&gt;
+
+&lt;h3 id=&quot;posts-youve-seen&quot;&gt;Posts You’ve Seen&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;interacted_posts&quot;:&quot;{\&quot;name\&quot;:\&quot;interacted_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;posted-in-group&quot;&gt;Posted In Group&lt;/h2&gt;
+
+&lt;h3 id=&quot;your-groups&quot;&gt;Your Groups&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_group&quot;:&quot;{\&quot;name\&quot;:\&quot;my_groups_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;from-group&quot;&gt;From Group&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_group&quot;:&quot;{\&quot;name\&quot;:\&quot;group_posts\&quot;,\&quot;args\&quot;:\&quot;574981909329531\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tagged-location&quot;&gt;Tagged Location&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_location&quot;:&quot;{\&quot;name\&quot;:\&quot;location\&quot;,\&quot;args\&quot;:\&quot;115028691842393\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;date-posted&quot;&gt;Date Posted&lt;/h2&gt;
+
+&lt;h3 id=&quot;2019&quot;&gt;2019&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_creation_time&quot;:&quot;{\&quot;name\&quot;:\&quot;creation_time\&quot;,\&quot;args\&quot;:\&quot;{\\\&quot;start_year\\\&quot;:\\\&quot;2019\\\&quot;,\\\&quot;start_month\\\&quot;:\\\&quot;2019-1\\\&quot;,\\\&quot;end_year\\\&quot;:\\\&quot;2019\\\&quot;,\\\&quot;end_month\\\&quot;:\\\&quot;2019-12\\\&quot;,\\\&quot;start_day\\\&quot;:\\\&quot;2019-1-1\\\&quot;,\\\&quot;end_day\\\&quot;:\\\&quot;2019-12-31\\\&quot;}\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;searchposts&quot;&gt;/search/posts/&lt;/h1&gt;
+
+&lt;h2 id=&quot;posts-from-1&quot;&gt;Posts From&lt;/h2&gt;
+
+&lt;h3 id=&quot;posts-from-you-1&quot;&gt;Posts from you&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author_me\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-your-friends-1&quot;&gt;Posts from Your Friends&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author_friends_feed\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-your-groups-and-pages-1&quot;&gt;Posts From Your Groups and Pages&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;my_groups_and_pages_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-public-1&quot;&gt;Posts From Public&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;merged_public_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-page-1&quot;&gt;Posts from page:&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author\&quot;,\&quot;args\&quot;:\&quot;119375054750638\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;post-type-1&quot;&gt;Post Type&lt;/h2&gt;
+
+&lt;h3 id=&quot;posts-youve-seen-1&quot;&gt;Posts You’ve Seen&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;interacted_posts&quot;:&quot;{\&quot;name\&quot;:\&quot;interacted_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;posted-in-group-1&quot;&gt;Posted In Group&lt;/h2&gt;
+
+&lt;h3 id=&quot;your-groups-1&quot;&gt;Your Groups&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_group&quot;:&quot;{\&quot;name\&quot;:\&quot;my_groups_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;from-group-1&quot;&gt;From Group&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_group&quot;:&quot;{\&quot;name\&quot;:\&quot;group_posts\&quot;,\&quot;args\&quot;:\&quot;574981909329531\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tagged-location-1&quot;&gt;Tagged Location&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_location&quot;:&quot;{\&quot;name\&quot;:\&quot;location\&quot;,\&quot;args\&quot;:\&quot;115028691842393\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;date-posted-1&quot;&gt;Date Posted&lt;/h2&gt;
+
+&lt;h3 id=&quot;2019-1&quot;&gt;2019&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_creation_time&quot;:&quot;{\&quot;name\&quot;:\&quot;creation_time\&quot;,\&quot;args\&quot;:\&quot;{\\\&quot;start_year\\\&quot;:\\\&quot;2019\\\&quot;,\\\&quot;start_month\\\&quot;:\\\&quot;2019-1\\\&quot;,\\\&quot;end_year\\\&quot;:\\\&quot;2019\\\&quot;,\\\&quot;end_month\\\&quot;:\\\&quot;2019-12\\\&quot;,\\\&quot;start_day\\\&quot;:\\\&quot;2019-1-1\\\&quot;,\\\&quot;end_day\\\&quot;:\\\&quot;2019-12-31\\\&quot;}\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;searchpeople&quot;&gt;/search/people/&lt;/h1&gt;
+
+&lt;h2 id=&quot;city&quot;&gt;City&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;city&quot;:&quot;{\&quot;name\&quot;:\&quot;users_location\&quot;,\&quot;args\&quot;:\&quot;115028691842393\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;education&quot;&gt;Education&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;school&quot;:&quot;{\&quot;name\&quot;:\&quot;users_school\&quot;,\&quot;args\&quot;:\&quot;751335894893898\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;work&quot;&gt;Work&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;employer&quot;:&quot;{\&quot;name\&quot;:\&quot;users_employer\&quot;,\&quot;args\&quot;:\&quot;20531316728\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;mutual-friends&quot;&gt;Mutual Friends&lt;/h2&gt;
+
+&lt;h3 id=&quot;friends&quot;&gt;Friends&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;friends&quot;:&quot;{\&quot;name\&quot;:\&quot;users_friends\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;friends-of-friends&quot;&gt;Friends of Friends&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;friends&quot;:&quot;{\&quot;name\&quot;:\&quot;users_friends_of_friends\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;friend-with-people&quot;&gt;Friend with People&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;friends&quot;:&quot;{\&quot;name\&quot;:\&quot;users_friends_of_people\&quot;,\&quot;args\&quot;:\&quot;100000154813605\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;searchphotos&quot;&gt;/search/photos/&lt;/h1&gt;
+
+&lt;h2 id=&quot;posted-by&quot;&gt;Posted By&lt;/h2&gt;
+
+&lt;h3 id=&quot;posts-from-you-2&quot;&gt;Posts from you&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author_me\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-your-friends-2&quot;&gt;Posts from Your Friends&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author_friends_feed\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-your-groups-and-pages-2&quot;&gt;Posts From Your Groups and Pages&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;my_groups_and_pages_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-public-2&quot;&gt;Posts From Public&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;merged_public_posts\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;posts-from-page-2&quot;&gt;Posts from page:&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_author&quot;:&quot;{\&quot;name\&quot;:\&quot;author\&quot;,\&quot;args\&quot;:\&quot;119375054750638\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;photo-type&quot;&gt;Photo Type&lt;/h2&gt;
+
+&lt;h3 id=&quot;photos-youve-seen&quot;&gt;Photos you’ve seen&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;interacted_photos&quot;:&quot;{\&quot;name\&quot;:\&quot;interacted_photos\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tagged-location-2&quot;&gt;Tagged Location&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_location&quot;:&quot;{\&quot;name\&quot;:\&quot;location\&quot;,\&quot;args\&quot;:\&quot;115028691842393\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;date-posted-2&quot;&gt;Date Posted&lt;/h2&gt;
+
+&lt;h3 id=&quot;2019-2&quot;&gt;2019&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_creation_time&quot;:&quot;{\&quot;name\&quot;:\&quot;creation_time\&quot;,\&quot;args\&quot;:\&quot;{\\\&quot;start_year\\\&quot;:\\\&quot;2019\\\&quot;,\\\&quot;start_month\\\&quot;:\\\&quot;2019-1\\\&quot;,\\\&quot;end_year\\\&quot;:\\\&quot;2019\\\&quot;,\\\&quot;end_month\\\&quot;:\\\&quot;2019-12\\\&quot;,\\\&quot;start_day\\\&quot;:\\\&quot;2019-1-1\\\&quot;,\\\&quot;end_day\\\&quot;:\\\&quot;2019-12-31\\\&quot;}\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;searchvideos&quot;&gt;/search/videos/&lt;/h1&gt;
+
+&lt;h2 id=&quot;source&quot;&gt;Source&lt;/h2&gt;
+
+&lt;h3 id=&quot;live&quot;&gt;Live&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;videos_source&quot;:&quot;{\&quot;name\&quot;:\&quot;videos_live\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;episodes&quot;&gt;Episodes&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;videos_source&quot;:&quot;{\&quot;name\&quot;:\&quot;videos_episode\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;friends-and-groups&quot;&gt;Friends and Groups&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;videos_source&quot;:&quot;{\&quot;name\&quot;:\&quot;videos_feed\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tagged-location-3&quot;&gt;Tagged Location&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_location&quot;:&quot;{\&quot;name\&quot;:\&quot;location\&quot;,\&quot;args\&quot;:\&quot;115028691842393\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;date-posted-3&quot;&gt;Date Posted&lt;/h2&gt;
+
+&lt;h3 id=&quot;2019-3&quot;&gt;2019&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;rp_creation_time&quot;:&quot;{\&quot;name\&quot;:\&quot;creation_time\&quot;,\&quot;args\&quot;:\&quot;{\\\&quot;start_year\\\&quot;:\\\&quot;2019\\\&quot;,\\\&quot;start_month\\\&quot;:\\\&quot;2019-1\\\&quot;,\\\&quot;end_year\\\&quot;:\\\&quot;2019\\\&quot;,\\\&quot;end_month\\\&quot;:\\\&quot;2019-12\\\&quot;,\\\&quot;start_day\\\&quot;:\\\&quot;2019-1-1\\\&quot;,\\\&quot;end_day\\\&quot;:\\\&quot;2019-12-31\\\&quot;}\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;searchpages&quot;&gt;/search/pages/&lt;/h1&gt;
+
+&lt;h2 id=&quot;verified&quot;&gt;Verified&lt;/h2&gt;
+
+&lt;h3 id=&quot;verified-1&quot;&gt;Verified&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;verified&quot;:&quot;{\&quot;name\&quot;:\&quot;pages_verified\&quot;,\&quot;args\&quot;:\&quot;\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;category&quot;&gt;Category&lt;/h2&gt;
+
+&lt;h3 id=&quot;local-business-or-place&quot;&gt;Local Business or Place&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;category&quot;:&quot;{\&quot;name\&quot;:\&quot;pages_category\&quot;,\&quot;args\&quot;:\&quot;1006\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;company-organization-or-institution&quot;&gt;Company, Organization, Or Institution&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;category&quot;:&quot;{\&quot;name\&quot;:\&quot;pages_category\&quot;,\&quot;args\&quot;:\&quot;1013\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;brand-or-product&quot;&gt;Brand or Product&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;category&quot;:&quot;{\&quot;name\&quot;:\&quot;pages_category\&quot;,\&quot;args\&quot;:\&quot;1009\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;###Artist, Band, or Public Figure&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;category&quot;:&quot;{\&quot;name\&quot;:\&quot;pages_category\&quot;,\&quot;args\&quot;:\&quot;1007,180164648685982\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;entertainment&quot;&gt;Entertainment&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;category&quot;:&quot;{\&quot;name\&quot;:\&quot;pages_category\&quot;,\&quot;args\&quot;:\&quot;1019\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;cause-or-community&quot;&gt;Cause or Community&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;category&quot;:&quot;{\&quot;name\&quot;:\&quot;pages_category\&quot;,\&quot;args\&quot;:\&quot;2612\&quot;}&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;searchplaces&quot;&gt;/search/places/&lt;/h1&gt;
+
+&lt;p&gt;This one is different… I haven’t figured out how it works yet. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ref=&lt;/code&gt;
+parameter decodes into something with a session ID or something:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{&quot;sid&quot;:&quot;97e8f46cce641da376d91e4b2b1c2381&quot;,&quot;ref&quot;:&quot;places_top_module_see_more&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;interest-link&quot;&gt;Interest link&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://sowdust.github.io/fb-search/&quot;&gt;wow&lt;/a&gt;&lt;/p&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">How to Use</summary></entry><entry><title type="html">why prestige, becoming a vocational graduate</title><link href="http://localhost:4000/posts/2021/03/why-should-be-ashamed" rel="alternate" type="text/html" title="why prestige, becoming a vocational graduate" /><published>2021-03-18T00:00:00-07:00</published><updated>2021-03-18T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/why-should-be-ashamed</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/why-should-be-ashamed">&lt;p&gt;I wrote this blog, opened with coding&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;javascript
+function IAmAnEnginer() {
+ console.log(&quot;I'm proud of the vocational school&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I was born from a vocational womb, precisely at telkom university. being a vocational person is not the ideal I crave. My dream is just to be an airplane pilot and be able to walk to the end of the world. but, god gives way, which I can’t predict. what I asked for is not necessarily what I need.&lt;/p&gt;
+
+&lt;p&gt;In 2015. I went to Bandung to take the telkom selection test. long story short, I was accepted in diploma Telecommunications techniques. which I myself do not year what telecommunications means. at that time I asked my friend named fahri. “what is telecommunications ri?”, asked me. “that wan, you’ll learn about the signal”. in my heart I think. “Signal!?, what kind of animal it is.”&lt;/p&gt;
+
+&lt;p&gt;My first class in August 2015. The first lesson I took was &lt;strong&gt;basic telecommunication engineering&lt;/strong&gt;, my first course was mastered by a lecturer, named  yulisun. the term I heard and I am not familiar with is, Tx and Rx. “So, telecommunications is learning about how we can connect people remotely”. That’s about how I first heard from the study.&lt;/p&gt;
+
+&lt;p&gt;in this first year, there are many activities that I have to do. tasks of the lab. and many practicum schedules. studying in a diploma is different from studying at bachelor. Why? because most of the practice, it feels like college while playing.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Studying in vocational is different from bachelor, why? 
+college feels like playing”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yupss, play. for me learning while playing it was a lot of fun. but I admit. Telecommunication diploma is good. the lecturer gave an optimism to his students. Because they understand, getting into a diploma is like having no future. the lecturers at the diploma encouraged us. I’m so happy.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;when I shouted “Diploma telecommunication engineering”, you answered: “able, able, can!”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;photo-while-i-was-on-a-graduation-project&quot;&gt;Photo while I was on a graduation project&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/lab_bengkel.jpg&quot; alt=&quot;proyek akhir&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I created a mobile communication system from the beginning and end. the system with &lt;em&gt;software define radio&lt;/em&gt;. This technology is the most recent for wireless. already using SoC and fga chips&lt;/p&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">I wrote this blog, opened with coding</summary></entry></feed>
