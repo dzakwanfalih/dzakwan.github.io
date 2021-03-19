@@ -8,9 +8,9 @@ Masalah orang IT vs Finance (Opini)
 ==========
 > Ingat ini aplikasi kalo mau bagus !
 
-Gue sering ditanya gini sama orang finance. "jek berapa cost estimasi untuk membuat aplikasi?" gue lebih realistis. tanpa muluk-muluk coba gue jabarin. 
+Gue sering ditanya gini sama orang finance.*"jek berapa cost estimasi untuk membuat aplikasi?"* gue coba jabrin deh disini, agar lebih realistis. karena gue ngerasa gue pernah diposisi tidak tahu. 
 
-> **_NOTE:_**  Catatan: biaya cost ini mengikuti perhitungan rata-rata pembuatan aplikasi secara internasional,disadur dari beberapa artikel. 
+> **_Catatan:_** biaya cost ini mengikuti perhitungan rata-rata pembuatan aplikasi secara internasional,disadur dari beberapa artikel. 
 
 
 Berapa banyak cost yang kamu habiskan untuk mengembangkan aplikasi? secara umum untuk membangun aplikasi dengan kuliatas bagus estimasi cost, biaya yang diperlukan adalah mulai dari **$60.000** sampai dengan **$230,000** lebih. jika di konversikan kedalam rupiah, cost tersebut berkisar **Rp.86.618.1000** (*delapan puluh enam juta enam ratus delapan belas seribu rupiah*) sampai dengan **Rp.3.320.360.500** (*tiga miliyar tiga ratus dua puluh juta tiga ratus enam puluh ribu lima ratus rupiah*).  Faktor-faktor seperti jenis aplikasi, jumlah dan kompleksitas fungsionalitas dan desain, vendor IT mempengaruhi harga aplikasi, di mana pada tingkat  40$ / jam:
@@ -79,16 +79,29 @@ Akibatnya, kesimpulan kami mendukung temuan utama mengenai biaya untuk mengemban
 
 Tabel di bawah ini mengilustrasikan kisaran biaya untuk membuat aplikasi dengan waktu pengerjaan yang sesuai.
 
+<br>
+
 |                    | Aplikasi Basic         | Full Product               |         Large App       |
-| :---               |:---                    | :---                       |           ---:          |
+| :---               |:---                    | :---                       |           :---          |
 | Total Cost         | **$60,000 - $120,000** | **$120,000 -$200,000+**	   |     **$230,000**        |
 | Waktu pengerjaan   | 3 - 5 bulan            | 4 - 9 bulan                |9 bulan lebih(ongoing)   |
 
 <br>
 <br>
 
-Cost to Develop an App: Understanding the Basics
+Biaya untuk Mengembangkan Aplikasi: Memahami Dasar-Dasar
 =====
+Elemen berikut akan membantu Anda memahami biaya pengembangan aplikasi, sehingga Anda dapat memengaruhi kisaran harga dan menetapkan anggaran proyek Anda.
+
+* **Native vs hyrid**
+
+Pendekatan pengembangan aplikasi pasti memengaruhi biaya akhir untuk membangun aplikasi.
+
+Aplikasi yang sesuai dengan pedoman sistem operasi tertentu disebut asli. Dengan demikian, Anda hanya dapat membuat aplikasi native untuk setiap sistem secara terpisah. Secara logika, harga pengembangan aplikasi meningkat sebanding dengan jumlah platform yang ingin Anda targetkan.
+
+Sebaliknya, aplikasi hybrid atau lintas platform bekerja dengan beberapa sistem operasi, yang berarti Anda dapat menghemat uang dengan hanya membangun satu aplikasi untuk semua platform yang diperlukan.
+
+Namun, karena keunggulan teknis dan kinerja aplikasi asli, sebagian besar perusahaan pengembangan aplikasi merekomendasikan pendekatan ini.
 
 * * *
 ## Source: 
