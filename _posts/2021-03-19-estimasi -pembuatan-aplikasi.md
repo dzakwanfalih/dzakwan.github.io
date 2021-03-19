@@ -1,7 +1,7 @@
 ---
 title:  "Cost untuk pengembangan aplikasi agar powerfull" 
-permalink: /posts/2021/03/cost-untuk-pengembangan aplikasi
-date: 2021-03-19-00
+permalink: /posts/2021/03/cost-untuk-pengembangan-aplikasi
+date: 2021-03-19-01
 ---
 
 Masalah orang IT vs Finance (Opini)
