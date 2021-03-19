@@ -107,6 +107,20 @@ Namun, karena keunggulan teknis dan kinerja aplikasi asli, sebagian besar perusa
 
 ![beainvestasi](/images/investasi.png)
 
+<br>
+
+Bagaimana Estimasi Biaya Pengembangan Aplikasi?
+=====
+
+Driver biaya aplikasi utama adalah fitur aplikasi.
+
+Fitur adalah aktivitas atau tugas khusus yang menurutnya perangkat lunak harus beroperasi dan memberikan hasil yang diharapkan. Ini bisa menjadi tombol pendaftaran di layar atau sesuatu yang lebih kompleks seperti integrasi streaming video. Jumlah fitur dan kompleksitas implementasinya berkorelasi langsung dengan biaya untuk membangun aplikasi.
+
+Rumus yang digunakan untuk menghitung biaya pengembangan aplikasi adalah sebagai berikut:
+
+![berinvestasi](/images/formula.png)
+
+
 * * *
 ## Source: 
 * [Baca disini](https://mlsdev.com/blog/app-development-cost)
