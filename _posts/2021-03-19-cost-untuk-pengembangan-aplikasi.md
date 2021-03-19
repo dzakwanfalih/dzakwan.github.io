@@ -28,7 +28,7 @@ waktu proses pengembangan aplikasi juga bervariasi dari 2-3 bulan untuk aplikasi
 <br>
 <br>
 
-Biaya Pengembangan Aplikasi: Tolok Ukur
+Biaya pengembangan aplikasi: Tolok Ukur
 ==========
 
 ayo kita analisa anggaran yang di butuhkan untuk berinvestasi untuk mewujudkan ide pembuatan aplikasi.
@@ -66,7 +66,9 @@ Faktor paling berpengaruh yang menentukan biaya akhir untuk membuat aplikasi ada
 * Jumlah platform yang akan dikembangkan (iOS, Android, web, dll)
 
 <br>
-Mobile App Development Cost in 2021
+
+
+Biaya pengembangan aplikasi seluler pada tahun 2021
 ==========
 
 Pertanyaannya masih terbuka. Berapa biaya untuk membuat aplikasi di 2020?
@@ -102,6 +104,8 @@ Aplikasi yang sesuai dengan pedoman sistem operasi tertentu disebut asli. Dengan
 Sebaliknya, aplikasi hybrid atau lintas platform bekerja dengan beberapa sistem operasi, yang berarti Anda dapat menghemat uang dengan hanya membangun satu aplikasi untuk semua platform yang diperlukan.
 
 Namun, karena keunggulan teknis dan kinerja aplikasi asli, sebagian besar perusahaan pengembangan aplikasi merekomendasikan pendekatan ini.
+
+![beainvestasi](/images/investasi.png)
 
 * * *
 ## Source: 
