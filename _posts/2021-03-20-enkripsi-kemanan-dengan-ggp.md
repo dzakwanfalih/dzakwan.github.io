@@ -1,7 +1,7 @@
 ---
 title:  "Mengamankan file dengan gpg" 
 permalink: /posts/2021/03/mengamankan-file-dengan-gpg
-date: 2021-03-19-01
+date: 2021-03-20-00
 ---
 
 # Pendahuluan
