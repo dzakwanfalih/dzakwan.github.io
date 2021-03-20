@@ -8,13 +8,16 @@ redirect_from:
   - /about.html
 ---
 
- dzakwan's home on the internet...ain't my web design skills sick?
+dzakwan's home on the internet...ain't my web design skills sick?
 
 buy an Apple, Microsoft, LG, Samsung, Nintendo, ...
 
 don't buy a Sony, (sue me, and your name can get added here)
 
-check out my startup
+Like the simple and useful. 
+
+Love penguins and apples, but don't like windows.
+
 
 i also have a poorly written blog
 
