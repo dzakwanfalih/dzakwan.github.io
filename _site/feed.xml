@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-19T21:28:02-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Cost untuk pengembangan aplikasi agar powerfull</title><link href="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi" rel="alternate" type="text/html" title="Cost untuk pengembangan aplikasi agar powerfull" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi">&lt;h1 id=&quot;pendahuluan&quot;&gt;Pendahuluan&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-19T21:29:42-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Cost untuk pengembangan aplikasi agar powerfull</title><link href="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi" rel="alternate" type="text/html" title="Cost untuk pengembangan aplikasi agar powerfull" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi">&lt;h1 id=&quot;pendahuluan&quot;&gt;Pendahuluan&lt;/h1&gt;
 
 &lt;p&gt;Gue sering ditanya gini sama orang proyek ketika mau nyusun RAB.&lt;strong&gt;“jek berapa cost estimasi untuk membuat aplikasi?”&lt;/strong&gt; gue coba jabarin deh disini, agar lebih realistis. karena pada prakteknya orang-orang IT sering bigung untuk menjawab ini.&lt;/p&gt;
 
@@ -172,51 +172,7 @@
 &lt;h2 id=&quot;source&quot;&gt;Source:&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://mlsdev.com/blog/app-development-cost&quot;&gt;Baca disini&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">Pendahuluan</summary></entry><entry><title type="html">Hooked</title><link href="http://localhost:4000/hooked/" rel="alternate" type="text/html" title="Hooked" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/hooked</id><content type="html" xml:base="http://localhost:4000/hooked/">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;79 persen pemilik smartphone memeriksa perangkat mereka dalam kurun waktu 15 menit dari setiap bangun pagi.&lt;/code&gt;&lt;/p&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">79 persen pemilik smartphone memeriksa perangkat mereka dalam kurun waktu 15 menit dari setiap bangun pagi.</summary></entry><entry><title type="html">Mengamankan file dengan gpg</title><link href="http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" rel="alternate" type="text/html" title="Mengamankan file dengan gpg" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/enkripsi-kemanan-dengan-ggp</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg">&lt;h1 id=&quot;pendahuluan&quot;&gt;Pendahuluan&lt;/h1&gt;
-
-&lt;p&gt;Menurut gue pengamanan data itu penting. tapi bagaimana  caranya? “yo wes tak bahas disini”.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Catatan:&lt;/em&gt;&lt;/strong&gt; Ini buat yang udah pro, artinya pembelajaran sudah tingkat lanjutan.&lt;/p&gt;
-
-&lt;p&gt;coba deh lu lihat gambar dibawah ini
-&lt;img src=&quot;/images/engkirpsi.png&quot; alt=&quot;enkripsi dan dekripsi&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;kira-kira ceritanya begini. suatu hari ucok ingin mengirimkan sebuah file rahasia, ketika file rahasia itu mau di transmisikan ke internet, biar aman. kudu di enkripsi. &lt;em&gt;“apa lagi tuh cuy engkripsi?”&lt;/em&gt;. gini bor, enkripsi itu singkatnya file yang utuh kita acak. supaya orang bingung begimane mbacanya. “alay lu tong”&lt;/p&gt;
-
-&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
-&lt;p&gt;oke, buat mengamankan suatu file kita pake &lt;strong&gt;GnuPG&lt;/strong&gt;. apa tuh? itu singkatan dari GNU Privacy Guard atau singkatanya dari GNUPG atau GPG bahasa gaulnya.&lt;/p&gt;
-
-&lt;h1 id=&quot;buat-apa-sih&quot;&gt;Buat apa sih?&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Menambahkan enkripsi dekripsi pada aplikasi pengirim email seperti Thunderbird.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Mengamankan data dengan enkripsi sebelum disimpan ke media penyimpanan online.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Mengamankan data sensitif dengan enkripsi sebelum data tersebut dikirimkan ke orang lain yang berhak menerima.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Membuat pasangan kunci pengaman (key pair) dan manajemen kunci pengamannya.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Mengamankan data-data penting yang disimpan pada media digital tidak online, seperti data yang disimpan di USB Drive, Harddisk Eksternal, Micro SD Card, dan lain lain.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;cara-install&quot;&gt;Cara install&lt;/h1&gt;
-&lt;p&gt;untuk cara install GnuPG mudah banget, kalo user linux silahkan ketik perintah di command terminal anda seperti ini:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gnupg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;mudah bukan bund :smiley: , biasanya sih udah build in kalo pake ubuntu.&lt;/p&gt;
-
-&lt;h1 id=&quot;bahasa-planet&quot;&gt;Bahasa planet&lt;/h1&gt;
-
-&lt;p&gt;Di aplikasi ini banyak banget bahasa planetnya. jadi kudu dimengerti satu persatu.&lt;/p&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">Pendahuluan</summary></entry><entry><title type="html">Jupyter notebook</title><link href="http://localhost:4000/posts/2021/03/jupyter-notebook" rel="alternate" type="text/html" title="Jupyter notebook" /><published>2021-03-18T00:00:00-07:00</published><updated>2021-03-18T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/jupyter-notebook</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/jupyter-notebook">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">Pendahuluan</summary></entry><entry><title type="html">Hooked</title><link href="http://localhost:4000/hooked/" rel="alternate" type="text/html" title="Hooked" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/hooked</id><content type="html" xml:base="http://localhost:4000/hooked/">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;79 persen pemilik smartphone memeriksa perangkat mereka dalam kurun waktu 15 menit dari setiap bangun pagi.&lt;/code&gt;&lt;/p&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">79 persen pemilik smartphone memeriksa perangkat mereka dalam kurun waktu 15 menit dari setiap bangun pagi.</summary></entry><entry><title type="html">Jupyter notebook</title><link href="http://localhost:4000/posts/2021/03/jupyter-notebook" rel="alternate" type="text/html" title="Jupyter notebook" /><published>2021-03-18T00:00:00-07:00</published><updated>2021-03-18T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/jupyter-notebook</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/jupyter-notebook">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
 &lt;p&gt;In order to complete this guide, you should have a fresh Ubuntu 18.04 server instance with a basic firewall and a non-root user with sudo privileges configured.&lt;/p&gt;
 
 &lt;hr /&gt;
