@@ -8,6 +8,10 @@ redirect_from:
   - /about.html
 ---
 
+<p align="center">
+  <img width="600" src="https://cdn.rawgit.com/marionebl/svg-term-cli/1250f9c1/examples/parrot.svg">
+</p>
+
 dzakwan's home on the internet...ain't my web design skills sick?
 
 buy an Apple, Microsoft, LG, Samsung, Nintendo, ...
