@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-19T19:22:39-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Cost untuk pengembangan aplikasi agar powerfull</title><link href="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi" rel="alternate" type="text/html" title="Cost untuk pengembangan aplikasi agar powerfull" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi">&lt;h1 id=&quot;masalah-orang-it-vs-finance-opini&quot;&gt;Masalah orang IT vs Finance (Opini)&lt;/h1&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Ingat ini aplikasi kalo mau bagus !&lt;/p&gt;
-&lt;/blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-19T19:55:16-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Cost untuk pengembangan aplikasi agar powerfull</title><link href="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi" rel="alternate" type="text/html" title="Cost untuk pengembangan aplikasi agar powerfull" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi">&lt;h1 id=&quot;pendahuluan&quot;&gt;Pendahuluan&lt;/h1&gt;
 
-&lt;p&gt;Gue sering ditanya gini sama orang finance.&lt;em&gt;“jek berapa cost estimasi untuk membuat aplikasi?”&lt;/em&gt; gue coba jabrin deh disini, agar lebih realistis. karena gue ngerasa gue pernah diposisi tidak tahu.&lt;/p&gt;
+&lt;p&gt;Gue sering ditanya gini sama orang proyek ketika mau nyusun RAB.&lt;strong&gt;“jek berapa cost estimasi untuk membuat aplikasi?”&lt;/strong&gt; gue coba jabarin deh disini, agar lebih realistis. karena pada prakteknya orang-orang IT sering bigung untuk menjawab ini.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;&lt;em&gt;Catatan:&lt;/em&gt;&lt;/strong&gt; biaya cost ini mengikuti perhitungan rata-rata pembuatan aplikasi secara internasional,disadur dari beberapa artikel.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;Catatan:&lt;/em&gt;&lt;/strong&gt; biaya cost ini mengikuti perhitungan rata-rata pembuatan aplikasi secara internasional, disadur dari beberapa sumber.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Berapa banyak cost yang kamu habiskan untuk mengembangkan aplikasi? secara umum untuk membangun aplikasi dengan kuliatas bagus estimasi cost, biaya yang diperlukan adalah mulai dari &lt;strong&gt;$60.000&lt;/strong&gt; sampai dengan &lt;strong&gt;$230,000&lt;/strong&gt; lebih. jika di konversikan kedalam rupiah, cost tersebut berkisar &lt;strong&gt;Rp.86.618.1000&lt;/strong&gt; (&lt;em&gt;delapan puluh enam juta enam ratus delapan belas seribu rupiah&lt;/em&gt;) sampai dengan &lt;strong&gt;Rp.3.320.360.500&lt;/strong&gt; (&lt;em&gt;tiga miliyar tiga ratus dua puluh juta tiga ratus enam puluh ribu lima ratus rupiah&lt;/em&gt;).  Faktor-faktor seperti jenis aplikasi, jumlah dan kompleksitas fungsionalitas dan desain, vendor IT mempengaruhi harga aplikasi, di mana pada tingkat  40$ / jam:&lt;/p&gt;
+&lt;p&gt;Berapa banyak cost yang kamu habiskan untuk mengembangkan aplikasi? secara umum, untuk membangun aplikasi dengan kuliatas bagus. estimasi cost yang diperlukan mulai dari &lt;strong&gt;$60.000&lt;/strong&gt; sampai dengan &lt;strong&gt;$230,000&lt;/strong&gt; lebih. jika di konversikan kedalam rupiah, cost tersebut berkisar &lt;strong&gt;Rp.86.618.1000&lt;/strong&gt; (&lt;em&gt;delapan puluh enam juta enam ratus delapan belas seribu rupiah&lt;/em&gt;) sampai dengan &lt;strong&gt;Rp.3.320.360.500&lt;/strong&gt; (&lt;em&gt;tiga miliyar tiga ratus dua puluh juta tiga ratus enam puluh ribu lima ratus rupiah&lt;/em&gt;).  Faktor-faktor seperti jenis aplikasi, jumlah dan kompleksitas fungsionalitas dan desain, vendor IT mempengaruhi harga aplikasi, di mana pada tingkat  rata-rata orang IT berkerja $40 / jam:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -30,17 +27,17 @@
 &lt;p&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;biaya-pengembangan-aplikasi-tolok-ukur&quot;&gt;Biaya pengembangan aplikasi: Tolok Ukur&lt;/h1&gt;
+&lt;h1 id=&quot;biaya-pengembangan-aplikasi-parameter&quot;&gt;Biaya pengembangan aplikasi: parameter&lt;/h1&gt;
 
-&lt;p&gt;ayo kita analisa anggaran yang di butuhkan untuk berinvestasi untuk mewujudkan ide pembuatan aplikasi.&lt;/p&gt;
+&lt;p&gt;ayo kita analisa, anggaran apa saja yang di butuhkan untuk membuat sebuah aplikasi.&lt;/p&gt;
 
-&lt;p&gt;Masuk akal untuk meluncurkan startup aplikasi hari ini. Sebagian besar populasi menggunakan aplikasi seluler yang berbeda sebagai bagian dari aktivitas sehari-hari mereka.&lt;/p&gt;
+&lt;p&gt;agar masuk akal untuk meluncurkan startup aplikasi hari ini. Sebagian besar orang menggunakan aplikasi selulerberbeda , sebagai penggunaan untuk menunjang aktivitas sehari-hari.&lt;/p&gt;
 
 &lt;p&gt;Namun, berapa biaya untuk menerapkan  pembuatan aplikasi seluler hari ini?&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/seluler.png&quot; alt=&quot;mobile aplikasi&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Studi industri aplikasi seluler yang paling andal memberikan ringkasan berikut untuk biaya pengembangan aplikasi dan waktu pengerjaaan:&lt;/p&gt;
+&lt;p&gt;Studi pada industri yang fokus pada pembuatan aplikasi seluler yang paling handal memberikan ringkasan berikut untuk biaya pengembangan aplikasi dan waktu pengerjaaan:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -60,9 +57,11 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Pada dasarnya, ide aplikasi Anda, bersama dengan kebutuhan bisnis dan fungsional, memengaruhi biaya pengembangan aplikasi.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;Faktor paling berpengaruh yang menentukan biaya akhir untuk membuat aplikasi adalah:&lt;/p&gt;
+&lt;p&gt;Pada dasarnya, ide aplikasi, bergantung  pada kebutuhan bisnis dan fungsi, yang akan memengaruhi biaya pengembangan aplikasi.&lt;/p&gt;
+
+&lt;p&gt;Faktor paling berpengaruh untuk  menentukan biaya akhir untuk pembuatan aplikasi adalah:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Tipe dan lokasi vendor&lt;/li&gt;
@@ -78,15 +77,15 @@
 
 &lt;h1 id=&quot;biaya-pengembangan-aplikasi-seluler-pada-tahun-2021&quot;&gt;Biaya pengembangan aplikasi seluler pada tahun 2021&lt;/h1&gt;
 
-&lt;p&gt;Pertanyaannya masih terbuka. Berapa biaya untuk membuat aplikasi di 2020?&lt;/p&gt;
+&lt;p&gt;Pertanyaannya masih sama. Berapa biaya untuk membuat aplikasi di 2021?&lt;/p&gt;
 
-&lt;p&gt;Temuan utama menunjukkan bahwa biaya untuk mengembangkan aplikasi berkisar dari hanya &lt;strong&gt;$ 5.000&lt;/strong&gt; hingga &lt;strong&gt;$ 500.000&lt;/strong&gt; berdasarkan survei industri terbaru.&lt;/p&gt;
+&lt;p&gt;Temuan utama menunjukkan bahwa, biaya untuk mengembangkan aplikasi berkisar dari hanya &lt;strong&gt;$ 5.000&lt;/strong&gt; hingga &lt;strong&gt;$ 500.000&lt;/strong&gt; berdasarkan survei industri terbaru.&lt;/p&gt;
 
-&lt;p&gt;Tim kami juga telah membuat investigasi terperinci tentang biaya untuk membangun aplikasi yang mencantumkan perkiraan berdasarkan fitur aplikasi yang banyak digunakan, kompleksitas desain, dan tahap pengembangan perangkat lunak.&lt;/p&gt;
+&lt;p&gt;gue juga telah membuat investigasi terperinci tentang biaya untuk membangun aplikasi yang mencantumkan perkiraan berdasarkan fitur aplikasi yang banyak digunakan, kompleksitas desain, dan tahap pengembangan perangkat lunak.&lt;/p&gt;
 
-&lt;p&gt;Akibatnya, kesimpulan kami mendukung temuan utama mengenai biaya untuk mengembangkan aplikasi pada tahun 2020. Aplikasi dengan serangkaian fitur inti biaya ke atas &lt;strong&gt;$ 60.000&lt;/strong&gt;, sementara biaya pengembangan aplikasi seluler yang kompleks mulai dari &lt;strong&gt;$ 230.000&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Akibatnya, kesimpulan kami mendukung temuan utama mengenai biaya untuk mengembangkan aplikasi pada tahun 2021. Aplikasi dengan serangkaian fitur, inti biaya ke atas &lt;strong&gt;$ 60.000&lt;/strong&gt;, sementara biaya pengembangan aplikasi seluler yang kompleks mulai dari &lt;strong&gt;$ 230.000&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Tabel di bawah ini mengilustrasikan kisaran biaya untuk membuat aplikasi dengan waktu pengerjaan yang sesuai.&lt;/p&gt;
+&lt;p&gt;Tabel di bawah ini mengilustrasikan kisaran biaya untuk membuat aplikasi dengan waktu pengerjaan.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -118,7 +117,7 @@
 &lt;p&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;biaya-untuk-mengembangkan-aplikasi-memahami-dasar-dasar&quot;&gt;Biaya untuk Mengembangkan Aplikasi: Memahami Dasar-Dasar&lt;/h1&gt;
+&lt;h1 id=&quot;biaya-untuk-mengembangkan-aplikasi-konsep-dasar&quot;&gt;Biaya untuk mengembangkan aplikasi: konsep dasar&lt;/h1&gt;
 &lt;p&gt;Elemen berikut akan membantu Anda memahami biaya pengembangan aplikasi, sehingga Anda dapat memengaruhi kisaran harga dan menetapkan anggaran proyek Anda.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -137,21 +136,43 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;bagaimana-estimasi-biaya-pengembangan-aplikasi&quot;&gt;Bagaimana Estimasi Biaya Pengembangan Aplikasi?&lt;/h1&gt;
+&lt;h1 id=&quot;bagaimana-estimasi-biaya-pengembangan-aplikasi&quot;&gt;Bagaimana estimasi biaya pengembangan aplikasi?&lt;/h1&gt;
 
-&lt;p&gt;Driver biaya aplikasi utama adalah fitur aplikasi.&lt;/p&gt;
+&lt;p&gt;perhitungan penting untuk membuat aplikasi ada pada bagian fitur aplikasi.&lt;/p&gt;
 
-&lt;p&gt;Fitur adalah aktivitas atau tugas khusus yang menurutnya perangkat lunak harus beroperasi dan memberikan hasil yang diharapkan. Ini bisa menjadi tombol pendaftaran di layar atau sesuatu yang lebih kompleks seperti integrasi streaming video. Jumlah fitur dan kompleksitas implementasinya berkorelasi langsung dengan biaya untuk membangun aplikasi.&lt;/p&gt;
+&lt;p&gt;Yang dimaksud fitur adalah aktivitas atau tugas khusus yang menurutnya perangkat lunak harus beroperasi dan memberikan hasil yang diharapkan. seperti, membuat tombol pendaftaran di layar atau yang lebih kompleks. seperti, integrasi streaming video. Jumlah fitur dan kompleksitas untuk penerapanya berkorberkaitan  dengan biaya untuk membuat aplikasi.&lt;/p&gt;
 
 &lt;p&gt;Rumus yang digunakan untuk menghitung biaya pengembangan aplikasi adalah sebagai berikut:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/formula.png&quot; alt=&quot;berinvestasi&quot; /&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sebelum pengembangan aplikasi dimulai, perusahaan pengembangan perangkat lunak yang bagus biasanya memberikan anda perkiraan biaya pengembangan aplikasi seluler secara  kasar. dasar pengambilan keputusanya,  didasari pada deskripsi proyek, persyaratan bisnis, dan teknis. Informasi ini digabungkan dan disimpulkan dalam daftar awal fitur.&lt;/p&gt;
+
+&lt;p&gt;Perusahaan biasanya memperkirakan biaya pengembangan aplikasi menggunakan:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Konsep&lt;/strong&gt;: menyajikan sejumlah fitur untuk dicapai&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Stories&lt;/strong&gt;: mencantumkan semua fitur yang diperlukan untuk membuat konsep&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Poin utama&lt;/strong&gt;: menunjukkan kecepatan dan kompleksitas pengembangan aplikasi&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Item-item ini disajikan dalam bentuk backlog produk.&lt;/p&gt;
+
+&lt;p&gt;Backlog produk didefinisikan sebagai:  daftar fitur, perubahan pada fitur yang ada, perbaikan bug, perubahan infrastruktur, atau aktivitas lain yang dapat disampaikan tim untuk mencapai hasil tertentu.&lt;/p&gt;
+
+&lt;p&gt;Secara umum, klien dikenakan biaya untuk layanan pengembangan aplikasi berdasarkan opsi berikut:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Biaya tetap&lt;/strong&gt; - pembayaran yang menyiratkan biaya yang dikenakan untuk timeline tertentu. Ini mungkin bekerja dengan baik untuk proyek yang lebih kecil, terutama yang memiliki ruang lingkup pekerjaan yang jelas dan terdefinisi dengan baik. Keuntungan dari opsi ini adalah bahwa biaya pengembangan aplikasi ditegaskan dengan klien sebelum pengembangan dimulai.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;hr /&gt;
 &lt;h2 id=&quot;source&quot;&gt;Source:&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://mlsdev.com/blog/app-development-cost&quot;&gt;Baca disini&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">Masalah orang IT vs Finance (Opini) Ingat ini aplikasi kalo mau bagus !</summary></entry><entry><title type="html">Hooked</title><link href="http://localhost:4000/hooked/" rel="alternate" type="text/html" title="Hooked" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/hooked</id><content type="html" xml:base="http://localhost:4000/hooked/">&lt;p&gt;79 persen pemilik smartphone memeriksa perangkat mereka dalam waktu 15 menit dari bangun setiap pagi. Mungkin lebih mengejutkan, sepenuhnya sepertiga orang Amerika mengatakan mereka lebih suka menyerah seks daripada kehilangan ponsel mereka. Sebuah studi universitas tahun 2011 menyarankan orang-orang memeriksa ponsel mereka 34 kali per hari. Namun, orang dalam industri percaya bahwa jumlah lebih dekat ke sesi harian 150 yang mencengangkan.&lt;/p&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">79 persen pemilik smartphone memeriksa perangkat mereka dalam waktu 15 menit dari bangun setiap pagi. Mungkin lebih mengejutkan, sepenuhnya sepertiga orang Amerika mengatakan mereka lebih suka menyerah seks daripada kehilangan ponsel mereka. Sebuah studi universitas tahun 2011 menyarankan orang-orang memeriksa ponsel mereka 34 kali per hari. Namun, orang dalam industri percaya bahwa jumlah lebih dekat ke sesi harian 150 yang mencengangkan.</summary></entry><entry><title type="html">Jupyter notebook</title><link href="http://localhost:4000/posts/2021/03/jupyter-notebook" rel="alternate" type="text/html" title="Jupyter notebook" /><published>2021-03-18T00:00:00-07:00</published><updated>2021-03-18T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/jupyter-notebook</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/jupyter-notebook">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">Pendahuluan</summary></entry><entry><title type="html">Hooked</title><link href="http://localhost:4000/hooked/" rel="alternate" type="text/html" title="Hooked" /><published>2021-03-19T00:00:00-07:00</published><updated>2021-03-19T00:00:00-07:00</updated><id>http://localhost:4000/hooked</id><content type="html" xml:base="http://localhost:4000/hooked/">&lt;p&gt;79 persen pemilik smartphone memeriksa perangkat mereka dalam waktu 15 menit dari bangun setiap pagi. Mungkin lebih mengejutkan, sepenuhnya sepertiga orang Amerika mengatakan mereka lebih suka menyerah seks daripada kehilangan ponsel mereka. Sebuah studi universitas tahun 2011 menyarankan orang-orang memeriksa ponsel mereka 34 kali per hari. Namun, orang dalam industri percaya bahwa jumlah lebih dekat ke sesi harian 150 yang mencengangkan.&lt;/p&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">79 persen pemilik smartphone memeriksa perangkat mereka dalam waktu 15 menit dari bangun setiap pagi. Mungkin lebih mengejutkan, sepenuhnya sepertiga orang Amerika mengatakan mereka lebih suka menyerah seks daripada kehilangan ponsel mereka. Sebuah studi universitas tahun 2011 menyarankan orang-orang memeriksa ponsel mereka 34 kali per hari. Namun, orang dalam industri percaya bahwa jumlah lebih dekat ke sesi harian 150 yang mencengangkan.</summary></entry><entry><title type="html">Jupyter notebook</title><link href="http://localhost:4000/posts/2021/03/jupyter-notebook" rel="alternate" type="text/html" title="Jupyter notebook" /><published>2021-03-18T00:00:00-07:00</published><updated>2021-03-18T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/jupyter-notebook</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/jupyter-notebook">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
 &lt;p&gt;In order to complete this guide, you should have a fresh Ubuntu 18.04 server instance with a basic firewall and a non-root user with sudo privileges configured.&lt;/p&gt;
 
 &lt;hr /&gt;

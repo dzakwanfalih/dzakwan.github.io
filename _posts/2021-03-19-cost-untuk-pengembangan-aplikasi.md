@@ -4,16 +4,16 @@ permalink: /posts/2021/03/cost-untuk-pengembangan-aplikasi
 date: 2021-03-19-01
 ---
 
-Masalah orang IT vs Finance (Opini)
+Pendahuluan
 ==========
-> Ingat ini aplikasi kalo mau bagus !
-
-Gue sering ditanya gini sama orang finance.*"jek berapa cost estimasi untuk membuat aplikasi?"* gue coba jabrin deh disini, agar lebih realistis. karena gue ngerasa gue pernah diposisi tidak tahu. 
-
-> **_Catatan:_** biaya cost ini mengikuti perhitungan rata-rata pembuatan aplikasi secara internasional,disadur dari beberapa artikel. 
 
 
-Berapa banyak cost yang kamu habiskan untuk mengembangkan aplikasi? secara umum untuk membangun aplikasi dengan kuliatas bagus estimasi cost, biaya yang diperlukan adalah mulai dari **$60.000** sampai dengan **$230,000** lebih. jika di konversikan kedalam rupiah, cost tersebut berkisar **Rp.86.618.1000** (*delapan puluh enam juta enam ratus delapan belas seribu rupiah*) sampai dengan **Rp.3.320.360.500** (*tiga miliyar tiga ratus dua puluh juta tiga ratus enam puluh ribu lima ratus rupiah*).  Faktor-faktor seperti jenis aplikasi, jumlah dan kompleksitas fungsionalitas dan desain, vendor IT mempengaruhi harga aplikasi, di mana pada tingkat  40$ / jam:
+Gue sering ditanya gini sama orang proyek ketika mau nyusun RAB.**"jek berapa cost estimasi untuk membuat aplikasi?"** gue coba jabarin deh disini, agar lebih realistis. karena pada prakteknya orang-orang IT sering bigung untuk menjawab ini. 
+
+> **_Catatan:_** biaya cost ini mengikuti perhitungan rata-rata pembuatan aplikasi secara internasional, disadur dari beberapa sumber. 
+
+
+Berapa banyak cost yang kamu habiskan untuk mengembangkan aplikasi? secara umum, untuk membangun aplikasi dengan kuliatas bagus. estimasi cost yang diperlukan mulai dari **$60.000** sampai dengan **$230,000** lebih. jika di konversikan kedalam rupiah, cost tersebut berkisar **Rp.86.618.1000** (*delapan puluh enam juta enam ratus delapan belas seribu rupiah*) sampai dengan **Rp.3.320.360.500** (*tiga miliyar tiga ratus dua puluh juta tiga ratus enam puluh ribu lima ratus rupiah*).  Faktor-faktor seperti jenis aplikasi, jumlah dan kompleksitas fungsionalitas dan desain, vendor IT mempengaruhi harga aplikasi, di mana pada tingkat  rata-rata orang IT berkerja $40 / jam:
 
 * **Biaya pengembangan aplikasi sederhana** - **$60.000** untuk satu platform (misalnya Kalkulator, Kamera)
 
@@ -28,19 +28,19 @@ waktu proses pengembangan aplikasi juga bervariasi dari**2-3** bulan untuk aplik
 <br>
 <br>
 
-Biaya pengembangan aplikasi: Tolok Ukur
+Biaya pengembangan aplikasi: parameter
 ==========
 
-ayo kita analisa anggaran yang di butuhkan untuk berinvestasi untuk mewujudkan ide pembuatan aplikasi.
+ayo kita analisa, anggaran apa saja yang di butuhkan untuk membuat sebuah aplikasi.
 
-Masuk akal untuk meluncurkan startup aplikasi hari ini. Sebagian besar populasi menggunakan aplikasi seluler yang berbeda sebagai bagian dari aktivitas sehari-hari mereka.
+agar masuk akal untuk meluncurkan startup aplikasi hari ini. Sebagian besar orang menggunakan aplikasi selulerberbeda , sebagai penggunaan untuk menunjang aktivitas sehari-hari.
 
 Namun, berapa biaya untuk menerapkan  pembuatan aplikasi seluler hari ini?
 
 
 ![mobile aplikasi](/images/seluler.png)
 
-Studi industri aplikasi seluler yang paling andal memberikan ringkasan berikut untuk biaya pengembangan aplikasi dan waktu pengerjaaan:
+Studi pada industri yang fokus pada pembuatan aplikasi seluler yang paling handal memberikan ringkasan berikut untuk biaya pengembangan aplikasi dan waktu pengerjaaan:
 
 * Biaya pengembangan aplikasi median adalah sekitar **$ 171.450** (dengan tarif **$ 150 / jam**), yang mewakili 1.143 jam pengembangan. Total harga aplikasi bahkan dapat meningkat menjadi **$ 727.500** dalam kasus implementasi fungsionalitas yang kompleks (Survei Kopling, 2015)
 
@@ -52,10 +52,11 @@ Studi industri aplikasi seluler yang paling andal memberikan ringkasan berikut u
 
 * Mengenai timeline pengembangan aplikasi: lebih dari 80% aplikasi seluler membutuhkan waktu 3+ bulan untuk berkembang; 40% aplikasi dibangun dalam 6+ bulan (Survei Outsystems, 2018-19)
 
+<br>
 
-Pada dasarnya, ide aplikasi Anda, bersama dengan kebutuhan bisnis dan fungsional, memengaruhi biaya pengembangan aplikasi.
+Pada dasarnya, ide aplikasi, bergantung  pada kebutuhan bisnis dan fungsi, yang akan memengaruhi biaya pengembangan aplikasi.
 
-Faktor paling berpengaruh yang menentukan biaya akhir untuk membuat aplikasi adalah:
+Faktor paling berpengaruh untuk  menentukan biaya akhir untuk pembuatan aplikasi adalah:
 
 * Tipe dan lokasi vendor
 * Kompleksitas dan jumlah fitur aplikasi
@@ -71,15 +72,15 @@ Faktor paling berpengaruh yang menentukan biaya akhir untuk membuat aplikasi ada
 Biaya pengembangan aplikasi seluler pada tahun 2021
 ==========
 
-Pertanyaannya masih terbuka. Berapa biaya untuk membuat aplikasi di 2020?
+Pertanyaannya masih sama. Berapa biaya untuk membuat aplikasi di 2021?
 
-Temuan utama menunjukkan bahwa biaya untuk mengembangkan aplikasi berkisar dari hanya **$ 5.000** hingga **$ 500.000** berdasarkan survei industri terbaru.
+Temuan utama menunjukkan bahwa, biaya untuk mengembangkan aplikasi berkisar dari hanya **$ 5.000** hingga **$ 500.000** berdasarkan survei industri terbaru.
 
-Tim kami juga telah membuat investigasi terperinci tentang biaya untuk membangun aplikasi yang mencantumkan perkiraan berdasarkan fitur aplikasi yang banyak digunakan, kompleksitas desain, dan tahap pengembangan perangkat lunak.
+gue juga telah membuat investigasi terperinci tentang biaya untuk membangun aplikasi yang mencantumkan perkiraan berdasarkan fitur aplikasi yang banyak digunakan, kompleksitas desain, dan tahap pengembangan perangkat lunak.
 
-Akibatnya, kesimpulan kami mendukung temuan utama mengenai biaya untuk mengembangkan aplikasi pada tahun 2020. Aplikasi dengan serangkaian fitur inti biaya ke atas **$ 60.000**, sementara biaya pengembangan aplikasi seluler yang kompleks mulai dari **$ 230.000**.
+Akibatnya, kesimpulan kami mendukung temuan utama mengenai biaya untuk mengembangkan aplikasi pada tahun 2021. Aplikasi dengan serangkaian fitur, inti biaya ke atas **$ 60.000**, sementara biaya pengembangan aplikasi seluler yang kompleks mulai dari **$ 230.000**.
 
-Tabel di bawah ini mengilustrasikan kisaran biaya untuk membuat aplikasi dengan waktu pengerjaan yang sesuai.
+Tabel di bawah ini mengilustrasikan kisaran biaya untuk membuat aplikasi dengan waktu pengerjaan.
 
 <br>
 
@@ -91,7 +92,7 @@ Tabel di bawah ini mengilustrasikan kisaran biaya untuk membuat aplikasi dengan 
 <br>
 <br>
 
-Biaya untuk Mengembangkan Aplikasi: Memahami Dasar-Dasar
+Biaya untuk mengembangkan aplikasi: konsep dasar
 =====
 Elemen berikut akan membantu Anda memahami biaya pengembangan aplikasi, sehingga Anda dapat memengaruhi kisaran harga dan menetapkan anggaran proyek Anda.
 
@@ -109,17 +110,34 @@ Namun, karena keunggulan teknis dan kinerja aplikasi asli, sebagian besar perusa
 
 <br>
 
-Bagaimana Estimasi Biaya Pengembangan Aplikasi?
+Bagaimana estimasi biaya pengembangan aplikasi?
 =====
 
-Driver biaya aplikasi utama adalah fitur aplikasi.
+perhitungan penting untuk membuat aplikasi ada pada bagian fitur aplikasi.
 
-Fitur adalah aktivitas atau tugas khusus yang menurutnya perangkat lunak harus beroperasi dan memberikan hasil yang diharapkan. Ini bisa menjadi tombol pendaftaran di layar atau sesuatu yang lebih kompleks seperti integrasi streaming video. Jumlah fitur dan kompleksitas implementasinya berkorelasi langsung dengan biaya untuk membangun aplikasi.
+Yang dimaksud fitur adalah aktivitas atau tugas khusus yang menurutnya perangkat lunak harus beroperasi dan memberikan hasil yang diharapkan. seperti, membuat tombol pendaftaran di layar atau yang lebih kompleks. seperti, integrasi streaming video. Jumlah fitur dan kompleksitas untuk penerapanya berkorberkaitan  dengan biaya untuk membuat aplikasi.
 
 Rumus yang digunakan untuk menghitung biaya pengembangan aplikasi adalah sebagai berikut:
 
 ![berinvestasi](/images/formula.png)
 
+<br>
+
+Sebelum pengembangan aplikasi dimulai, perusahaan pengembangan perangkat lunak yang bagus biasanya memberikan anda perkiraan biaya pengembangan aplikasi seluler secara  kasar. dasar pengambilan keputusanya,  didasari pada deskripsi proyek, persyaratan bisnis, dan teknis. Informasi ini digabungkan dan disimpulkan dalam daftar awal fitur.
+
+Perusahaan biasanya memperkirakan biaya pengembangan aplikasi menggunakan:
+
+* **Konsep**: menyajikan sejumlah fitur untuk dicapai
+* **Stories**: mencantumkan semua fitur yang diperlukan untuk membuat konsep
+* **Poin utama**: menunjukkan kecepatan dan kompleksitas pengembangan aplikasi
+
+Item-item ini disajikan dalam bentuk backlog produk.
+
+Backlog produk didefinisikan sebagai:  daftar fitur, perubahan pada fitur yang ada, perbaikan bug, perubahan infrastruktur, atau aktivitas lain yang dapat disampaikan tim untuk mencapai hasil tertentu.
+
+Secara umum, klien dikenakan biaya untuk layanan pengembangan aplikasi berdasarkan opsi berikut:
+
+* **Biaya tetap** - pembayaran yang menyiratkan biaya yang dikenakan untuk timeline tertentu. Ini mungkin bekerja dengan baik untuk proyek yang lebih kecil, terutama yang memiliki ruang lingkup pekerjaan yang jelas dan terdefinisi dengan baik. Keuntungan dari opsi ini adalah bahwa biaya pengembangan aplikasi ditegaskan dengan klien sebelum pengembangan dimulai.
 
 * * *
 ## Source: 
