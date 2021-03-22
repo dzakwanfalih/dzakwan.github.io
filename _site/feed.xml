@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-22T02:01:37-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Dsp</title><link href="http://localhost:4000/dsp/" rel="alternate" type="text/html" title="Dsp" /><published>2021-03-21T00:00:00-07:00</published><updated>2021-03-21T00:00:00-07:00</updated><id>http://localhost:4000/dsp</id><content type="html" xml:base="http://localhost:4000/dsp/">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-22T02:04:56-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Dsp</title><link href="http://localhost:4000/dsp/" rel="alternate" type="text/html" title="Dsp" /><published>2021-03-21T00:00:00-07:00</published><updated>2021-03-21T00:00:00-07:00</updated><id>http://localhost:4000/dsp</id><content type="html" xml:base="http://localhost:4000/dsp/">&lt;hr /&gt;
 &lt;p&gt;title:  “dsp”
 permalink: /posts/2021/03/dsp-dude
 date: 2021-03-21-02
 —-&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Get thinkdsp.py
-&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;language-pythons&quot;&gt;# Get thinkdsp.py
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'thinkdsp.py'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wget&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AllenDowney&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ThinkDSP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;master&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thinkdsp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+import os
+
+if not os.path.exists('thinkdsp.py'):
+    !wget https://github.com/AllenDowney/ThinkDSP/raw/master/code/thinkdsp.py
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--2021-03-22 14:37:36--  https://github.com/AllenDowney/ThinkDSP/raw/master/code/thinkdsp.py
 Resolving github.com (github.com)... 13.250.177.223
