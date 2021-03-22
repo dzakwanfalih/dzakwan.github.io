@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-21T20:57:50-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Installasi nasm dengan di ubuntu 18.04 dan pendahuluan bahasa assembly</title><link href="http://localhost:4000/posts/2021/03/installasi-nasm-dengan-ubuntu-18.04" rel="alternate" type="text/html" title="Installasi nasm dengan di ubuntu 18.04 dan pendahuluan bahasa assembly" /><published>2021-03-21T00:00:00-07:00</published><updated>2021-03-21T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/install%20nasm</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/installasi-nasm-dengan-ubuntu-18.04">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Catatan:&lt;/em&gt;&lt;/strong&gt; Tutorial untuk tingkat pemula&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-22T02:01:15-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Dzakwan Falih</title><subtitle>Dzakwan Falih</subtitle><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><entry><title type="html">Dsp</title><link href="http://localhost:4000/dsp/" rel="alternate" type="text/html" title="Dsp" /><published>2021-03-21T00:00:00-07:00</published><updated>2021-03-21T00:00:00-07:00</updated><id>http://localhost:4000/dsp</id><content type="html" xml:base="http://localhost:4000/dsp/">&lt;hr /&gt;
+&lt;p&gt;title:  “dsp”
+permalink: /posts/2021/03/dsp-dude
+date: 
+—-&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Get thinkdsp.py
+&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'thinkdsp.py'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wget&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AllenDowney&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ThinkDSP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;master&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thinkdsp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--2021-03-22 14:37:36--  https://github.com/AllenDowney/ThinkDSP/raw/master/code/thinkdsp.py
+Resolving github.com (github.com)... 13.250.177.223
+Connecting to github.com (github.com)|13.250.177.223|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/AllenDowney/ThinkDSP/master/code/thinkdsp.py [following]
+--2021-03-22 14:37:36--  https://raw.githubusercontent.com/AllenDowney/ThinkDSP/master/code/thinkdsp.py
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 48687 (48K) [text/plain]
+Saving to: ‘thinkdsp.py’
+
+thinkdsp.py         100%[===================&amp;gt;]  47,55K  --.-KB/s    in 0,02s   
+
+2021-03-22 14:37:37 (2,12 MB/s) - ‘thinkdsp.py’ saved [48687/48687]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# install a crpto package numpy
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;executable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Defaulting to user installation because normal site-packages is not writeable
+Collecting matplotlib
+  Downloading matplotlib-3.3.4-cp36-cp36m-manylinux1_x86_64.whl (11.5 MB)
+[K     |████████████████████████████████| 11.5 MB 3.7 MB/s eta 0:00:01
+[?25hRequirement already satisfied: python-dateutil&amp;gt;=2.1 in /home/supernode/.local/lib/python3.6/site-packages (from matplotlib) (2.8.1)
+Requirement already satisfied: numpy&amp;gt;=1.15 in /home/supernode/.local/lib/python3.6/site-packages (from matplotlib) (1.19.5)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&amp;gt;=2.0.3 in /home/supernode/.local/lib/python3.6/site-packages (from matplotlib) (2.4.7)
+Collecting kiwisolver&amp;gt;=1.0.1
+  Downloading kiwisolver-1.3.1-cp36-cp36m-manylinux1_x86_64.whl (1.1 MB)
+[K     |████████████████████████████████| 1.1 MB 4.4 MB/s eta 0:00:01
+[?25hCollecting pillow&amp;gt;=6.2.0
+  Downloading Pillow-8.1.2-cp36-cp36m-manylinux1_x86_64.whl (2.2 MB)
+[K     |████████████████████████████████| 2.2 MB 429 kB/s eta 0:00:01
+[?25hCollecting cycler&amp;gt;=0.10
+  Downloading cycler-0.10.0-py2.py3-none-any.whl (6.5 kB)
+Requirement already satisfied: six in /home/supernode/.local/lib/python3.6/site-packages (from cycler&amp;gt;=0.10-&amp;gt;matplotlib) (1.15.0)
+Installing collected packages: pillow, kiwisolver, cycler, matplotlib
+Successfully installed cycler-0.10.0 kiwisolver-1.3.1 matplotlib-3.3.4 pillow-8.1.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;thinkdsp&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CosSignal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SinSignal&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;cos_sig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CosSignal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;440&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sin_sig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SinSignal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;880&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;plot sinyal sin dan cosinus. secara default plot memeliki tiga priode&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;thinkdsp&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decorate&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;cos_sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;decorate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Time (s)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;dsp_files/dsp_4_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;gambar di atas merupakan gambar sinyak sinus&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sin_sig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;decorate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Time (s)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;dsp_files/dsp_6_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Gambar di atas memberitahu frekwensi dari sebuah sinyal sinus adalah double&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Dzakwan Falih</name><email>dzakwanfaliht@hotmail.com</email></author><summary type="html">title: “dsp” permalink: /posts/2021/03/dsp-dude date: —-</summary></entry><entry><title type="html">Installasi nasm dengan di ubuntu 18.04 dan pendahuluan bahasa assembly</title><link href="http://localhost:4000/posts/2021/03/installasi-nasm-dengan-ubuntu-18.04" rel="alternate" type="text/html" title="Installasi nasm dengan di ubuntu 18.04 dan pendahuluan bahasa assembly" /><published>2021-03-21T00:00:00-07:00</published><updated>2021-03-21T00:00:00-07:00</updated><id>http://localhost:4000/posts/2021/03/install%20nasm</id><content type="html" xml:base="http://localhost:4000/posts/2021/03/installasi-nasm-dengan-ubuntu-18.04">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Catatan:&lt;/em&gt;&lt;/strong&gt; Tutorial untuk tingkat pemula&lt;/p&gt;
 
 &lt;h1 id=&quot;installasi-nasm-di-ubuntu-1804-dan-pendahuluan-bahasa-assembly&quot;&gt;Installasi nasm di ubuntu 18.04 dan pendahuluan bahasa assembly&lt;/h1&gt;
 

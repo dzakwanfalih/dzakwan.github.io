@@ -419,7 +419,7 @@ Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span 
 
   <nav class="pagination">
     
-      <a href="http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg" class="pagination--pager" title="Membuat Randsomware dengan PGP
+      <a href="http://localhost:4000/dsp/" class="pagination--pager" title="Dsp
 ">Previous</a>
     
     
@@ -481,6 +481,57 @@ Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span 
 <h1 id="kode-etik-peneliti">Kode Etik Peneliti</h1>
 
 <strong><a href="http://localhost:4000/posts/2021/03/kode-etik-peneliti" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/dsp/" rel="permalink">Dsp
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-21T00:00:00-07:00">March 21, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><hr />
+
+title:  “dsp”
+permalink: /posts/2021/03/dsp-dude
+date: 
+—-
+
+<strong><a href="http://localhost:4000/dsp/" rel="permalink"> ... Read more</a></strong></p></p>
     
 
     
@@ -573,52 +624,6 @@ Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span 
     <p class="archive__item-excerpt" itemprop="description"><p><h1 id="pendahuluan">Pendahuluan</h1>
 
 <strong><a href="http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" rel="permalink"> ... Read more</a></strong></p></p>
-    
-
-    
-
-  </article>
-</div>
-
-        
-          
-
-
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/hooked/" rel="permalink">Hooked
-</a>
-      
-    </h2>
-
-<!--Uncomment out this section to have the read time re-included
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
--->
-        
-         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-19T00:00:00-07:00">March 19, 2021</time></i></p>
-        
-
-    <!--The part below defines the "Read more" behavior-->
-    <!--TODO: figure out how the excerpts are defined-->
-    
-    <p class="archive__item-excerpt" itemprop="description"><p><code class="language-plaintext highlighter-rouge">79 persen pemilik smartphone memeriksa perangkat mereka dalam kurun waktu 15 menit dari setiap bangun pagi.</code>
-
-<strong><a href="http://localhost:4000/hooked/" rel="permalink"> ... Read more</a></strong></p></p>
     
 
     
