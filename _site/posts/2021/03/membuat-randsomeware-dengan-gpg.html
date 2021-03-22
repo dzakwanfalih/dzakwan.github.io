@@ -1,0 +1,789 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>membuat randsomeware dengan pgp - Dzakwan Falih</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Dzakwan Falih">
+<meta property="og:title" content="membuat randsomeware dengan pgp">
+
+
+  <link rel="canonical" href="http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg">
+  <meta property="og:url" content="http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg">
+
+
+
+  <meta property="og:description" content="Catatan: Tutorial untuk tingkat lanjutan.">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-03-20T00:00:00-07:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Dzakwan Falih",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Dzakwan Falih Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Dzakwan Falih</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/gue.jpg" class="author__avatar" alt="Dzakwan Falih">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name"><a href="/">Dzakwan Falih</a></h3>
+    <p class="author__bio">Love penguins and apples, but don't like windows.</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Cyber Space, Internet</li>
+      
+      
+      
+      
+        <li><a href="https://keybase.io/dzakwanfalih"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
+      
+      
+      
+      
+      
+        <li><a href="https://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://scholar.google.com/citations?hl=en&user=ZFuwjiIAAAAJ"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+      
+      
+      
+      
+      
+        <li><a href="mailto:dzakwanfaliht@hotmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="membuat randsomeware dengan pgp">
+    <meta itemprop="description" content="Catatan: Tutorial untuk tingkat lanjutan.">
+    <meta itemprop="datePublished" content="March 20, 2021">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">membuat randsomeware dengan pgp
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2021-03-20T00:00:00-07:00">March 20, 2021</time></p>
+        
+        
+             
+        
+    
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p><strong><em>Catatan:</em></strong> Tutorial untuk tingkat lanjutan.</p>
+
+<h1 id="langkah---langkah-tutorial">langkah - langkah tutorial</h1>
+
+<ol>
+  <li>Generate keys</li>
+  <li>mengunci file  dengan public key</li>
+  <li>membuka file  dengan private key</li>
+  <li>import key dari user lain</li>
+  <li>memberi dokumen file document</li>
+  <li>verify signature</li>
+</ol>
+
+<h1 id="1install-package">1.Install package</h1>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">gnupg</span>
+</code></pre></div></div>
+<h1 id="2membuat-file">2.Membuat file</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>pgp_keygen.py
+</code></pre></div></div>
+<p><br /></p>
+
+<h1 id="3buat-program-python-untuk-membuat-keygen">3.Buat program python untuk membuat keygen</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gnupg</span>
+<span class="kn">import</span> <span class="nn">os</span> 
+
+<span class="c1"># Directory gnupg
+</span><span class="n">gpg</span><span class="o">=</span><span class="n">gnupg</span><span class="p">.</span><span class="n">GPG</span><span class="p">(</span><span class="n">gnupghome</span><span class="o">=</span><span class="s">'/home/supernode/.gnupg'</span><span class="p">)</span>
+
+<span class="n">gpg</span><span class="p">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s">'utf-8'</span>
+
+<span class="c1"># Data untuk membuat gpg
+</span><span class="n">input_data</span> <span class="o">=</span> <span class="n">gpg</span><span class="p">.</span><span class="n">gen_key_input</span><span class="p">(</span>
+        <span class="n">name_email</span> <span class="o">=</span> <span class="s">'jon@mantap.com'</span><span class="p">,</span>
+        <span class="n">passphrase</span> <span class="o">=</span> <span class="s">'rahasia'</span><span class="p">,</span>
+        <span class="n">key_type</span>   <span class="o">=</span> <span class="s">'RSA'</span><span class="p">,</span>
+        <span class="n">key_length</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">)</span>
+
+
+<span class="n">key</span> <span class="o">=</span> <span class="n">gpg</span><span class="p">.</span><span class="n">gen_key</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h3 id="jalankan-program">jalankan program.</h3>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 pgp_keygen.py
+</code></pre></div></div>
+
+<h3 id="output-dari-program">output dari program:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>24FAC58E8AA95E855C18EDD2285A28E549718FA9
+</code></pre></div></div>
+
+<p>setelah itu chek apakah gpg berhasil dibuat.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">-k</span> 
+</code></pre></div></div>
+
+<p>output dari perintah tersebut seperti ini.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa1024 2021-03-20 <span class="o">[</span>SCEA]
+      <span class="sb">`</span><span class="k">**</span>24FAC58E8AA95E855C18EDD2285A28E549718FA9<span class="k">**</span><span class="sb">`</span>
+uid           <span class="o">[</span>ultimate] Autogenerated Key &lt;jon@mantap.com&gt;
+</code></pre></div></div>
+
+<p>4.Enkripsi file</p>
+
+<p>tulislah sebuah file program python seperti dibawah ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gnupg</span>
+<span class="kn">import</span> <span class="nn">os</span> 
+
+<span class="c1"># Folder GPG
+</span><span class="n">gpg</span> <span class="o">=</span> <span class="n">gnupg</span><span class="p">.</span><span class="n">GPG</span><span class="p">(</span><span class="n">gnupghome</span> <span class="o">=</span> <span class="s">'/home/supernode/.gnupg'</span><span class="p">)</span>
+
+<span class="c1"># Lokasi file
+</span><span class="n">path</span> <span class="o">=</span> <span class="s">'/home/supernode/Textfile'</span>
+
+<span class="c1"># File yang akan di enkripsi
+</span><span class="n">ptfile</span> <span class="o">=</span> <span class="s">'/debug'</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span><span class="n">ptfile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">gpg</span><span class="p">.</span><span class="n">encrypt_file</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">recipients</span> <span class="o">=</span> <span class="p">[</span><span class="s">'jon@mantap.com'</span><span class="p">],</span> 
+    <span class="c1"># Ouput file enkripsi 
+</span>    <span class="n">output</span><span class="o">=</span><span class="n">path</span> <span class="o">+</span> <span class="n">ptfile</span> <span class="o">+</span> <span class="s">".encrypted"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">ok</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>jika sudah jalan kan program</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 gpg_encrypted.py 
+
+<span class="c"># kemudian buka folder hasil dari output enkripsi</span>
+<span class="nb">cd</span> ../Texfile
+
+</code></pre></div></div>
+
+<p>File yang belum di enkripsi sebelumnya</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>debug
+
+PING google.com <span class="o">(</span>216.239.38.120<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>19.5 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>22.8 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>21.3 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>4 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.3 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>5 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.3 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>6 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.3 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>7 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.4 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>8 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.7 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>9 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>23.0 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>10 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.0 ms
+
+<span class="nt">---</span> google.com ping statistics <span class="nt">---</span>
+10 packets transmitted, 10 received, 0% packet loss, <span class="nb">time </span>9016ms
+rtt min/avg/max/mdev <span class="o">=</span> 19.581/20.913/23.020/1.103 ms
+</code></pre></div></div>
+
+<p>Keluaran file yang sudah di enkripsi</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>debug.encrypted
+
+<span class="nt">----BEGIN</span> PGP MESSAGE-----
+
+hIwDKFoo5Ulxj6kBA/9uRsmd/Xwjs05Yxf0W17F5nWeXlyInViVYNMuRZEvLEHCG
+gxG658SsvCVS+iaaTMWmJiiG3hxL6MwjgdYAtHfZoWgqTxlzFnpNhVpqM3y2m37b
+uhmt6YuXtx39WDrQgAGr7J9BxPvf1e3jcYdz1Dia9vN6j2a16HX5tCDdBZNQXNLA
+jAGmDSHlcYq9rztKYXvj155QX0sYWUSuBX/20JBq4cPF445uvgwkmljYyznTZoBC
+TA4+8ISU7mKoKnPUnSD3546h2RcJLIhjdmGwzUbUJP/c8x2+dyciRrNET5wKUU3t
+In8qSqK6FHQZvYmBEBIXJAE7wQB0XA5Q+9Q3iIEdnkzFiY0WrDJp1iUBMh/JCT4e
+WpnDJiEaxVxMsHd+U1s84vk6tR6aGM1HWz0WOF+bWxSrw9vPheSRC6ybWLNQp3/+
+izaj2YDBmGukGYTK5fz8vz0IvNdwFQFkSG32zfu5r8/t04CaDJxW0U1dxiSoEVAG
+wEmP5We5Sz5cUpgtdlWdCyZzDGf0YGMCOn1y1EUv04/CoIB9IxPAYw0ZKSwiFdu+
+REQ26Y5sOiyRU6H77RinPlOOAsRpcOm2+ApwepLHJfPUBBdmwmmLpiZ/BKNU
+<span class="o">=</span>PZfF
+<span class="nt">-----END</span> PGP MESSAGE-----
+
+</code></pre></div></div>
+
+<p>oke, setelah kita berhasil membuat enkripsi file, sekrang kita coba untuk membuat decrypted filenya.</p>
+
+<h1 id="5-dekripsi-file">5. Dekripsi file</h1>
+
+<h2 id="1-tulis-code">1. Tulis code</h2>
+
+<p>tulis code program dibawah ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">gnupg</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="c1"># Folder GPG
+</span><span class="n">gpg</span> <span class="o">=</span> <span class="n">gnupg</span><span class="p">.</span><span class="n">GPG</span><span class="p">(</span><span class="n">gnupghome</span> <span class="o">=</span> <span class="s">'/home/supernode/.gnupg'</span><span class="p">)</span>
+
+<span class="c1"># Lokasi file
+</span><span class="n">path</span> <span class="o">=</span> <span class="s">'/home/supernode/Textfile'</span>
+
+<span class="c1"># File yang akan di enkripsi
+</span><span class="n">ptfile</span> <span class="o">=</span> <span class="s">'/debug.encrypted'</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">ptfile</span><span class="p">,</span> <span class="s">'rb'</span> <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">gpg</span><span class="p">.</span><span class="n">decrypt_file</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">passphrase</span> <span class="o">=</span> <span class="s">'rahasia'</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">path</span><span class="o">+</span><span class="n">ptfile</span> <span class="o">+</span><span class="s">".decrypted"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">ok</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h2 id="2-jalankan-program">2. Jalankan program</h2>
+
+<p>setelah program kita buat, langkah selanjutnya menjalankan program.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 pgp_decrypt.py
+</code></pre></div></div>
+
+<p>setelah program dijalankan makan output dari terminal akan menampilkan pesan seperti ini.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
+<span class="o">[</span>GNUPG:] ENC_TO 285A28E549718FA9 1 0
+<span class="o">[</span>GNUPG:] KEY_CONSIDERED 24FAC58E8AA95E855C18EDD2285A28E549718FA9 0
+<span class="o">[</span>GNUPG:] KEY_CONSIDERED 24FAC58E8AA95E855C18EDD2285A28E549718FA9 0
+<span class="o">[</span>GNUPG:] DECRYPTION_KEY 24FAC58E8AA95E855C18EDD2285A28E549718FA9 24FAC58E8AA95E855C18EDD2285A28E549718FA9 u
+<span class="o">[</span>GNUPG:] KEY_CONSIDERED 24FAC58E8AA95E855C18EDD2285A28E549718FA9 0
+gpg: encrypted with 1024-bit RSA key, ID 285A28E549718FA9, created 2021-03-20
+      <span class="s2">"Autogenerated Key &lt;jon@mantap.com&gt;"</span>
+<span class="o">[</span>GNUPG:] BEGIN_DECRYPTION
+<span class="o">[</span>GNUPG:] DECRYPTION_INFO 2 9
+<span class="o">[</span>GNUPG:] PLAINTEXT 62 1616228202 
+<span class="o">[</span>GNUPG:] DECRYPTION_OKAY
+<span class="o">[</span>GNUPG:] GOODMDC
+<span class="o">[</span>GNUPG:] END_DECRYPTION
+</code></pre></div></div>
+
+<p>kemudian kita lihat hasil dari progam yang telah kita dekripsi, seperti output dibawah ini:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>upernode@labs:~/pgp<span class="nv">$ </span><span class="nb">cat</span> ../Textfile/debug.encrypted.decrypted 
+PING google.com <span class="o">(</span>216.239.38.120<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>19.5 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>22.8 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>21.3 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>4 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.3 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>5 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.3 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>6 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.3 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>7 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.4 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>8 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.7 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>9 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>23.0 ms
+64 bytes from any-in-2678.1e100.net <span class="o">(</span>216.239.38.120<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span>10 <span class="nv">ttl</span><span class="o">=</span>57 <span class="nb">time</span><span class="o">=</span>20.0 ms
+
+<span class="nt">---</span> google.com ping statistics <span class="nt">---</span>
+10 packets transmitted, 10 received, 0% packet loss, <span class="nb">time </span>9016ms
+rtt min/avg/max/mdev <span class="o">=</span> 19.581/20.913/23.020/1.103 ms
+</code></pre></div></div>
+
+<p>jika file sudah kembali seperti semula artinya program kita telah berhasil untuk mendekripsi file.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" class="pagination--pager" title="Mengamankan file dengan gpg
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/posts/2021/03/kode-etik-peneliti" class="pagination--pager" title="Kode etik peneliti
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/03/kode-etik-peneliti" rel="permalink">Kode etik peneliti
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  7 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-21T00:00:00-07:00">March 21, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><h1 id="kode-etik-peneliti">Kode Etik Peneliti</h1>
+
+<strong><a href="http://localhost:4000/posts/2021/03/kode-etik-peneliti" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" rel="permalink">Mengamankan file dengan gpg
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  22 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-20T00:00:00-07:00">March 20, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><h1 id="pendahuluan">Pendahuluan</h1>
+
+<strong><a href="http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/hooked/" rel="permalink">Hooked
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-19T00:00:00-07:00">March 19, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><code class="language-plaintext highlighter-rouge">79 persen pemilik smartphone memeriksa perangkat mereka dalam kurun waktu 15 menit dari setiap bangun pagi.</code>
+
+<strong><a href="http://localhost:4000/hooked/" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi" rel="permalink">Cost untuk pengembangan aplikasi agar powerfull
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-19T00:00:00-07:00">March 19, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><h1 id="pendahuluan">Pendahuluan</h1>
+
+<strong><a href="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    </script>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Dzakwan Falih. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

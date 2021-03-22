@@ -1,0 +1,1145 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Mengamankan file dengan gpg - Dzakwan Falih</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Dzakwan Falih">
+<meta property="og:title" content="Mengamankan file dengan gpg">
+
+
+  <link rel="canonical" href="http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg">
+  <meta property="og:url" content="http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg">
+
+
+
+  <meta property="og:description" content="Pendahuluan">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-03-20T00:00:00-07:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Dzakwan Falih",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Dzakwan Falih Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Dzakwan Falih</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/gue.jpg" class="author__avatar" alt="Dzakwan Falih">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name"><a href="/">Dzakwan Falih</a></h3>
+    <p class="author__bio">Love penguins and apples, but don't like windows.</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Cyber Space, Internet</li>
+      
+      
+      
+      
+        <li><a href="https://keybase.io/dzakwanfalih"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
+      
+      
+      
+      
+      
+        <li><a href="https://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://scholar.google.com/citations?hl=en&user=ZFuwjiIAAAAJ"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+      
+      
+      
+      
+      
+        <li><a href="mailto:dzakwanfaliht@hotmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Mengamankan file dengan gpg">
+    <meta itemprop="description" content="Pendahuluan">
+    <meta itemprop="datePublished" content="March 20, 2021">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Mengamankan file dengan gpg
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  22 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2021-03-20T00:00:00-07:00">March 20, 2021</time></p>
+        
+        
+             
+        
+    
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <h1 id="pendahuluan">Pendahuluan</h1>
+
+<p>Menurut gue pengamanan data itu penting. tapi bagaimana  caranya? <em>“yo wes tak bahas disini”</em>.</p>
+
+<p><strong><em>Catatan:</em></strong> Ini buat yang udah pro, artinya pembelajaran sudah tingkat lanjutan.</p>
+
+<p>coba deh, lu lihat gambar dibawah ini:</p>
+
+<p><img src="/images/engkirpsi.png" alt="enkripsi dan dekripsi" /></p>
+
+<p>kira-kira ceritanya begini. suatu hari ucok ingin mengirimkan sebuah file rahasia, ketika file rahasia itu mau di transmisikan ke internet, biar aman. kudu di enkripsi. <em>“apa lagi tuh cuy engkripsi?”</em>. gini bor, enkripsi itu singkatnya file yang utuh kita acak. supaya orang bingung begimane membacanya. habis di acak-acak terus kita obok-obok pake kunci. supaya orang makin  bingung bacanya. nah habis pesan itu dijadikan barang ancur.</p>
+
+<p>nah yang bisa buka file ini, cuma orang yang tau gimana cara benerinya. sama yang tau resep supaya file ini bener lagi, kira-kira gitu deh ceritanya. yuks langsung praktek aja kalo begitu. 
+<br /></p>
+
+<h1 id="tools">Tools</h1>
+<p>oke, buat mengamankan suatu file kita pake <strong>GnuPG</strong>. apa tuh? itu singkatan dari GNU Privacy Guard atau singkatanya dari GNUPG atau GPG bahasa gaulnya.</p>
+
+<h1 id="buat-apa-sih">Buat apa sih?</h1>
+
+<ul>
+  <li>
+    <p>Menambahkan enkripsi dekripsi pada aplikasi pengirim email seperti Thunderbird.</p>
+  </li>
+  <li>
+    <p>Mengamankan data dengan enkripsi sebelum disimpan ke media penyimpanan online.</p>
+  </li>
+  <li>
+    <p>Mengamankan data sensitif dengan enkripsi sebelum data tersebut dikirimkan ke orang lain yang berhak menerima.</p>
+  </li>
+  <li>
+    <p>Membuat pasangan kunci pengaman (key pair) dan manajemen kunci pengamannya.</p>
+  </li>
+  <li>
+    <p>Mengamankan data-data penting yang disimpan pada media digital tidak online, seperti data yang disimpan di USB Drive, Harddisk Eksternal, Micro SD Card, dan lain lain.</p>
+  </li>
+</ul>
+
+<h1 id="cara-install">Cara install</h1>
+<p>untuk cara install GnuPG mudah banget, kalo user linux silahkan ketik perintah di command terminal anda seperti ini:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>gnupg
+</code></pre></div></div>
+
+<p>mudah bukan bund :smiley: , biasanya sih udah build in kalo pake ubuntu.</p>
+
+<h1 id="kamus-kamus-bahasa-gaulnya">Kamus, kamus, bahasa gaulnya</h1>
+
+<p>Di aplikasi ini banyak banget bahasa planetnya. jadi kudu dimengerti satu persatu.</p>
+
+<p><strong>keypair</strong> : secara etimilogi kalimat ini gabungan dari key + pair. “ya iya lah bambang”. tapi dalam ilmu <a href="https://id.wikipedia.org/wiki/Kriptografi">kriptografi</a> sebuah public key dan private key. menunjukan sebuah kepercayan dalam sistem. jika di analogikan: <strong>gembok dan kunci</strong>. gitu deh simpelnya.</p>
+
+<p><strong>private key</strong> : private key itu ibarat kaya kuncinya.</p>
+
+<p><strong>public key</strong> : ibarat kaya gembok. tapi gemboknya lu boleh kasih ke orang.</p>
+
+<h1 id="latihan-latihan-latihan">Latihan, latihan latihan</h1>
+
+<p>yaudah dari pada lama-lama, mending kita masuk ke sesi latihan. <em>“mau ngapain kita?”</em>. ayo kita nikmatin sesi permainan kita kali ini. bawa enjoy bro !</p>
+
+<h2 id="help">help</h2>
+<p>kalo bingung make aplikasinya bisa ketik perintah gini. supaya kalo lupa bisa nyontek paremeternya begimana.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>supernode@labs:~<span class="nv">$ </span>gpg <span class="nt">--help</span>
+gpg <span class="o">(</span>GnuPG<span class="o">)</span> 2.2.4
+libgcrypt 1.8.1
+Copyright <span class="o">(</span>C<span class="o">)</span> 2017 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;https://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: /home/supernode/.gnupg
+Supported algorithms:
+Pubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+
+Syntax: gpg <span class="o">[</span>options] <span class="o">[</span>files]
+Sign, check, encrypt or decrypt
+Default operation depends on the input data
+
+Commands:
+ 
+ <span class="nt">-s</span>, <span class="nt">--sign</span>                  make a signature
+     <span class="nt">--clear-sign</span>            make a clear text signature
+ <span class="nt">-b</span>, <span class="nt">--detach-sign</span>           make a detached signature
+ <span class="nt">-e</span>, <span class="nt">--encrypt</span>               encrypt data
+ <span class="nt">-c</span>, <span class="nt">--symmetric</span>             encryption only with symmetric cipher
+ <span class="nt">-d</span>, <span class="nt">--decrypt</span>               decrypt data <span class="o">(</span>default<span class="o">)</span>
+     <span class="nt">--verify</span>                verify a signature
+ <span class="nt">-k</span>, <span class="nt">--list-keys</span>             list keys
+     <span class="nt">--list-signatures</span>       list keys and signatures
+     <span class="nt">--check-signatures</span>      list and check key signatures
+     <span class="nt">--fingerprint</span>           list keys and fingerprints
+ <span class="nt">-K</span>, <span class="nt">--list-secret-keys</span>      list secret keys
+     <span class="nt">--generate-key</span>          generate a new key pair
+     <span class="nt">--quick-generate-key</span>    quickly generate a new key pair
+     <span class="nt">--quick-add-uid</span>         quickly add a new user-id
+     <span class="nt">--quick-revoke-uid</span>      quickly revoke a user-id
+     <span class="nt">--quick-set-expire</span>      quickly <span class="nb">set </span>a new expiration <span class="nb">date</span>
+     <span class="nt">--full-generate-key</span>     full featured key pair generation
+     <span class="nt">--generate-revocation</span>   generate a revocation certificate
+     <span class="nt">--delete-keys</span>           remove keys from the public keyring
+     <span class="nt">--delete-secret-keys</span>    remove keys from the secret keyring
+     <span class="nt">--quick-sign-key</span>        quickly sign a key
+     <span class="nt">--quick-lsign-key</span>       quickly sign a key locally
+     <span class="nt">--sign-key</span>              sign a key
+     <span class="nt">--lsign-key</span>             sign a key locally
+     <span class="nt">--edit-key</span>              sign or edit a key
+     <span class="nt">--change-passphrase</span>     change a passphrase
+     <span class="nt">--export</span>                <span class="nb">export </span>keys
+     <span class="nt">--send-keys</span>             <span class="nb">export </span>keys to a keyserver
+     <span class="nt">--receive-keys</span>          import keys from a keyserver
+     <span class="nt">--search-keys</span>           search <span class="k">for </span>keys on a keyserver
+     <span class="nt">--refresh-keys</span>          update all keys from a keyserver
+     <span class="nt">--import</span>                import/merge keys
+     <span class="nt">--card-status</span>           print the card status
+     <span class="nt">--edit-card</span>             change data on a card
+     <span class="nt">--change-pin</span>            change a card<span class="s1">'s PIN
+     --update-trustdb        update the trust database
+     --print-md              print message digests
+     --server                run in server mode
+     --tofu-policy VALUE     set the TOFU policy for a key
+
+Options:
+ 
+ -a, --armor                 create ascii armored output
+ -r, --recipient USER-ID     encrypt for USER-ID
+ -u, --local-user USER-ID    use USER-ID to sign or decrypt
+ -z N                        set compress level to N (0 disables)
+     --textmode              use canonical text mode
+ -o, --output FILE           write output to FILE
+ -v, --verbose               verbose
+ -n, --dry-run               do not make any changes
+ -i, --interactive           prompt before overwriting
+     --openpgp               use strict OpenPGP behavior
+
+(See the man page for a complete listing of all commands and options)
+
+Examples:
+
+ -se -r Bob [file]          sign and encrypt for user Bob
+ --clear-sign [file]        make a clear text signature
+ --detach-sign [file]       make a detached signature
+ --list-keys [names]        show keys
+ --fingerprint [names]      show fingerprints
+
+Please report bugs to &lt;https://bugs.gnupg.org&gt;.
+
+</span></code></pre></div></div>
+
+<p>nah habis lu ketik tuh baris perintah, muncul lah contekan-contekan berupa baris command.</p>
+
+<p>sedikit penejalasan aja, nih yak biar ngk bego-bego amat.</p>
+
+<ul>
+  <li>
+    <p>Perintah <strong>–generate-key</strong> dan <strong>–full-generate-key</strong> untuk pembuatan kunci pengaman berbentuk private key dan public key.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–encrypt atau -e</strong> untuk mengunci data dengan kunci pengaman yang telah dibuat.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–decrypt atau -d</strong> untuk membuka enkripsi dengan kunci pengaman.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–armor atau -a</strong> untuk mengacak data yang telah dikunci menjadi bentuk kode acak ASCII.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–sign atau -s</strong> untuk menandatangani data yang akan dikunci ataupun data yang telah dikunci.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–detach-sig</strong> untuk menandatangani data dengan memisahkan kode tanda tangan ke bentuk data terpisah berformat <strong>.sig</strong> .</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–list-keys atau -k</strong> untuk menampilkan kunci pengaman public atau public key yang telah terpasang di perangkat.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–list-secret-keys atau -K</strong> untuk menampilkan kunci pengaman pribadi atau private key yang terpasang di perangkat.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–export</strong> untuk ekspor kunci pengaman publik atau public key ke dalam bentuk file.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–export-secret-key</strong> untuk ekspor kunci pengaman pribadi atau private key ke bentuk file.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–import</strong> untuk memasang kunci pengaman berbentuk data untuk dimasukkan ke dalam aplikasi GnuPG.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–edit-key</strong> untuk mengubah parameter yang terdapat di dalam kunci pengaman.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–delete-key</strong> untuk menghapus kunci pengaman bersifat publik atau public key dari penyimpanan GnuPG.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–delete-secret-key</strong> untuk menghapus kunci pengaman yang bersifat pribadi atau private key dari penyimpanan GnuPG.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–generate-revocation</strong> untuk membuat kunci pembatalan revoke key untuk membuat kadaluarsa kunci pengaman dengan bantuan jaringan publikasi kunci pengaman online atau keyserver.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–verify</strong> untuk melakukan verifikasi data terenkripsi dengan tanda tangan .sig yang terpisah . Tanda tangan terpisah .sig ini dibuat dengan perintah –detach-sig di atas.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–send-keys</strong> untuk mengirim public key ke layanan keyserver publik.</p>
+  </li>
+  <li>
+    <p>Perintah <strong>–receive-keys</strong> untuk menerima public key dari layanan public keyserver online.</p>
+  </li>
+</ul>
+
+<h2 id="alur-penggunaan-gpg">Alur Penggunaan GPG</h2>
+<ul>
+  <li>
+    <p>Penggunaan GnuPG pertama kali dilakukan dengan membuat kunci pengaman terlebih dahulu, Dianjurkan untuk membuat kunci pengaman dengan mode expert agar bisa menentukan parameter-parameter tambahan dengan lebih lengkap.</p>
+  </li>
+  <li>
+    <p>Setelah kunci pengaman selesai dibuat, dilanjutkan dengan membuat sub kunci pengaman untuk fungsi tanda tangan, enkripsi, dan autentikasi data.</p>
+  </li>
+  <li>
+    <p>Kemudian dilanjutkan dengam membuat kunci pembatalan revocation key dan ekspor kunci pengaman yang tersimpan.</p>
+  </li>
+  <li>
+    <p>Setelah kunci pengaman dan sub kunci pengaman selesai dibuat, pengguna dapat melanjutkan dengan proses pengamanan data dengan enkripsi dan dekripsi dari data enkripsi yang didapat.</p>
+  </li>
+</ul>
+
+<h3 id="membuat-kunci-utama-atau-master-key-gpg-key-value-pair">Membuat Kunci Utama atau Master Key GPG (Key Value Pair)</h3>
+
+<p>Langkah pertama dilakukan dengan membuat kunci pengaman yang berbentuk public key dan private key. Pembuatan kunci utama atau disebut juga dengan master key ini bisa dengan menggunakan perintah instan yaitu.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--generate-key</span>
+</code></pre></div></div>
+<p>atau bisa juga dengan perintah lebih lengkap yaitu:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--full-generate-key</span>
+</code></pre></div></div>
+
+<p>Namun di tulisan ini kita tidak akan menggunakan cara seperti itu, <strong>karena kita akan membuat master key untuk sertifikasi kunci utama dan subkey untuk fungsi enkripsi, tanda tangan digital, dan autentikasi</strong>. Kita akan membuat kunci utama dengan mode expert sehingga banyak pilihan yang bisa dipakai. Perintah yang kita gunakan yaitu :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--expert</span> <span class="nt">--full-generate-key</span>
+</code></pre></div></div>
+
+<p>hasil outputnya akan seperti ini:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+supernode@labs:~/kemanan<span class="nv">$ </span>gpg <span class="nt">--expert</span> <span class="nt">--full-generate-key</span>
+gpg <span class="o">(</span>GnuPG<span class="o">)</span> 2.2.4<span class="p">;</span> Copyright <span class="o">(</span>C<span class="o">)</span> 2017 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Please <span class="k">select </span>what kind of key you want:
+   <span class="o">(</span>1<span class="o">)</span> RSA and RSA <span class="o">(</span>default<span class="o">)</span>
+   <span class="o">(</span>2<span class="o">)</span> DSA and Elgamal
+   <span class="o">(</span>3<span class="o">)</span> DSA <span class="o">(</span>sign only<span class="o">)</span>
+   <span class="o">(</span>4<span class="o">)</span> RSA <span class="o">(</span>sign only<span class="o">)</span>
+   <span class="o">(</span>7<span class="o">)</span> DSA <span class="o">(</span><span class="nb">set </span>your own capabilities<span class="o">)</span>
+   <span class="o">(</span>8<span class="o">)</span> RSA <span class="o">(</span><span class="nb">set </span>your own capabilities<span class="o">)</span>
+   <span class="o">(</span>9<span class="o">)</span> ECC and ECC
+  <span class="o">(</span>10<span class="o">)</span> ECC <span class="o">(</span>sign only<span class="o">)</span>
+  <span class="o">(</span>11<span class="o">)</span> ECC <span class="o">(</span><span class="nb">set </span>your own capabilities<span class="o">)</span>
+  <span class="o">(</span>13<span class="o">)</span> Existing key
+Your selection? 8
+</code></pre></div></div>
+
+<p>Kita memilih pilihan kedelapan yaitu <strong>RSA (set your own capabilities)</strong> . Masukkan angka 8 pada pilihan “Your Selection?” . Tekan enter untuk melanjutkan proses berikutnya. Kemudian akan muncul perintah pilihan berikut ini.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Possible actions <span class="k">for </span>a RSA key: Sign Certify Encrypt Authenticate 
+Current allowed actions: Sign Certify Encrypt 
+
+   <span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
+   <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
+   <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
+   <span class="o">(</span>Q<span class="o">)</span> Finished
+
+Your selection? 
+</code></pre></div></div>
+
+<p>Kita akan membuat kunci utama atau master key dengan kemampuan membuat sertifikat kunci digital. Kita matikan fungsi Sign dan Encrypt terlebih dahulu. Yaitu dengan menekan tombol E dan A . Tekan pilihan disertai dengan Enter sampai tersisa Current allowed actions hanya tersisa Certify saja. Jika sudah , masukkan pilihan (Q) Finished untuk menyelesaikan pilihan opsi.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Possible actions <span class="k">for </span>a RSA key: Sign Certify Encrypt Authenticate 
+Current allowed actions: Sign Certify Encrypt 
+
+   <span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
+   <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
+   <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
+   <span class="o">(</span>Q<span class="o">)</span> Finished
+
+Your selection? a
+
+Possible actions <span class="k">for </span>a RSA key: Sign Certify Encrypt Authenticate 
+Current allowed actions: Sign Certify Encrypt Authenticate 
+
+   <span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
+   <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
+   <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
+   <span class="o">(</span>Q<span class="o">)</span> Finished
+
+Your selection? S
+
+Possible actions <span class="k">for </span>a RSA key: Sign Certify Encrypt Authenticate 
+Current allowed actions: Certify Encrypt Authenticate 
+
+   <span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
+   <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
+   <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
+   <span class="o">(</span>Q<span class="o">)</span> Finished
+
+Your selection? Q
+RSA keys may be between 1024 and 4096 bits long.
+What keysize <span class="k">do </span>you want? <span class="o">(</span>3072<span class="o">)</span> 4096
+Requested keysize is 4096 bits
+</code></pre></div></div>
+
+<p>Setelah menekan Q, kita akan dilanjutkan dengan mengisi jumlah bits untuk RSA key yang akan dibuat. Kita masukkan saja nilai 4096 bits untuk panjang kunci RSA nya.</p>
+
+<p>Setelah memasukkan panjang kunci RSA, akan muncul pilihan untuk menentukan masa berlaku dari master key ini. Idealnya adalah 5 tahun, dan jika sudah habis masa berlakunya, dapat diperbarui kembali dengan fungsi <code class="language-plaintext highlighter-rouge">--edit-key</code> pada master key tersebut. Namun kita dapat memilih masa berlakunya seumur hidup tanpa masa kadaluarsa. Yaitu dengan memilih pilihan 0 . Namun kita juga membuat masa berlaku menjadi 5 tahun dengan memasukkan pilihan berbentuk <n>y , yaitu 5y , untuk masa berlaku selama 5 tahun.</n></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please specify how long the key should be valid.
+         0 <span class="o">=</span> key does not expire
+      &lt;n&gt;  <span class="o">=</span> key expires <span class="k">in </span>n days
+      &lt;n&gt;w <span class="o">=</span> key expires <span class="k">in </span>n weeks
+      &lt;n&gt;m <span class="o">=</span> key expires <span class="k">in </span>n months
+      &lt;n&gt;y <span class="o">=</span> key expires <span class="k">in </span>n years
+Key is valid <span class="k">for</span>? <span class="o">(</span>0<span class="o">)</span> 0
+Key does not expire at all
+Is this correct? <span class="o">(</span>y/N<span class="o">)</span> y
+</code></pre></div></div>
+<p>Pada contoh  ini, kita masukkan masa berlaku tidak terbatas yaitu pilihan 0. Tekan Enter untuk melanjutkan pilihan berikutnya. Yaitu memasukkan data diri berupa nama lengkap dan alamat email kontak kita.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GnuPG needs to construct a user ID to identify your key.
+
+Real name: Mantap bin mantap
+Email address: mantap@mail.com
+Comment: comment untuk mengunci email
+You selected this USER-ID:
+    <span class="s2">"Mantap bin mantap (comment untuk mengunci email) &lt;mantap@mail.com&gt;"</span>
+
+Change <span class="o">(</span>N<span class="o">)</span>ame, <span class="o">(</span>C<span class="o">)</span>omment, <span class="o">(</span>E<span class="o">)</span>mail or <span class="o">(</span>O<span class="o">)</span>kay/<span class="o">(</span>Q<span class="o">)</span>uit? o
+</code></pre></div></div>
+<p>Setelah memasukkan kolom isian data diri seperti Real name, Email address, dan Comment. Akan muncul pilihan untuk konfirmasi bahwa data yang kita masukkan sudah benar. Pada artikel ini, data yang dimasukkan sudah benar, dan tidak ada perubahan lagi, sehingga kita cukup memilih pilihan O dari (O)kay di atas. Tekan Enter untuk melanjutkan.</p>
+
+<p>Langkah berikutnya kita akan disuruh untuk memasukkan kata kunci untuk kunci utama atau master key ini. Usahakan kata kunci-nya terdiri dari kombinasi huruf besar, huruf kecil, dan angka dengan panjang lebih atau sama dengan dari 10 karakter. Password ini akan selalu dibutuhkan ketika kita melakukan enkripsi data, impor kunci , dan dekripsi data.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>We need to generate a lot of random bytes. It is a good idea to perform
+some other action <span class="o">(</span><span class="nb">type </span>on the keyboard, move the mouse, utilize the
+disks<span class="o">)</span> during the prime generation<span class="p">;</span> this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key 30FCE53598C356BB marked as ultimately trusted
+gpg: directory <span class="s1">'/home/supernode/.gnupg/openpgp-revocs.d'</span> created
+gpg: revocation certificate stored as <span class="s1">'/home/supernode/.gnupg/openpgp-revocs.d/3DB2E0E7763DF806EBCDE30930FCE53598C356BB.rev'</span>
+public and secret key created and signed.
+
+pub   rsa4096 2021-03-20 <span class="o">[</span>CEA]
+      3DB2E0E7563DF806EBCDE30930FCE53598C356BB
+uid                     Mantap bin mantap <span class="o">(</span>comment untuk mengunci kenangan<span class="o">)</span> &lt;mantap@mail.com&gt;
+</code></pre></div></div>
+
+<p>Setelah memasukkan kata kunci pengaman, aplikasi GnuPG akan membuat generasi kode acak berdasarkan aktivitas sistem komputer yang dipakai. Usahakan membuat sistem komputer menjadi sibuk dengan aktivitas harddisk seperti menggerakan kursor, membuka aplikasi, membuka halaman browser. Tujuannya adalah bisa mendapatkan kode RSA atau entropi kode yang aman dan sangat acak. Setelah berhasil membuat kode RSA, kunci pengaman utama ini akan disimpan oleh GnuPG ke dalam tempat penyimpanan khusus. GnuPG akan menampilkan keterangan hasil pembuatan master key yang telah dibuat seperti di bawah ini.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>We need to generate a lot of random bytes. It is a good idea to perform
+some other action <span class="o">(</span><span class="nb">type </span>on the keyboard, move the mouse, utilize the
+disks<span class="o">)</span> during the prime generation<span class="p">;</span> this gives the random number
+generator a better chance to gain enough entropy.
+gpg: key 30FCE53598C356BB marked as ultimately trusted
+gpg: directory <span class="s1">'/home/supernode/.gnupg/openpgp-revocs.d'</span> created
+gpg: revocation certificate stored as <span class="s1">'/home/supernode/.gnupg/openpgp-revocs.d/3DB2E0E7763DF806EBCDE30930FCE53598C356BB.rev'</span>
+public and secret key created and signed.
+
+pub   rsa4096 2021-03-20 <span class="o">[</span>CEA]
+      3DB2E0E7763DF806EBCDE30930FCE53598C356BB
+uid                     Mantap bin mantap <span class="o">(</span>comment untuk mengunci kenangan<span class="o">)</span> &lt;mantap@mail.com&gt;
+</code></pre></div></div>
+
+<p>Kunci utama ini telah disimpan ke dalam database dari GnuPG. Kita dapat mengeceknya dengan menggunakan perintah gpg –list-keys atau gpg -k untuk menampilkan daftar public key . Kemudian kita bisa melihat daftar private key dengan <strong>gpg –list-secret-keys atau gpg -K</strong> . Hasilnya akan tampak seperti gambar di bawah ini.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+/home/supernode/.gnupg/pubring.kbx
+<span class="nt">----------------------------------</span>
+pub   rsa4096 2021-03-20 <span class="o">[</span>CEA]
+      3DB2E0E7563DF806EBCDE30930FCE53598C356BB
+uid           <span class="o">[</span>ultimate] Mantap bin mantap <span class="o">(</span>comment untuk mengunci kenangan<span class="o">)</span> &lt;mantap@mail.com&gt;
+</code></pre></div></div>
+
+<p>Kemudian kita lanjutkan dengan mengubah setelan dari master key ini untuk menggunakan metode Cipher, Hash, dan Compression tertentu. Yaitu dengan memasukkan perintah penyuntingan kunci mode expert yaitu
+<strong>gpg –expert –edit-key</strong> [UID_kunci] . UID atau kode kunci ini bisa didapat dengan menggunakan perintah gpg -K sebelumnya.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>supernode@labs:~/keamanan<span class="nv">$ </span>gpg <span class="nt">-K</span>
+/home/supernode/.gnupg/pubring.kbx
+<span class="nt">----------------------------------</span>
+sec   rsa4096 2021-03-20 <span class="o">[</span>CEA]
+      3DB2E0E7763DF806EBCDE30930FCE53598C356BB
+uid           <span class="o">[</span>ultimate] Mantap bin mantap <span class="o">(</span>comment untuk mengunci kenangan<span class="o">)</span> &lt;mantap@mail.com&gt;
+
+supernode@labs:~/keamanan<span class="nv">$ </span>gpg <span class="nt">--expert</span> <span class="nt">--edit-key</span> 3DB2E0E7763DF806EBCDE30930FCE53598C356BB
+gpg <span class="o">(</span>GnuPG<span class="o">)</span> 2.2.4<span class="p">;</span> Copyright <span class="o">(</span>C<span class="o">)</span> 2017 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+sec  rsa4096/30FCE57598C359BB
+     created: 2021-03-20  expires: never       usage: CEA 
+     trust: ultimate      validity: ultimate
+<span class="o">[</span>ultimate] <span class="o">(</span>1<span class="o">)</span><span class="nb">.</span> Mantap bin Mantap <span class="o">(</span>comment untuk mengunci email<span class="o">)</span> &lt;mantap@mail.com&gt;
+
+gpg&gt; 
+
+</code></pre></div></div>
+
+<p>Pada mode penyuntingan ini, kita memasukkan perintah perubahan pada konsol yang disediakan, yaitu disebelah tulisan gpg&gt; . Kita dapat melihat daftar perintah yang disediakan dengan mengetik help pada kolom isian konsol tersebut.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg&gt; <span class="nb">help
+</span>quit        quit this menu
+save        save and quit
+<span class="nb">help        </span>show this <span class="nb">help
+</span>fpr         show key fingerprint
+grip        show the keygrip
+list        list key and user IDs
+uid         <span class="k">select </span>user ID N
+key         <span class="k">select </span>subkey N
+check       check signatures
+sign        sign selected user IDs <span class="o">[</span><span class="k">*</span> see below <span class="k">for </span>related commands]
+lsign       sign selected user IDs locally
+tsign       sign selected user IDs with a trust signature
+nrsign      sign selected user IDs with a non-revocable signature
+adduid      add a user ID
+addphoto    add a photo ID
+deluid      delete selected user IDs
+addkey      add a subkey
+addcardkey  add a key to a smartcard
+keytocard   move a key to a smartcard
+bkuptocard  move a backup key to a smartcard
+delkey      delete selected subkeys
+addrevoker  add a revocation key
+delsig      delete signatures from the selected user IDs
+expire      change the expiration <span class="nb">date </span><span class="k">for </span>the key or selected subkeys
+primary     flag the selected user ID as primary
+pref        list preferences <span class="o">(</span>expert<span class="o">)</span>
+showpref    list preferences <span class="o">(</span>verbose<span class="o">)</span>
+setpref     <span class="nb">set </span>preference list <span class="k">for </span>the selected user IDs
+keyserver   <span class="nb">set </span>the preferred keyserver URL <span class="k">for </span>the selected user IDs
+notation    <span class="nb">set </span>a notation <span class="k">for </span>the selected user IDs
+passwd      change the passphrase
+trust       change the ownertrust
+revsig      revoke signatures on the selected user IDs
+revuid      revoke selected user IDs
+revkey      revoke key or selected subkeys
+<span class="nb">enable      enable </span>key
+disable     disable key
+showphoto   show selected photo IDs
+clean       compact unusable user IDs and remove unusable signatures from key
+minimize    compact unusable user IDs and remove all signatures from key
+
+<span class="k">*</span> The <span class="s1">'sign'</span> <span class="nb">command </span>may be prefixed with an <span class="s1">'l'</span> <span class="k">for </span><span class="nb">local </span>signatures <span class="o">(</span>lsign<span class="o">)</span>,
+  a <span class="s1">'t'</span> <span class="k">for </span>trust signatures <span class="o">(</span>tsign<span class="o">)</span>, an <span class="s1">'nr'</span> <span class="k">for </span>non-revocable signatures
+  <span class="o">(</span>nrsign<span class="o">)</span>, or any combination thereof <span class="o">(</span>ltsign, tnrsign, etc.<span class="o">)</span><span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Daftar perintah itu dapat kita gulir ke atas atau ke bawah untuk melihat daftar yang lain. Pada langkah kali ini, kita akan mengubah setelan dari master key untuk metode cipher, hash , dan compression yang dipakai. Yaitu dengan menggunakan perintah setpref . Kita masukkan setelan berikut ini untuk master key-nya :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setpref SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
+</code></pre></div></div>
+
+<p>Tekan Enter, dan akan muncul jendela konfirmasi dan jendela untuk memasukkan password. Tekan Y untuk setuju. Kemudian masukkan password master key yang telah kita buat ketika proses awal pembuatan master key sebelumnya. Hasil tampilan dari penambahan setelan ini akan tampak di teks di bawah ini.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+gpg&gt; setpref SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
+Set preference list to:
+     Cipher: AES256, AES192, AES, CAST5, 3DES
+     Digest: SHA512, SHA384, SHA256, SHA224, SHA1
+     Compression: ZLIB, BZIP2, ZIP, Uncompressed
+     Features: MDC, Keyserver no-modify
+Really update the preferences? <span class="o">(</span>y/N<span class="o">)</span> y
+
+sec  rsa4096/30FCE73795C356BB
+     created: 2021-03-20  expires: never       usage: CEA 
+     trust: ultimate      validity: ultimate
+<span class="o">[</span>ultimate] <span class="o">(</span>1<span class="o">)</span><span class="nb">.</span> Mantap bin mantap <span class="o">(</span>comment untuk mengunci kenangan<span class="o">)</span> &lt;mantap@mail.com&gt;
+
+</code></pre></div></div>
+
+<p>Kemudian kita simpan konfigurasi tersebut dengan mengetikkan save pada konsol gpg&gt; yang disediakan.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg&gt; save
+supernode@labs:~/kemanan<span class="nv">$ </span>
+</code></pre></div></div>
+
+<p>Langkah selanjutnya adalah membuat subkey dari master key ini. Subkey yang akan dibuat yaitu <strong>subkey untuk signing, encryption, dan authentication</strong>. Dengan menggunakan subkey, kita dapat dengan mudah mengatur master key dan pengamanan master key.</p>
+
+<p>Misalkan subkey yang kita miliki ternyata telah diketahui orang atau berhasil dibobol, kita dapat dengan mudah membuat revocation key untuk subkey tersebut. Dan kita tidak perlu membuat revocation key untuk master key utama, karena yang dibobol atau compromised key hanya pada bagian subkey nya saja.</p>
+
+<p>Subkey ini dapat dengan mudah kita hapus dan tambahkan sesuai keperluan yang akan datang dengan fungsi <strong>–edit-key</strong> . Selengkapnya dapat dilihat pada artikel berikut ini.</p>
+
+<h3 id="membuat-subkey">Membuat subkey</h3>
+
+<p>Pada pilihan yang muncul ketika memasukkan perintah addkey di dalam konsol penyuntingan master key, pilih pilihan nomor 4 yaitu
+<strong>(4) RSA (sign only)</strong> .Pilih pilihan tersebut dengan menekan tombol Enter, dan langkah berikutnya akan muncul , yaitu memasukkan panjang bits dari RSA key, masa berlaku, dan memasukkan kata kunci password untuk konfirmasi pembuatan subkey ini. Prosesnya dapat dilihat pada tampilan teks dibawah ini.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>supernode@labs:~/kemanan<span class="nv">$ </span>gpg <span class="nt">-k</span>
+/home/supernode/.gnupg/pubring.kbx
+<span class="nt">----------------------------------</span>
+pub   rsa4096 2021-03-20 <span class="o">[</span>CEA]
+      3DB2E0E7763DF806EBCDE30930FCE53598C356BB
+uid           <span class="o">[</span>ultimate] Mantap bin mantap <span class="o">(</span>comment untuk mengunci email<span class="o">)</span> &lt;mantap@mail.com&gt;
+
+supernode@labs:~/kemanan<span class="nv">$ </span>gpg <span class="nt">--expert</span> <span class="nt">--edit-key</span> 3DB2E0E7563DF806EBCDE30930FCE53598C356BB
+gpg <span class="o">(</span>GnuPG<span class="o">)</span> 2.2.4<span class="p">;</span> Copyright <span class="o">(</span>C<span class="o">)</span> 2017 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+sec  rsa4096/30FCE53598C356BB
+     created: 2021-03-20  expires: never       usage: CEA 
+     trust: ultimate      validity: ultimate
+<span class="o">[</span>ultimate] <span class="o">(</span>1<span class="o">)</span><span class="nb">.</span> Mantap bin mantap <span class="o">(</span>comment untuk mengunci kenangan<span class="o">)</span> &lt;mantap@mantap.com&gt;
+
+gpg&gt; addkey
+Please <span class="k">select </span>what kind of key you want:
+   <span class="o">(</span>3<span class="o">)</span> DSA <span class="o">(</span>sign only<span class="o">)</span>
+   <span class="o">(</span>4<span class="o">)</span> RSA <span class="o">(</span>sign only<span class="o">)</span>
+   <span class="o">(</span>5<span class="o">)</span> Elgamal <span class="o">(</span>encrypt only<span class="o">)</span>
+   <span class="o">(</span>6<span class="o">)</span> RSA <span class="o">(</span>encrypt only<span class="o">)</span>
+   <span class="o">(</span>7<span class="o">)</span> DSA <span class="o">(</span><span class="nb">set </span>your own capabilities<span class="o">)</span>
+   <span class="o">(</span>8<span class="o">)</span> RSA <span class="o">(</span><span class="nb">set </span>your own capabilities<span class="o">)</span>
+  <span class="o">(</span>10<span class="o">)</span> ECC <span class="o">(</span>sign only<span class="o">)</span>
+  <span class="o">(</span>11<span class="o">)</span> ECC <span class="o">(</span><span class="nb">set </span>your own capabilities<span class="o">)</span>
+  <span class="o">(</span>12<span class="o">)</span> ECC <span class="o">(</span>encrypt only<span class="o">)</span>
+  <span class="o">(</span>13<span class="o">)</span> Existing key
+Your selection? 4
+RSA keys may be between 1024 and 4096 bits long.
+What keysize <span class="k">do </span>you want? <span class="o">(</span>3072<span class="o">)</span> 4096
+Requested keysize is 4096 bits
+Please specify how long the key should be valid.
+         0 <span class="o">=</span> key does not expire
+      &lt;n&gt;  <span class="o">=</span> key expires <span class="k">in </span>n days
+      &lt;n&gt;w <span class="o">=</span> key expires <span class="k">in </span>n weeks
+      &lt;n&gt;m <span class="o">=</span> key expires <span class="k">in </span>n months
+      &lt;n&gt;y <span class="o">=</span> key expires <span class="k">in </span>n years
+Key is valid <span class="k">for</span>? <span class="o">(</span>0<span class="o">)</span> 5y
+Key expires at Kam 19 Mar 2026 12:57:59  WIB
+Is this correct? <span class="o">(</span>y/N<span class="o">)</span> y
+Really create? <span class="o">(</span>y/N<span class="o">)</span> y
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action <span class="o">(</span><span class="nb">type </span>on the keyboard, move the mouse, utilize the
+disks<span class="o">)</span> during the prime generation<span class="p">;</span> this gives the random number
+generator a better chance to gain enough entropy.
+
+sec  rsa4096/30FCE53898C396BB
+     created: 2021-03-20  expires: never       usage: CEA 
+     trust: ultimate      validity: ultimate
+ssb  rsa4096/5C774CC9D56D6C77
+     created: 2021-03-20  expires: 2026-03-19  usage: S   
+<span class="o">[</span>ultimate] <span class="o">(</span>1<span class="o">)</span><span class="nb">.</span> Mantap bin mantap <span class="o">(</span>comment untuk mengunci email<span class="o">)</span> &lt;mantap@hotmail.com&gt;
+
+gpg&gt; save
+</code></pre></div></div>
+
+<p>ita akan melihat kunci subkey ini berhasil dibuat pada teks tampilan diatas. Yaitu secret subkey (ssb) dengan rsa key, waktu pembuatan , waktu kadaluarsa expires, tujuan penggunaan usage untuk Signing (s) . Jangan lupa untuk menyimpan kunci subkey yang telah dibuat ini dengan memasukkan perintah save pada konsol edit mode gpg&gt;</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>supernode@labs:~/kemanan<span class="nv">$ </span>gpg <span class="nt">-k</span>
+/home/supernode/.gnupg/pubring.kbx
+<span class="nt">----------------------------------</span>
+pub   rsa4096 2021-03-20 <span class="o">[</span>CEA]
+      3DB1E0E7763DF806EBCDE30930FCE53598C356BB
+uid           <span class="o">[</span>ultimate] Mantap bin mantap <span class="o">(</span>comment untuk mengunci kengan<span class="o">)</span> &lt;mantap@mail.com&gt;
+sub   rsa4096 2021-03-20 <span class="o">[</span>S] <span class="o">[</span>expires: 2026-03-19]
+</code></pre></div></div>
+
+<p>Kita dapat mengubah parameter subkey yang telah dibuat tersebut. Parameter yang dapat diubah yaitu masa berlaku subkey, mengaktifkan dan nonaktifkan subkey (enable / disable) , membuat revocation key untuk subkey, dan menghapus subkey. Caranya adalah masuk ke mode penyuntingan master key, dan masukkan perintah key (nomor subkey) untuk memilih subkey yang telah dibuat.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2021/03/mengamankan-file-dengan-gpg" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/hooked/" class="pagination--pager" title="Hooked
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg" class="pagination--pager" title="membuat randsomeware dengan pgp
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/03/kode-etik-peneliti" rel="permalink">Kode etik peneliti
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  7 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-21T00:00:00-07:00">March 21, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><h1 id="kode-etik-peneliti">Kode Etik Peneliti</h1>
+
+<strong><a href="http://localhost:4000/posts/2021/03/kode-etik-peneliti" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg" rel="permalink">membuat randsomeware dengan pgp
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  4 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-20T00:00:00-07:00">March 20, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><strong><em>Catatan:</em></strong> Tutorial untuk tingkat lanjutan.
+
+<strong><a href="http://localhost:4000/posts/2021/03/membuat-randsomeware-dengan-gpg" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/hooked/" rel="permalink">Hooked
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-19T00:00:00-07:00">March 19, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><code class="language-plaintext highlighter-rouge">79 persen pemilik smartphone memeriksa perangkat mereka dalam kurun waktu 15 menit dari setiap bangun pagi.</code>
+
+<strong><a href="http://localhost:4000/hooked/" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi" rel="permalink">Cost untuk pengembangan aplikasi agar powerfull
+</a>
+      
+    </h2>
+
+<!--Uncomment out this section to have the read time re-included
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+    
+-->
+        
+         <p class="page__date"><!--<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Published:</strong> --> <i><time datetime="2021-03-19T00:00:00-07:00">March 19, 2021</time></i></p>
+        
+
+    <!--The part below defines the "Read more" behavior-->
+    <!--TODO: figure out how the excerpts are defined-->
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><h1 id="pendahuluan">Pendahuluan</h1>
+
+<strong><a href="http://localhost:4000/posts/2021/03/cost-untuk-pengembangan-aplikasi" rel="permalink"> ... Read more</a></strong></p></p>
+    
+
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    </script>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<a href="/sitemap/">Sitemap</a>
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/dzakwanfalih"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Dzakwan Falih. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+
