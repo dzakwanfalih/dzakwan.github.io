@@ -1,5 +1,5 @@
 ---
-title:  "membuat randsomeware dengan pgp" 
+title:  "Membuat Randsomware dengan PGP" 
 permalink: /posts/2021/03/membuat-randsomeware-dengan-gpg
 date: 2021-03-20-00
 ---

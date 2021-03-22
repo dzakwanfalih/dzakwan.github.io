@@ -3,6 +3,9 @@ title:  "Kode etik peneliti"
 permalink: /posts/2021/03/kode-etik-peneliti
 date: 2021-03-21-00
 ---
+
+**_Catatan:_** Bagi yang merasa peneliti
+ 
 # Kode Etik Peneliti
 
 ## Mukaddimah 
