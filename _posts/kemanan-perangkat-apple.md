@@ -1,0 +1,84 @@
+Protecting Security Information
+.
+
+Due to the sensitive nature of security information, Apple provides a method for you to:
+
+Verify the authenticity of security notifications
+Encrypt messages to send to Apple via product-security@apple.com
+1. Obtain PGP software
+You can obtain a version of GPG Suite from GPGTools. Additionally, GnuPG is available as freeware.
+
+2. Apple Product Security key
+This is our PGP key which is valid until August 12, 2021.
+Key ID: 627A8E30
+Key Type: RSA
+Expires: 8/12/21
+Key Size: 4096/4096
+Fingerprint: 6D44 5CCC 7B35 4CFD 3B54  87EE 65CB 1BB9 627A 8E30
+UserID: Apple Product Security <product-security@apple.com>
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+UNcx8PUymQo9K9V1Zo0tVMkAWUPIh/rU1nI2
+=xnMW
+
+-----END PGP PUBLIC KEY BLOCK-----
+
+The Apple PGP key has an operational life span of one year. When we generate a new key, it will be available from this web page. Our previous PGP keys are archived to facilitate the validation of previously-signed messages.
+
+3. Check our PGP signature on mail messages and documents
+Documents developed by the Apple Product Security team are signed with the Apple PGP key. We encourage you to check the signature to ensure that the document was indeed written by our staff and has not been changed.
+
+Note for users of the security-announce mailing list:
+Some mail programs cause changes to messages, resulting in an indication that the PGP signature is not good. Critical information will also be posted to our web site along with a PGP signature, providing you with a confirmation of authenticity.
+
+4. Encrypting sensitive information
+When sending sensitive security information by email, please encrypt it.
+
