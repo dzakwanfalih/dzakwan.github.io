@@ -13,6 +13,7 @@ date: 2021-04-05-15
   <br>
 </h1>
 
+Easy questin for exercise. make me have fun, enjoy for basic command. make me strong for exercise. Let fill spare time with positive activities.
 
 # Question :
 
